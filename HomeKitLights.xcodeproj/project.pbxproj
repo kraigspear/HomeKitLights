@@ -10,12 +10,18 @@
 		A9D52EC323C613B900C6F91F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EC223C613B900C6F91F /* AppDelegate.swift */; };
 		A9D52EC523C613B900C6F91F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EC423C613B900C6F91F /* SceneDelegate.swift */; };
 		A9D52EC823C613B900C6F91F /* HomeKitLights.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EC623C613B900C6F91F /* HomeKitLights.xcdatamodeld */; };
-		A9D52ECA23C613B900C6F91F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EC923C613B900C6F91F /* ContentView.swift */; };
+		A9D52ECA23C613B900C6F91F /* LightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EC923C613B900C6F91F /* LightsView.swift */; };
 		A9D52ECC23C613BA00C6F91F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9D52ECB23C613BA00C6F91F /* Assets.xcassets */; };
 		A9D52ECF23C613BA00C6F91F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9D52ECE23C613BA00C6F91F /* Preview Assets.xcassets */; };
 		A9D52ED223C613BA00C6F91F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9D52ED023C613BA00C6F91F /* LaunchScreen.storyboard */; };
 		A9D52EDD23C613BB00C6F91F /* HomeKitLightsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EDC23C613BB00C6F91F /* HomeKitLightsTests.swift */; };
 		A9D52EE823C613BB00C6F91F /* HomeKitLightsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EE723C613BB00C6F91F /* HomeKitLightsUITests.swift */; };
+		A9D52EFA23C6159200C6F91F /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D52EF923C6159200C6F91F /* HomeKit.framework */; };
+		A9D52EFC23C616FE00C6F91F /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EFB23C616FE00C6F91F /* Room.swift */; };
+		A9D52EFE23C6174500C6F91F /* HomeKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EFD23C6174500C6F91F /* HomeKitModel.swift */; };
+		A9D52F0123C61FF900C6F91F /* HomeKitAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52F0023C61FF900C6F91F /* HomeKitAccess.swift */; };
+		A9D52F0523C6258A00C6F91F /* LightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52F0423C6258A00C6F91F /* LightsViewModel.swift */; };
+		A9D52F0823C628D000C6F91F /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52F0723C628D000C6F91F /* Log.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +46,7 @@
 		A9D52EC223C613B900C6F91F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9D52EC423C613B900C6F91F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A9D52EC723C613B900C6F91F /* HomeKitLights.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HomeKitLights.xcdatamodel; sourceTree = "<group>"; };
-		A9D52EC923C613B900C6F91F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A9D52EC923C613B900C6F91F /* LightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsView.swift; sourceTree = "<group>"; };
 		A9D52ECB23C613BA00C6F91F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9D52ECE23C613BA00C6F91F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A9D52ED123C613BA00C6F91F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +57,13 @@
 		A9D52EE323C613BB00C6F91F /* HomeKitLightsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeKitLightsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D52EE723C613BB00C6F91F /* HomeKitLightsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitLightsUITests.swift; sourceTree = "<group>"; };
 		A9D52EE923C613BB00C6F91F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9D52EF723C6159100C6F91F /* HomeKitLights.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeKitLights.entitlements; sourceTree = "<group>"; };
+		A9D52EF923C6159200C6F91F /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
+		A9D52EFB23C616FE00C6F91F /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		A9D52EFD23C6174500C6F91F /* HomeKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitModel.swift; sourceTree = "<group>"; };
+		A9D52F0023C61FF900C6F91F /* HomeKitAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitAccess.swift; sourceTree = "<group>"; };
+		A9D52F0423C6258A00C6F91F /* LightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsViewModel.swift; sourceTree = "<group>"; };
+		A9D52F0723C628D000C6F91F /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D52EFA23C6159200C6F91F /* HomeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +99,7 @@
 				A9D52EDB23C613BB00C6F91F /* HomeKitLightsTests */,
 				A9D52EE623C613BB00C6F91F /* HomeKitLightsUITests */,
 				A9D52EC023C613B900C6F91F /* Products */,
+				A9D52EF823C6159200C6F91F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,9 +116,12 @@
 		A9D52EC123C613B900C6F91F /* HomeKitLights */ = {
 			isa = PBXGroup;
 			children = (
+				A9D52F0623C628C500C6F91F /* Log */,
+				A9D52EF523C614B700C6F91F /* HomeKit */,
+				A9D52F0223C6256400C6F91F /* Views */,
+				A9D52EF723C6159100C6F91F /* HomeKitLights.entitlements */,
 				A9D52EC223C613B900C6F91F /* AppDelegate.swift */,
 				A9D52EC423C613B900C6F91F /* SceneDelegate.swift */,
-				A9D52EC923C613B900C6F91F /* ContentView.swift */,
 				A9D52ECB23C613BA00C6F91F /* Assets.xcassets */,
 				A9D52ED023C613BA00C6F91F /* LaunchScreen.storyboard */,
 				A9D52ED323C613BA00C6F91F /* Info.plist */,
@@ -124,6 +142,7 @@
 		A9D52EDB23C613BB00C6F91F /* HomeKitLightsTests */ = {
 			isa = PBXGroup;
 			children = (
+				A9D52F0923C62B8800C6F91F /* Mocks */,
 				A9D52EDC23C613BB00C6F91F /* HomeKitLightsTests.swift */,
 				A9D52EDE23C613BB00C6F91F /* Info.plist */,
 			);
@@ -137,6 +156,72 @@
 				A9D52EE923C613BB00C6F91F /* Info.plist */,
 			);
 			path = HomeKitLightsUITests;
+			sourceTree = "<group>";
+		};
+		A9D52EF523C614B700C6F91F /* HomeKit */ = {
+			isa = PBXGroup;
+			children = (
+				A9D52EFF23C61B4000C6F91F /* Access */,
+				A9D52EF623C614BE00C6F91F /* Models */,
+			);
+			path = HomeKit;
+			sourceTree = "<group>";
+		};
+		A9D52EF623C614BE00C6F91F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A9D52EFB23C616FE00C6F91F /* Room.swift */,
+				A9D52EFD23C6174500C6F91F /* HomeKitModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A9D52EF823C6159200C6F91F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9D52EF923C6159200C6F91F /* HomeKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9D52EFF23C61B4000C6F91F /* Access */ = {
+			isa = PBXGroup;
+			children = (
+				A9D52F0023C61FF900C6F91F /* HomeKitAccess.swift */,
+			);
+			path = Access;
+			sourceTree = "<group>";
+		};
+		A9D52F0223C6256400C6F91F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A9D52F0323C6257600C6F91F /* Lights */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A9D52F0323C6257600C6F91F /* Lights */ = {
+			isa = PBXGroup;
+			children = (
+				A9D52EC923C613B900C6F91F /* LightsView.swift */,
+				A9D52F0423C6258A00C6F91F /* LightsViewModel.swift */,
+			);
+			path = Lights;
+			sourceTree = "<group>";
+		};
+		A9D52F0623C628C500C6F91F /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				A9D52F0723C628D000C6F91F /* Log.swift */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		A9D52F0923C62B8800C6F91F /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,8 +357,13 @@
 			files = (
 				A9D52EC323C613B900C6F91F /* AppDelegate.swift in Sources */,
 				A9D52EC823C613B900C6F91F /* HomeKitLights.xcdatamodeld in Sources */,
-				A9D52ECA23C613B900C6F91F /* ContentView.swift in Sources */,
+				A9D52F0823C628D000C6F91F /* Log.swift in Sources */,
+				A9D52ECA23C613B900C6F91F /* LightsView.swift in Sources */,
 				A9D52EC523C613B900C6F91F /* SceneDelegate.swift in Sources */,
+				A9D52EFC23C616FE00C6F91F /* Room.swift in Sources */,
+				A9D52F0123C61FF900C6F91F /* HomeKitAccess.swift in Sources */,
+				A9D52EFE23C6174500C6F91F /* HomeKitModel.swift in Sources */,
+				A9D52F0523C6258A00C6F91F /* LightsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +528,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HomeKitLights/HomeKitLights.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeKitLights/Preview Content\"";
 				DEVELOPMENT_TEAM = 66V249GP6S;
@@ -458,6 +549,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HomeKitLights/HomeKitLights.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeKitLights/Preview Content\"";
 				DEVELOPMENT_TEAM = 66V249GP6S;

@@ -6,29 +6,80 @@
 //  Copyright © 2020 Kraig Spear. All rights reserved.
 //
 
-import XCTest
+import Combine
 @testable import HomeKitLights
+import XCTest
 
-class HomeKitLightsTests: XCTestCase {
-
+final class HomeKitLightsTests: XCTestCase {
+    // MARK: - Dependencies
+    
+    private var homeKitAccessibleMock: HomeKitAccessMock!
+    
+    // MARK: - Subject under test
+    
+    private var sut: LightsViewModel!
+    
+    // MARK: - Lifecycle
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        homeKitAccessibleMock = HomeKitAccessMock()
+        sut = LightsViewModel(homeKitAccessible: homeKitAccessibleMock)
     }
-
+    
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        roomsSinkCancel = nil
+        isShowingErrorCancel = nil
+        errorMessageCancel = nil
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    // MARK: - Test
+    
+    private var roomsSinkCancel: AnyCancellable?
+    func testRoomsAreLoadedWhenViewAppears() {
+        homeKitAccessibleMock.whenHasRooms()
+        
+        let expectRooms = expectation(description: "rooms")
+        
+        roomsSinkCancel = sut.$rooms.sink { rooms in
+            if rooms.count > 0 {
+                expectRooms.fulfill()
+            }
         }
+        
+        sut.onAppear()
+        
+        XCTAssertEqual(.completed, XCTWaiter().wait(for: [expectRooms], timeout: 1))
     }
+    
+    private var isShowingErrorCancel: AnyCancellable?
+    private var errorMessageCancel: AnyCancellable?
+    func testErrorIsShownWhenErrorRaisedWhileAccessingRooms() {
+        let expectErrorShown = expectation(description: "Error Shown")
+        let expectErrorMesssage = expectation(description: "Error Message")
+        
+        homeKitAccessibleMock.whenRoomsHasError()
+        
+        isShowingErrorCancel = sut.$isShowingError.sink { isShowing in
+            if isShowing {
+                expectErrorShown.fulfill()
+            }
+        }
+        
+        errorMessageCancel = sut.$errorMessage.sink { errorMessage in
+            if errorMessage != nil {
+                expectErrorMesssage.fulfill()
+            }
+        }
 
+        roomsSinkCancel = sut.$rooms.sink { rooms in
+            if rooms.count > 0 {
+                XCTFail("rooms not expected")
+            }
+        }
+        
+        sut.onAppear()
+        
+        XCTAssertEqual(.completed, XCTWaiter().wait(for: [expectErrorShown,expectErrorMesssage], timeout: 1))
+        
+    }
 }

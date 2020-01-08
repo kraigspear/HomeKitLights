@@ -1,0 +1,9 @@
+author: Kraig Spear
+copyright: 'Copyright © 2020 DornerWorks. All rights reserved.'
+documentation: guides/*.md
+
+#custom_categories:
+#- name: HomeKit
+#  children:
+#    - RoomProtocol
+#    - Room
