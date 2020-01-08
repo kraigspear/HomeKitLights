@@ -9,13 +9,34 @@
 import SwiftUI
 
 struct LightsView: View {
+    @ObservedObject var viewModel: LightsViewModel
+
+    init(viewModel: LightsViewModel) {
+        self.viewModel = viewModel
+    }
+
+    init() {
+        self.init(viewModel: LightsViewModel())
+    }
+
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            VStack(alignment: .leading) {
+                ForEach(viewModel.rooms) {
+                    RoomRow(room: $0)
+                }
+                Spacer()
+            }.onAppear { self.viewModel.onAppear() }
+            .navigationBarTitle(Text("HomeKit"), displayMode: .large)
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        LightsView()
+        let homeKitAccessible = HomeKitAccessMock()
+        homeKitAccessible.whenHasRooms()
+        let viewModel = LightsViewModel(homeKitAccessible: homeKitAccessible)
+        return LightsView(viewModel: viewModel)
     }
 }

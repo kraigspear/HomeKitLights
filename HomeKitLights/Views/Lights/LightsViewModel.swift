@@ -17,7 +17,7 @@ final class LightsViewModel: ObservableObject {
     private let log = Log.lightsView
     
     /// Rooms that lights are in
-    @Published var rooms: [RoomProtocol] = []
+    @Published var rooms: [Room] = []
     @Published var isShowingError = false
     @Published var errorMessage: String? = nil
     
@@ -41,6 +41,9 @@ final class LightsViewModel: ObservableObject {
     
     /// Called when a view appears
     func onAppear() {
+        os_log("onAppear",
+               log: log,
+               type: .info)
         reloadRooms()
     }
     

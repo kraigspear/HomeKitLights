@@ -22,32 +22,48 @@ enum HomeKitAccessError: Error {
 protocol HomeKitAccessible {
     /// HomeKit rooms associtated with this account / device
     /// - Remarks: Only rooms for the first home is returned. Multiple homes are not supported.
-    var rooms: AnyPublisher<[RoomProtocol], HomeKitAccessError> { get }
+    var rooms: AnyPublisher<[Room], HomeKitAccessError> { get }
 }
 
 /// Access to HomeKit
-final class HomeKitAccess: HomeKitAccessible {
+final class HomeKitAccess: NSObject, HomeKitAccessible {
+    
+    private let log = Log.homeKitAccess
+    
     /// Manager used to access home kit
     private let homeKitHomeManager = HMHomeManager()
     
+    override init() {
+        super.init()
+        homeKitHomeManager.delegate = self
+    }
+    
+    private let roomsCurrentValueSubject = CurrentValueSubject<[Room], HomeKitAccessError>([])
+    
     /// HomeKit rooms associtated with this account / device
     /// - Remarks: Only rooms for the first home is returned. Multiple homes are not supported.
-    var rooms: AnyPublisher<[RoomProtocol], HomeKitAccessError> {
-        Future<[RoomProtocol], HomeKitAccessError> { promise in
-            
-            guard let firstHome = self.homeKitHomeManager.homes.first else {
-                promise(.failure(HomeKitAccessError.homeNotFound))
-                return
-            }
-            
-            let rooms = firstHome.rooms.map { Room(homeKitRoom: $0) }
-            promise(.success(rooms))
-        }.eraseToAnyPublisher()
+    var rooms: AnyPublisher<[Room], HomeKitAccessError> {
+        roomsCurrentValueSubject.eraseToAnyPublisher()
+    }
+    
+    private func reload() {
+        
+        guard let firstHome = self.homeKitHomeManager.homes.first else {
+            return
+        }
+        
+        roomsCurrentValueSubject.value = firstHome.rooms.map { Room(name: $0.name, id: $0.uniqueIdentifier) }
+    }
+}
+
+extension HomeKitAccess: HMHomeManagerDelegate {
+    func homeManagerDidUpdateHomes(_ homeManager: HMHomeManager) {
+        reload()
     }
 }
 
 class HomeKitAccessMock: HomeKitAccessible {
-    private var roomsValue: [RoomProtocol]?
+    private var roomsValue: [Room]?
     private var roomsError: HomeKitAccessError?
     
     func whenHasRooms() {
@@ -58,15 +74,15 @@ class HomeKitAccessMock: HomeKitAccessible {
         roomsError = HomeKitAccessError.homeNotFound
     }
     
-    var rooms: AnyPublisher<[RoomProtocol], HomeKitAccessError> {
+    var rooms: AnyPublisher<[Room], HomeKitAccessError> {
         if let roomsValue = roomsValue {
-            return Just<[RoomProtocol]>(roomsValue)
+            return Just<[Room]>(roomsValue)
                 .setFailureType(to: HomeKitAccessError.self)
                 .eraseToAnyPublisher()
         }
         
         if let roomsError = roomsError {
-            return Fail<[RoomProtocol], HomeKitAccessError>(error: roomsError).eraseToAnyPublisher()
+            return Fail<[Room], HomeKitAccessError>(error: roomsError).eraseToAnyPublisher()
         }
         
         preconditionFailure("Expected result or error")
