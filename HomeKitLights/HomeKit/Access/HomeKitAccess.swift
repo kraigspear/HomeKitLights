@@ -86,8 +86,21 @@ extension HMRoom {
 }
 
 extension HMAccessory {
+    private var lightBulbService: HMService? {
+        services.first(where: { $0.serviceType == HMServiceTypeLightbulb })
+    }
+
+    private var lightBulbCharastic: HMCharacteristic? {
+        lightBulbService?.characteristics.first(where: { $0.characteristicType == HMCharacteristicTypePowerState && $0.value is Bool })
+    }
+
+    var isOn: Bool {
+        lightBulbCharastic?.value as? Bool ?? false
+    }
+
     func toAccessory() -> Accessory {
         return Accessory(name: name,
-                         id: uniqueIdentifier)
+                         id: uniqueIdentifier,
+                         isOn: isOn)
     }
 }

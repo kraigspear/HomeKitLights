@@ -28,7 +28,7 @@ struct RoomLightsView: View {
                         AccessoryView($0).padding()
                     }
                 }
-            }
+            }.padding(.trailing, 20)
         }
     }
 }
@@ -60,11 +60,17 @@ private struct AccessoryView: View {
 
     var body: some View {
         VStack {
-            Image(uiImage: UIImage(named: "LightOff")!)
+            Image(uiImage: UIImage(named: accessory.imageName)!)
                 .resizable()
                 .frame(width: 44, height: 44, alignment: .center)
                 .aspectRatio(contentMode: .fit)
         }
+    }
+}
+
+private extension Accessory {
+    var imageName: String {
+        isOn ? "LightOn" : "LightOff"
     }
 }
 
