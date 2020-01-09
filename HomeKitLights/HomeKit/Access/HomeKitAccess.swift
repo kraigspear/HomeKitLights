@@ -25,18 +25,27 @@ protocol HomeKitAccessible {
     var rooms: AnyPublisher<[Room], HomeKitAccessError> { get }
 }
 
-/// Access to HomeKit
+/**
+ Convert HomeKit objects from `HMHomeManager` to App Specific model objects.
+ */
 final class HomeKitAccess: NSObject, HomeKitAccessible {
+    // MARK: - Members
+
     private let log = Log.homeKitAccess
 
     /// Manager used to access home kit
     private let homeKitHomeManager = HMHomeManager()
+
+    // MARK: - Init
 
     override init() {
         super.init()
         homeKitHomeManager.delegate = self
     }
 
+    // MARK: - Rooms
+
+    /// Rooms subject. Set when rooms have been loaded
     private let roomsCurrentValueSubject = CurrentValueSubject<[Room], HomeKitAccessError>([])
 
     /// HomeKit rooms associtated with this account / device
@@ -45,14 +54,18 @@ final class HomeKitAccess: NSObject, HomeKitAccessible {
         roomsCurrentValueSubject.eraseToAnyPublisher()
     }
 
+    // MARK: - Loading
+
     private func reload() {
         guard let firstHome = homeKitHomeManager.homes.first else {
             return
         }
 
-        roomsCurrentValueSubject.value = firstHome.rooms.map { Room(name: $0.name, id: $0.uniqueIdentifier) }
+        roomsCurrentValueSubject.value = firstHome.rooms.map { $0.toRoom() }
     }
 }
+
+// MARK: - HMHomeManagerDelegate
 
 extension HomeKitAccess: HMHomeManagerDelegate {
     func homeManagerDidUpdateHomes(_: HMHomeManager) {
@@ -60,29 +73,21 @@ extension HomeKitAccess: HMHomeManagerDelegate {
     }
 }
 
-class HomeKitAccessMock: HomeKitAccessible {
-    private var roomsValue: [Room]?
-    private var roomsError: HomeKitAccessError?
+// MARK: - HomeKit Extensions
 
-    func whenHasRooms() {
-        roomsValue = RoomMock.rooms()
+extension HMRoom {
+    func toRoom() -> Room {
+        let accessories = self.accessories.map { $0.toAccessory() }
+
+        return Room(name: name,
+                    id: uniqueIdentifier,
+                    accessories: accessories)
     }
+}
 
-    func whenRoomsHasError() {
-        roomsError = HomeKitAccessError.homeNotFound
-    }
-
-    var rooms: AnyPublisher<[Room], HomeKitAccessError> {
-        if let roomsValue = roomsValue {
-            return Just<[Room]>(roomsValue)
-                .setFailureType(to: HomeKitAccessError.self)
-                .eraseToAnyPublisher()
-        }
-
-        if let roomsError = roomsError {
-            return Fail<[Room], HomeKitAccessError>(error: roomsError).eraseToAnyPublisher()
-        }
-
-        preconditionFailure("Expected result or error")
+extension HMAccessory {
+    func toAccessory() -> Accessory {
+        return Accessory(name: name,
+                         id: uniqueIdentifier)
     }
 }

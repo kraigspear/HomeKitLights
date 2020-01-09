@@ -1,6 +1,6 @@
 //
-//  HomeKitLightsTests.swift
-//  HomeKitLightsTests
+//  LightsViewModelTest.swift
+//  LightsViewModelTest
 //
 //  Created by Kraig Spear on 1/8/20.
 //  Copyright © 2020 Kraig Spear. All rights reserved.
@@ -10,10 +10,10 @@ import Combine
 @testable import HomeKitLights
 import XCTest
 
-final class HomeKitLightsTests: XCTestCase {
+final class LightsViewModelTest: XCTestCase {
     // MARK: - Dependencies
 
-    private var homeKitAccessibleMock: HomeKitAccessMock!
+    private var homeKitAccessibleMock: HomeKitAccessPreview!
 
     // MARK: - Subject under test
 
@@ -22,7 +22,7 @@ final class HomeKitLightsTests: XCTestCase {
     // MARK: - Lifecycle
 
     override func setUp() {
-        homeKitAccessibleMock = HomeKitAccessMock()
+        homeKitAccessibleMock = HomeKitAccessPreview()
         sut = LightsViewModel(homeKitAccessible: homeKitAccessibleMock)
     }
 

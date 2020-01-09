@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  LightsView.swift
 //  HomeKitLights
 //
 //  Created by Kraig Spear on 1/8/20.
@@ -21,22 +21,61 @@ struct LightsView: View {
 
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
-                ForEach(viewModel.rooms) {
-                    RoomRow(room: $0)
+            ScrollView {
+                VStack {
+                    TitleView(title: "Rooms")
+                        .padding(.bottom, 8)
+
+                    ForEach(viewModel.rooms) {
+                        RoomLightsView($0)
+                            .frame(minHeight: 150, idealHeight: 150,
+                                   alignment: .center)
+                            .background(Color("RoomBackground"))
+                            .cornerRadius(20)
+                            .padding(.leading, 14)
+                            .padding(.trailing, 14)
+                            .padding(.bottom, 12)
+                    }
+
+                    Spacer()
                 }
-                Spacer()
-            }.onAppear { self.viewModel.onAppear() }
-                .navigationBarTitle(Text("Lights"), displayMode: .large)
+            }
+            .onAppear { self.viewModel.onAppear() }
+            .navigationBarTitle(Text("Lights"), displayMode: .large)
+        }
+    }
+}
+
+private struct TitleView: View {
+    private let title: String
+
+    init(title: String) {
+        self.title = title
+    }
+
+    var body: some View {
+        HStack {
+            Text(title)
+                .padding(.leading, 20)
+                .padding(.top, 20)
+                .font(.headline)
+            Spacer()
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let homeKitAccessible = HomeKitAccessMock()
-        homeKitAccessible.whenHasRooms()
-        let viewModel = LightsViewModel(homeKitAccessible: homeKitAccessible)
-        return LightsView(viewModel: viewModel)
+        let homeKitPreview = HomeKitAccessPreview()
+        homeKitPreview.whenHasRooms()
+        let viewModel = LightsViewModel(homeKitAccessible: homeKitPreview)
+
+        return Group {
+            LightsView(viewModel: viewModel)
+                .environment(\.colorScheme, .light)
+
+            LightsView(viewModel: viewModel)
+                .environment(\.colorScheme, .dark)
+        }
     }
 }

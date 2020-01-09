@@ -13,6 +13,7 @@ import HomeKit
 struct Room: Identifiable, Hashable {
     let name: String
     let id: UUID
+    let accessories: [Accessory]
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
@@ -25,15 +26,30 @@ struct Room: Identifiable, Hashable {
  */
 struct RoomMock {
     static func livingRoom() -> Room {
-        Room(name: "Living Room", id: UUID(uuidString: "46A68B10-0E92-4821-91A0-0D11926F284D")!)
+        let accessory1 = AccessoryMock.light1()
+        return Room(name: "Living Room",
+                    id: UUID(uuidString: "46A68B10-0E92-4821-91A0-0D11926F284D")!,
+                    accessories: [accessory1])
     }
 
     static func diningRooom() -> Room {
-        Room(name: "Dining Room", id: UUID(uuidString: "4B3C5FE2-1EA4-4764-AD36-CFE506A43606")!)
+        let accessory1 = AccessoryMock.light1()
+        let accessory2 = AccessoryMock.light2()
+
+        return Room(name: "Dining Room",
+                    id: UUID(uuidString: "4B3C5FE2-1EA4-4764-AD36-CFE506A43606")!,
+                    accessories: [accessory1, accessory2])
     }
 
     static func kitchen() -> Room {
-        Room(name: "Kitchen", id: UUID(uuidString: "4B3C5FE2-1EA4-4764-AD36-CFE506A43606")!)
+        let accessory1 = AccessoryMock.light1()
+        let accessory2 = AccessoryMock.light2()
+        let accessory3 = AccessoryMock.light3()
+        let accessory4 = AccessoryMock.light4()
+
+        return Room(name: "Kitchen",
+                    id: UUID(uuidString: "65F06C57-5191-45B8-BF78-9BBD922032A6")!,
+                    accessories: [accessory1, accessory2, accessory3, accessory4])
     }
 
     static func rooms() -> [Room] {
