@@ -27,7 +27,7 @@ struct LightsView: View {
                 }
                 Spacer()
             }.onAppear { self.viewModel.onAppear() }
-            .navigationBarTitle(Text("HomeKit"), displayMode: .large)
+                .navigationBarTitle(Text("Lights"), displayMode: .large)
         }
     }
 }

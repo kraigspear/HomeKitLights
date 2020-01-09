@@ -10,14 +10,13 @@ import os.log
 import SwiftUI
 
 struct RoomRow: View {
-    
     private let log = Log.lightsView
-    
+
     private let room: Room
 
     init(room: Room) {
         os_log("RoomRow: %s",
-               log: self.log,
+               log: log,
                type: .debug,
                room.name)
 

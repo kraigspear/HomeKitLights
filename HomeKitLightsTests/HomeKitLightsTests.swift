@@ -12,59 +12,59 @@ import XCTest
 
 final class HomeKitLightsTests: XCTestCase {
     // MARK: - Dependencies
-    
+
     private var homeKitAccessibleMock: HomeKitAccessMock!
-    
+
     // MARK: - Subject under test
-    
+
     private var sut: LightsViewModel!
-    
+
     // MARK: - Lifecycle
-    
+
     override func setUp() {
         homeKitAccessibleMock = HomeKitAccessMock()
         sut = LightsViewModel(homeKitAccessible: homeKitAccessibleMock)
     }
-    
+
     override func tearDown() {
         roomsSinkCancel = nil
         isShowingErrorCancel = nil
         errorMessageCancel = nil
     }
-    
+
     // MARK: - Test
-    
+
     private var roomsSinkCancel: AnyCancellable?
     func testRoomsAreLoadedWhenViewAppears() {
         homeKitAccessibleMock.whenHasRooms()
-        
+
         let expectRooms = expectation(description: "rooms")
-        
+
         roomsSinkCancel = sut.$rooms.sink { rooms in
             if rooms.count > 0 {
                 expectRooms.fulfill()
             }
         }
-        
+
         sut.onAppear()
-        
+
         XCTAssertEqual(.completed, XCTWaiter().wait(for: [expectRooms], timeout: 1))
     }
-    
+
     private var isShowingErrorCancel: AnyCancellable?
     private var errorMessageCancel: AnyCancellable?
     func testErrorIsShownWhenErrorRaisedWhileAccessingRooms() {
         let expectErrorShown = expectation(description: "Error Shown")
         let expectErrorMesssage = expectation(description: "Error Message")
-        
+
         homeKitAccessibleMock.whenRoomsHasError()
-        
+
         isShowingErrorCancel = sut.$isShowingError.sink { isShowing in
             if isShowing {
                 expectErrorShown.fulfill()
             }
         }
-        
+
         errorMessageCancel = sut.$errorMessage.sink { errorMessage in
             if errorMessage != nil {
                 expectErrorMesssage.fulfill()
@@ -76,10 +76,9 @@ final class HomeKitLightsTests: XCTestCase {
                 XCTFail("rooms not expected")
             }
         }
-        
+
         sut.onAppear()
-        
-        XCTAssertEqual(.completed, XCTWaiter().wait(for: [expectErrorShown,expectErrorMesssage], timeout: 1))
-        
+
+        XCTAssertEqual(.completed, XCTWaiter().wait(for: [expectErrorShown, expectErrorMesssage], timeout: 1))
     }
 }
