@@ -27,7 +27,7 @@ struct LightsView: View {
                         .padding(.bottom, 8)
 
                     ForEach(viewModel.rooms) {
-                        RoomLightsView($0)
+                        RoomLightsView($0, viewModel: self.viewModel)
                             .frame(minHeight: 150, idealHeight: 150,
                                    alignment: .center)
                             .background(Color("RoomBackground"))

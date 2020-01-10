@@ -24,6 +24,8 @@
 		A9D52F0523C6258A00C6F91F /* LightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52F0423C6258A00C6F91F /* LightsViewModel.swift */; };
 		A9D52F0823C628D000C6F91F /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52F0723C628D000C6F91F /* Log.swift */; };
 		A9D703D523C76C7E009E2229 /* HomeKitAccessPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703D423C76C7E009E2229 /* HomeKitAccessPreview.swift */; };
+		A9D703DA23C8B3FF009E2229 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703D923C8B3FF009E2229 /* BaseOperation.swift */; };
+		A9D703DC23C8B477009E2229 /* CharasticToggleOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703DB23C8B477009E2229 /* CharasticToggleOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		A9D52F0423C6258A00C6F91F /* LightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsViewModel.swift; sourceTree = "<group>"; };
 		A9D52F0723C628D000C6F91F /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		A9D703D423C76C7E009E2229 /* HomeKitAccessPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitAccessPreview.swift; sourceTree = "<group>"; };
+		A9D703D923C8B3FF009E2229 /* BaseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
+		A9D703DB23C8B477009E2229 /* CharasticToggleOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharasticToggleOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,7 @@
 		A9D52EC123C613B900C6F91F /* HomeKitLights */ = {
 			isa = PBXGroup;
 			children = (
+				A9D703D823C8B3EF009E2229 /* General */,
 				A9D52F0623C628C500C6F91F /* Log */,
 				A9D52EF523C614B700C6F91F /* HomeKit */,
 				A9D52F0223C6256400C6F91F /* Views */,
@@ -201,6 +206,7 @@
 			children = (
 				A9D52F0023C61FF900C6F91F /* HomeKitAccess.swift */,
 				A9D703D423C76C7E009E2229 /* HomeKitAccessPreview.swift */,
+				A9D703DB23C8B477009E2229 /* CharasticToggleOperation.swift */,
 			);
 			path = Access;
 			sourceTree = "<group>";
@@ -236,6 +242,14 @@
 			children = (
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		A9D703D823C8B3EF009E2229 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				A9D703D923C8B3FF009E2229 /* BaseOperation.swift */,
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,12 +405,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D703DC23C8B477009E2229 /* CharasticToggleOperation.swift in Sources */,
 				A9D52EC323C613B900C6F91F /* AppDelegate.swift in Sources */,
 				A9D52EC823C613B900C6F91F /* HomeKitLights.xcdatamodeld in Sources */,
 				A9D52F0823C628D000C6F91F /* Log.swift in Sources */,
 				A9D52ECA23C613B900C6F91F /* LightsView.swift in Sources */,
 				A9D52EC523C613B900C6F91F /* SceneDelegate.swift in Sources */,
 				A9D52EFC23C616FE00C6F91F /* Room.swift in Sources */,
+				A9D703DA23C8B3FF009E2229 /* BaseOperation.swift in Sources */,
 				A9D3F1B823C76649004783A2 /* Accessory.swift in Sources */,
 				A9D52F0123C61FF900C6F91F /* HomeKitAccess.swift in Sources */,
 				A9D703D523C76C7E009E2229 /* HomeKitAccessPreview.swift in Sources */,

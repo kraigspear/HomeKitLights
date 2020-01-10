@@ -58,7 +58,50 @@ final class LightsViewModel: ObservableObject {
                log: log,
                type: .info)
 
-        reloadRoomsCancel = homeKitAccessible.rooms.sink(receiveCompletion: { completed in
+        reloadRoomsCancel = homeKitAccessible.rooms.receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completed in
+
+                switch completed {
+                case let .failure(error):
+                    os_log("Error: %s",
+                           log: self.log,
+                           type: .error,
+                           error.localizedDescription)
+
+                    switch error {
+                    case HomeKitAccessError.homeNotFound:
+                        self.errorMessage = "Homekit isn't setup"
+                    }
+
+                    self.isShowingError = true
+
+                case .finished:
+                    os_log("Done loading rooms",
+                           log: self.log,
+                           type: .info)
+                }
+
+            }) { loadedRooms in
+
+                os_log("Loaded %d rooms",
+                       log: self.log,
+                       type: .debug,
+                       loadedRooms.count)
+
+                self.rooms = loadedRooms
+            }
+    }
+
+    // MARK: - Toggle
+
+    private var cancelToggle: AnyCancellable?
+    func toggle(_ room: Room) {
+        os_log("Toggle: %s",
+               log: Log.homeKitAccess,
+               type: .debug,
+               room.name)
+
+        cancelToggle = homeKitAccessible.toggle(room).sink(receiveCompletion: { completed in
 
             switch completed {
             case let .failure(error):
@@ -66,28 +109,14 @@ final class LightsViewModel: ObservableObject {
                        log: self.log,
                        type: .error,
                        error.localizedDescription)
-
-                switch error {
-                case HomeKitAccessError.homeNotFound:
-                    self.errorMessage = "Homekit isn't setup"
-                }
-
-                self.isShowingError = true
-
             case .finished:
-                os_log("Done loading rooms",
+                os_log("Success toggle lights",
                        log: self.log,
                        type: .info)
+                self.reloadRooms()
             }
 
-        }) { loadedRooms in
-
-            os_log("Loaded %d rooms",
-                   log: self.log,
-                   type: .debug,
-                   loadedRooms.count)
-
-            self.rooms = loadedRooms
+        }) { _ in
         }
     }
 }
