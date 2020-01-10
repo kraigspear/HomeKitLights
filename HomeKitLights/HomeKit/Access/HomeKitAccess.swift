@@ -48,7 +48,6 @@ final class HomeKitAccess: NSObject, HomeKitAccessible {
 
     override init() {
         super.init()
-        // TODO: Start with one. Experiment if doing more than one at a time works.
         updateHomeKitQueue.maxConcurrentOperationCount = 5
         updateHomeKitQueue.qualityOfService = .userInitiated
         homeKitHomeManager.delegate = self

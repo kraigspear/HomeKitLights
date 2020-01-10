@@ -22,7 +22,7 @@ final class LightsViewModel: ObservableObject {
     @Published var errorMessage: String? = nil
 
     /// Access to HomeKit
-    private let homeKitAccessible: HomeKitAccessible
+    let homeKitAccessible: HomeKitAccessible
 
     // MARK: - Init
 
@@ -90,33 +90,5 @@ final class LightsViewModel: ObservableObject {
 
                 self.rooms = loadedRooms
             }
-    }
-
-    // MARK: - Toggle
-
-    private var cancelToggle: AnyCancellable?
-    func toggle(_ room: Room) {
-        os_log("Toggle: %s",
-               log: Log.homeKitAccess,
-               type: .debug,
-               room.name)
-
-        cancelToggle = homeKitAccessible.toggle(room).sink(receiveCompletion: { completed in
-
-            switch completed {
-            case let .failure(error):
-                os_log("Error: %s",
-                       log: self.log,
-                       type: .error,
-                       error.localizedDescription)
-            case .finished:
-                os_log("Success toggle lights",
-                       log: self.log,
-                       type: .info)
-                self.reloadRooms()
-            }
-
-        }) { _ in
-        }
     }
 }

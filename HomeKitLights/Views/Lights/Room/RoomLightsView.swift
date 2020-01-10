@@ -12,29 +12,43 @@ import SwiftUI
 
 struct RoomLightsView: View {
     private let room: Room
-    @ObservedObject var viewModel: LightsViewModel
+    @ObservedObject var viewModel: RoomLightsViewModel
 
     init(_ room: Room,
-         viewModel: LightsViewModel) {
+         viewModel: RoomLightsViewModel) {
         self.room = room
         self.viewModel = viewModel
     }
 
     var body: some View {
-        VStack {
-            TitleView(room.name)
-                .padding(.leading, 8)
+        ZStack {
+            VStack {
+                TitleView(room.name)
+                    .padding(.leading, 8)
 
-            ScrollView(.horizontal) {
-                HStack {
-                    ForEach(room.accessories) {
-                        AccessoryView($0, viewModel: self.viewModel).padding()
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(room.accessories) {
+                            AccessoryView($0, viewModel: self.viewModel).padding()
+                        }
                     }
+                }.padding(.trailing, 20)
+            }.gesture(TapGesture()
+                .onEnded { _ in self.viewModel.toggle() }
+            )
+
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+
+                    ActivityView(isActive: $viewModel.isBusy)
+
+                    Spacer()
                 }
-            }.padding(.trailing, 20)
-        }.gesture(TapGesture()
-            .onEnded { _ in self.viewModel.toggle(self.room) }
-        )
+                Spacer()
+            }
+        }
     }
 }
 
@@ -58,10 +72,10 @@ private struct TitleView: View {
 
 private struct AccessoryView: View {
     private let accessory: Accessory
-    private let viewModel: LightsViewModel
+    private let viewModel: RoomLightsViewModel
 
     init(_ accessory: Accessory,
-         viewModel: LightsViewModel) {
+         viewModel: RoomLightsViewModel) {
         self.accessory = accessory
         self.viewModel = viewModel
     }
