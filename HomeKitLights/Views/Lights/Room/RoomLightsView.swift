@@ -56,6 +56,8 @@ private struct AccessoryView: View {
     private let accessory: Accessory
     private let viewModel: RoomLightsViewModel
 
+    private static let imageSize: CGFloat = 54.0
+
     init(_ accessory: Accessory,
          viewModel: RoomLightsViewModel) {
         self.accessory = accessory
@@ -66,7 +68,9 @@ private struct AccessoryView: View {
         VStack {
             Image(uiImage: UIImage(named: accessory.imageName)!)
                 .resizable()
-                .frame(width: 44, height: 44, alignment: .center)
+                .frame(width: AccessoryView.imageSize,
+                       height: AccessoryView.imageSize,
+                       alignment: .center)
                 .aspectRatio(contentMode: .fit)
         }
     }

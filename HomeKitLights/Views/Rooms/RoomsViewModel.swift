@@ -10,7 +10,7 @@ import Combine
 import Foundation
 import os.log
 
-/// Filter that can be applked to rooms
+/// Filter that can be applied to rooms
 enum RoomFilter: Int {
     /// No filter, all rooms should be shown.
     case all = 0
@@ -20,9 +20,20 @@ enum RoomFilter: Int {
     case on = 2
 }
 
+/// Sort that can be applied to rooms
+enum RoomSort: Int {
+    /// Sorted by Room Name
+    case alphabetical = 0
+    /// Sorted by last updated
+    case lastUpdated = 1
+}
+
 /// ViewModel showing HomeKit rooms containing lights
 final class RoomsViewModel: ObservableObject {
     // MARK: - Members
+
+    private static let FilterButtonImage = "SortFilter"
+    private static let FilterButtonImageFilled = "SortFilterFilled"
 
     private let log = Log.lightsView
 
@@ -37,8 +48,25 @@ final class RoomsViewModel: ObservableObject {
 
     @Published var filterIndex = 0 {
         didSet {
-            updateFilter()
+            applySortFilter()
         }
+    }
+
+    @Published var sortIndex = 0 {
+        didSet {
+            applySortFilter()
+        }
+    }
+
+    @Published var filterButtonImage = RoomsViewModel.FilterButtonImage
+    @Published var isShowingSortFilter = false {
+        didSet {
+            filterButtonImage = isShowingSortFilter ? RoomsViewModel.FilterButtonImageFilled : RoomsViewModel.FilterButtonImage
+        }
+    }
+
+    func toggleShowingFilter() {
+        isShowingSortFilter.toggle()
     }
 
     /// All rooms, Filters are applied to this array
@@ -47,17 +75,28 @@ final class RoomsViewModel: ObservableObject {
     /// Access to HomeKit
     let homeKitAccessible: HomeKitAccessible
 
+    private let roomDataAccessible: RoomDataAccessible
+
+    private var roomsUpdatedCancel: AnyCancellable?
+
     // MARK: - Init
 
     /// Initialize a new instance with access to HomeKit
     /// - Parameter homeKitAccessible: Access to HomeKit
-    init(homeKitAccessible: HomeKitAccessible) {
+    init(homeKitAccessible: HomeKitAccessible,
+         roomDataAccessible: RoomDataAccessible) {
         self.homeKitAccessible = homeKitAccessible
+        self.roomDataAccessible = roomDataAccessible
+
+        roomsUpdatedCancel = roomDataAccessible.roomsUpdated.sink {
+            self.reloadRooms()
+        }
     }
 
     /// Init with defaults
     convenience init() {
-        self.init(homeKitAccessible: HomeKitAccess())
+        self.init(homeKitAccessible: HomeKitAccess(),
+                  roomDataAccessible: RoomAccessor.sharedAccessor)
     }
 
     // MARK: - Lifecycle
@@ -112,20 +151,51 @@ final class RoomsViewModel: ObservableObject {
                        loadedRooms.count)
 
                 self.allRooms = loadedRooms
-                self.updateFilter()
+                self.applySortFilter()
             }
     }
 
-    private func updateFilter() {
+    private func applySortFilter() {
+        os_log("applySortFilter",
+               log: Log.homeKitAccess,
+               type: .debug)
+
         let filter = RoomFilter(rawValue: filterIndex)!
+        let sort = RoomSort(rawValue: sortIndex)
+
+        var sortedFilteredRooms: [Room] = []
 
         switch filter {
         case .all:
-            rooms = allRooms
+            sortedFilteredRooms = allRooms
         case .off:
-            rooms = allRooms.filter { $0.accessories.any(itemsAre: { !$0.isOn }) }
+            sortedFilteredRooms = allRooms.filter { $0.accessories.any(itemsAre: { !$0.isOn }) }
         case .on:
-            rooms = allRooms.filter { $0.accessories.any(itemsAre: { $0.isOn }) }
+            sortedFilteredRooms = allRooms.filter { $0.accessories.any(itemsAre: { $0.isOn }) }
         }
+
+        // Sort by name first to start with name ascending.
+        sortedFilteredRooms.sort { $0.name < $1.name }
+
+        if sort == RoomSort.alphabetical {
+            rooms = sortedFilteredRooms
+            return
+        }
+
+        let lastAccessedRooms = roomDataAccessible.fetchLastAccessedRooms()
+
+        struct RoomLastAccessed {
+            let room: Room
+            let dateLastAccessed: Date
+        }
+
+        var roomsLastAccessed = sortedFilteredRooms.map { room -> RoomLastAccessed in
+            let lastAccessed = lastAccessedRooms[room.id] ?? Date(timeIntervalSince1970: 0)
+            return RoomLastAccessed(room: room, dateLastAccessed: lastAccessed)
+        }
+
+        roomsLastAccessed.sort { $0.dateLastAccessed > $1.dateLastAccessed }
+
+        rooms = roomsLastAccessed.map { $0.room }
     }
 }

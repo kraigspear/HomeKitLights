@@ -15,6 +15,7 @@ final class RoomLightsViewModel: ObservableObject {
     private let room: Room
     private let homeKitAccessible: HomeKitAccessible
     private let roomDataAccessible: RoomDataAccessible
+    private let hapticFeedback: HapticFeedbackProtocol
 
     private var cancelToggle: AnyCancellable?
 
@@ -22,10 +23,12 @@ final class RoomLightsViewModel: ObservableObject {
 
     init(room: Room,
          homeKitAccessible: HomeKitAccessible,
-         roomDataAccessible: RoomDataAccessible) {
+         roomDataAccessible: RoomDataAccessible,
+         hapticFeedback: HapticFeedbackProtocol) {
         self.room = room
         self.homeKitAccessible = homeKitAccessible
         self.roomDataAccessible = roomDataAccessible
+        self.hapticFeedback = hapticFeedback
     }
 
     func toggle() {
@@ -33,6 +36,8 @@ final class RoomLightsViewModel: ObservableObject {
                log: log,
                type: .debug,
                room.name)
+
+        hapticFeedback.impactOccurred()
 
         isBusy = true
 

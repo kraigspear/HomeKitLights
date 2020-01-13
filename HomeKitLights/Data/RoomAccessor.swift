@@ -6,12 +6,21 @@
 //  Copyright © 2020 Kraig Spear. All rights reserved.
 //
 
+import Combine
 import CoreData
 import Foundation
 import os.log
 
 protocol RoomDataAccessible {
+    /// Update the last accessed times for a room
+    /// - Parameter id: ID of the room to update
     func updateAccessTimeForRoom(id: UUID)
+
+    /// Dictionary of Dates keyd by the ID of the room, last accessed
+    func fetchLastAccessedRooms() -> [UUID: Date]
+
+    /// Publisher when rooms have been updated
+    var roomsUpdated: AnyPublisher<Void, Never> { get }
 }
 
 final class RoomAccessor: RoomDataAccessible {
@@ -25,6 +34,12 @@ final class RoomAccessor: RoomDataAccessible {
     private var rooms: [NSManagedObject] = []
 
     static let sharedAccessor = RoomAccessor()
+
+    private let roomsUpdatedSubject = PassthroughSubject<Void, Never>()
+
+    public var roomsUpdated: AnyPublisher<Void, Never> {
+        roomsUpdatedSubject.eraseToAnyPublisher()
+    }
 
     private init() {}
 
@@ -74,11 +89,38 @@ final class RoomAccessor: RoomDataAccessible {
         }
     }
 
+    // MARK: - Last Accessed
+
+    func fetchLastAccessedRooms() -> [UUID: Date] {
+        var lastAccessed: [UUID: Date] = [:]
+
+        reload()
+
+        for room in rooms {
+            guard let date = room.value(forKey: fieldLastAccessed) as? Date,
+                let id = room.value(forKey: fieldID) as? UUID else {
+                os_log("Didn't find the date and ID for a saved room",
+                       log: log,
+                       type: .error)
+
+                continue
+            }
+
+            lastAccessed[id] = date
+        }
+
+        return lastAccessed
+    }
+
     // MARK: - Access Time
 
     /// Update the last accessed time to now, for the Room with the given UUID
     /// - Parameter id: The UUID of the room to update access time for
     func updateAccessTimeForRoom(id: UUID) {
+        os_log("updateAccessTimeForRoom",
+               log: Log.homeKitAccess,
+               type: .debug)
+
         var roomManagedObjects: [NSManagedObject] = []
 
         do {
@@ -109,6 +151,8 @@ final class RoomAccessor: RoomDataAccessible {
 
         roomManagedObject!.setValue(Date(), forKey: fieldLastAccessed)
         saveContext()
+        reload()
+        roomsUpdatedSubject.send()
     }
 
     // MARK: -  Save
@@ -118,6 +162,10 @@ final class RoomAccessor: RoomDataAccessible {
 
         do {
             try managedContext.save()
+            os_log("Core data updated",
+                   log: Log.homeKitAccess,
+                   type: .debug)
+
         } catch {
             os_log("Error: %s",
                    log: log,

@@ -32,6 +32,7 @@
 		A9D703E523C8F679009E2229 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703E423C8F679009E2229 /* TitleView.swift */; };
 		A9D703E723C91118009E2229 /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703E623C91118009E2229 /* SequenceExtensions.swift */; };
 		A9D703EA23C915B7009E2229 /* RoomAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703E923C915B7009E2229 /* RoomAccessor.swift */; };
+		A9E98D2A23CCF24B006F171F /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E98D2923CCF24B006F171F /* HapticFeedback.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		A9D703E423C8F679009E2229 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		A9D703E623C91118009E2229 /* SequenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensions.swift; sourceTree = "<group>"; };
 		A9D703E923C915B7009E2229 /* RoomAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomAccessor.swift; sourceTree = "<group>"; };
+		A9E98D2923CCF24B006F171F /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		A956051323CCAEEA00617A67 /* Rooms */ = {
 			isa = PBXGroup;
 			children = (
+				A9D703E223C8F5CE009E2229 /* FilterSortButtons.swift */,
 				A9D52EC923C613B900C6F91F /* RoomsView.swift */,
 				A9D52F0423C6258A00C6F91F /* RoomsViewModel.swift */,
 			);
@@ -249,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				A9D3F1B423C764F6004783A2 /* Room */,
-				A9D703E223C8F5CE009E2229 /* FilterSortButtons.swift */,
 			);
 			path = Lights;
 			sourceTree = "<group>";
@@ -274,6 +276,7 @@
 			children = (
 				A9D703D923C8B3FF009E2229 /* BaseOperation.swift */,
 				A9D703E623C91118009E2229 /* SequenceExtensions.swift */,
+				A9E98D2923CCF24B006F171F /* HapticFeedback.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				A9D703E523C8F679009E2229 /* TitleView.swift in Sources */,
 				A9D3F1B623C765D8004783A2 /* RoomLightsView.swift in Sources */,
 				A9D52F0523C6258A00C6F91F /* RoomsViewModel.swift in Sources */,
+				A9E98D2A23CCF24B006F171F /* HapticFeedback.swift in Sources */,
 				A9D703DF23C8D4B4009E2229 /* ActivityIndicatorView.swift in Sources */,
 				A9D703E323C8F5CE009E2229 /* FilterSortButtons.swift in Sources */,
 			);
