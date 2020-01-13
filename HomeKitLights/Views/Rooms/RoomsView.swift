@@ -1,5 +1,5 @@
 //
-//  LightsView.swift
+//  RoomsView.swift
 //  HomeKitLights
 //
 //  Created by Kraig Spear on 1/8/20.
@@ -8,26 +8,35 @@
 
 import SwiftUI
 
-struct LightsView: View {
-    @ObservedObject var viewModel: LightsViewModel
+/// View showing all of the rooms
+struct RoomsView: View {
+    @ObservedObject var viewModel: RoomsViewModel
 
-    init(viewModel: LightsViewModel) {
+    init(viewModel: RoomsViewModel) {
         self.viewModel = viewModel
     }
 
     init() {
-        self.init(viewModel: LightsViewModel())
+        self.init(viewModel: RoomsViewModel())
     }
 
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack {
-                    TitleView(title: "Rooms")
+                    FilterSortButtons(viewModel: viewModel)
+                        .padding(.top, 8)
+                        .padding(.leading, 8)
+                        .padding(.trailing, 8)
+
+                    TitleView(title: "Rooms",
+                              foregroundColor: .primary)
                         .padding(.bottom, 8)
 
                     ForEach(viewModel.rooms) {
-                        RoomLightsView($0, viewModel: RoomLightsViewModel(room: $0, homeKitAccessible: self.viewModel.homeKitAccessible))
+                        RoomLightsView($0, viewModel: RoomLightsViewModel(room: $0,
+                                                                          homeKitAccessible: self.viewModel.homeKitAccessible,
+                                                                          roomDataAccessible: RoomAccessor.sharedAccessor))
                             .frame(minHeight: 150, idealHeight: 150,
                                    alignment: .center)
                             .background(Color("RoomBackground"))
@@ -46,35 +55,17 @@ struct LightsView: View {
     }
 }
 
-private struct TitleView: View {
-    private let title: String
-
-    init(title: String) {
-        self.title = title
-    }
-
-    var body: some View {
-        HStack {
-            Text(title)
-                .padding(.leading, 20)
-                .padding(.top, 20)
-                .font(.headline)
-            Spacer()
-        }
-    }
-}
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let homeKitPreview = HomeKitAccessPreview()
         homeKitPreview.whenHasRooms()
-        let viewModel = LightsViewModel(homeKitAccessible: homeKitPreview)
+        let viewModel = RoomsViewModel(homeKitAccessible: homeKitPreview)
 
         return Group {
-            LightsView(viewModel: viewModel)
+            RoomsView(viewModel: viewModel)
                 .environment(\.colorScheme, .light)
 
-            LightsView(viewModel: viewModel)
+            RoomsView(viewModel: viewModel)
                 .environment(\.colorScheme, .dark)
         }
     }

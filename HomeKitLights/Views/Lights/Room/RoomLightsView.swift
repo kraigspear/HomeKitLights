@@ -23,7 +23,7 @@ struct RoomLightsView: View {
     var body: some View {
         ZStack {
             VStack {
-                TitleView(room.name)
+                TitleView(title: room.name, foregroundColor: Color("RoomText"))
                     .padding(.leading, 8)
 
                 ScrollView(.horizontal) {
@@ -48,24 +48,6 @@ struct RoomLightsView: View {
                 }
                 Spacer()
             }
-        }
-    }
-}
-
-private struct TitleView: View {
-    private let title: String
-
-    init(_ title: String) {
-        self.title = title
-    }
-
-    var body: some View {
-        HStack {
-            Text(title)
-                .font(.headline)
-                .foregroundColor(Color("RoomText"))
-                .padding(.leading, 8)
-            Spacer()
         }
     }
 }

@@ -10,16 +10,39 @@ import Combine
 import Foundation
 import os.log
 
-/// ViewModel showing HomeKit lights
-final class LightsViewModel: ObservableObject {
+/// Filter that can be applked to rooms
+enum RoomFilter: Int {
+    /// No filter, all rooms should be shown.
+    case all = 0
+    /// Only rooms with lights that are off should be shown.
+    case off = 1
+    /// Only rooms with lights that are on should be shown.
+    case on = 2
+}
+
+/// ViewModel showing HomeKit rooms containing lights
+final class RoomsViewModel: ObservableObject {
     // MARK: - Members
 
     private let log = Log.lightsView
 
     /// Rooms that lights are in
     @Published var rooms: [Room] = []
+
+    /// True to show an alert, showing an error message
     @Published var isShowingError = false
+
+    /// Error message to show in an Alert
     @Published var errorMessage: String? = nil
+
+    @Published var filterIndex = 0 {
+        didSet {
+            updateFilter()
+        }
+    }
+
+    /// All rooms, Filters are applied to this array
+    private var allRooms: [Room] = []
 
     /// Access to HomeKit
     let homeKitAccessible: HomeKitAccessible
@@ -88,7 +111,21 @@ final class LightsViewModel: ObservableObject {
                        type: .debug,
                        loadedRooms.count)
 
-                self.rooms = loadedRooms
+                self.allRooms = loadedRooms
+                self.updateFilter()
             }
+    }
+
+    private func updateFilter() {
+        let filter = RoomFilter(rawValue: filterIndex)!
+
+        switch filter {
+        case .all:
+            rooms = allRooms
+        case .off:
+            rooms = allRooms.filter { $0.accessories.any(itemsAre: { !$0.isOn }) }
+        case .on:
+            rooms = allRooms.filter { $0.accessories.any(itemsAre: { $0.isOn }) }
+        }
     }
 }

@@ -2,7 +2,7 @@
 //  LightsViewModelTest.swift
 //  LightsViewModelTest
 //
-//  Created by Kraig Spear on 1/8/20.
+//  eCreated by Kraig Spear on 1/8/20.
 //  Copyright © 2020 Kraig Spear. All rights reserved.
 //
 
@@ -17,13 +17,13 @@ final class LightsViewModelTest: XCTestCase {
 
     // MARK: - Subject under test
 
-    private var sut: LightsViewModel!
+    private var sut: RoomsViewModel!
 
     // MARK: - Lifecycle
 
     override func setUp() {
         homeKitAccessibleMock = HomeKitAccessPreview()
-        sut = LightsViewModel(homeKitAccessible: homeKitAccessibleMock)
+        sut = RoomsViewModel(homeKitAccessible: homeKitAccessibleMock)
     }
 
     override func tearDown() {

@@ -14,15 +14,18 @@ final class RoomLightsViewModel: ObservableObject {
     private let log = Log.lightsView
     private let room: Room
     private let homeKitAccessible: HomeKitAccessible
+    private let roomDataAccessible: RoomDataAccessible
 
     private var cancelToggle: AnyCancellable?
 
     @Published var isBusy = false
 
     init(room: Room,
-         homeKitAccessible: HomeKitAccessible) {
+         homeKitAccessible: HomeKitAccessible,
+         roomDataAccessible: RoomDataAccessible) {
         self.room = room
         self.homeKitAccessible = homeKitAccessible
+        self.roomDataAccessible = roomDataAccessible
     }
 
     func toggle() {
@@ -35,7 +38,9 @@ final class RoomLightsViewModel: ObservableObject {
 
         cancelToggle = homeKitAccessible.toggle(room)
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { completed in
+            .sink(receiveCompletion: { [weak self] completed in
+
+                guard let self = self else { return }
 
                 defer {
                     self.isBusy = false
@@ -51,6 +56,7 @@ final class RoomLightsViewModel: ObservableObject {
                     os_log("Success toggle lights",
                            log: self.log,
                            type: .info)
+                    self.roomDataAccessible.updateAccessTimeForRoom(id: self.room.id)
                 }
 
             }) { _ in
