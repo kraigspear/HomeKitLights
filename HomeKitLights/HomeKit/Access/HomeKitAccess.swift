@@ -25,6 +25,9 @@ protocol HomeKitAccessible {
     /// - Remarks: Only rooms for the first home is returned. Multiple homes are not supported.
     var rooms: AnyPublisher<[Room], HomeKitAccessError> { get }
 
+    /// Reload any room changes.
+    func reload()
+
     /// Toggle on off state
     /// - Parameter room: Room to update
     func toggle(_ room: Room) -> AnyPublisher<Void, Error>
@@ -39,7 +42,7 @@ final class HomeKitAccess: NSObject, HomeKitAccessible {
     private let log = Log.homeKitAccess
 
     /// Manager used to access home kit
-    private let homeKitHomeManager = HMHomeManager()
+    private var homeKitHomeManager: HMHomeManager!
 
     /// Queue to execute HomeKit operations on
     private let updateHomeKitQueue = OperationQueue()
@@ -50,7 +53,6 @@ final class HomeKitAccess: NSObject, HomeKitAccessible {
         super.init()
         updateHomeKitQueue.maxConcurrentOperationCount = 5
         updateHomeKitQueue.qualityOfService = .userInitiated
-        homeKitHomeManager.delegate = self
     }
 
     // MARK: - Rooms
@@ -66,16 +68,18 @@ final class HomeKitAccess: NSObject, HomeKitAccessible {
 
     // MARK: - Loading
 
-    private func reload() {
-        guard let firstHome = homeKitHomeManager.homes.first else {
-            return
-        }
+    func reload() {
+        os_log("reload",
+               log: log,
+               type: .info)
 
-        let rooms = firstHome.rooms.map { $0.toRoom() }
-
-        DispatchQueue.main.async {
-            self.roomsCurrentValueSubject.value = rooms
-        }
+        // Newing up a new HMHomeManager gives us the most up to date info about accessories.
+        // You can setup delegates to get changes made in other Apps which seems like overkill
+        // since this code gets a snapshot of data on foreground / loading.
+        //
+        // The actual loading will happen in the delegate
+        homeKitHomeManager = HMHomeManager()
+        homeKitHomeManager.delegate = self
     }
 
     /// Toggle off on state for a room
@@ -220,8 +224,20 @@ extension HMCharacteristic {
 // MARK: - HMHomeManagerDelegate
 
 extension HomeKitAccess: HMHomeManagerDelegate {
-    func homeManagerDidUpdateHomes(_: HMHomeManager) {
-        reload()
+    func homeManagerDidUpdateHomes(_ homeManager: HMHomeManager) {
+        os_log("homeManagerDidUpdateHomes",
+               log: log,
+               type: .info)
+
+        guard let firstHome = homeManager.homes.first else {
+            return
+        }
+
+        let rooms = firstHome.rooms.map { $0.toRoom() }
+
+        DispatchQueue.main.async {
+            self.roomsCurrentValueSubject.value = rooms
+        }
     }
 }
 
@@ -233,7 +249,7 @@ extension HMRoom {
 
         let room = Room(name: name,
                         id: uniqueIdentifier,
-                        accessories: accessories)
+                        lights: accessories)
 
         return room
     }
@@ -258,9 +274,18 @@ extension HMAccessory {
         lightBulbCharastic?.value as? Bool ?? false
     }
 
+    var brightnessCharastic: HMCharacteristic? {
+        lightBulbService?.characteristics.first { $0.characteristicType == HMCharacteristicTypeBrightness }
+    }
+
+    var brightness: Int {
+        brightnessCharastic?.value as? Int ?? 1
+    }
+
     func toAccessory() -> Accessory {
         return Accessory(name: name,
                          id: uniqueIdentifier,
-                         isOn: isOn)
+                         isOn: isOn,
+                         brightness: brightness)
     }
 }

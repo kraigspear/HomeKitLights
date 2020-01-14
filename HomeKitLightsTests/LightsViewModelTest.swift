@@ -15,6 +15,7 @@ final class LightsViewModelTest: XCTestCase {
 
     private var homeKitAccessibleMock: HomeKitAccessMock!
     private var roomDataAccessibleMock: RoomDataAccessibleMock!
+    private var refreshNotificationMock: RefreshNotificationMock!
 
     // MARK: - Subject under test
 
@@ -25,8 +26,10 @@ final class LightsViewModelTest: XCTestCase {
     override func setUp() {
         homeKitAccessibleMock = HomeKitAccessMock()
         roomDataAccessibleMock = RoomDataAccessibleMock()
+        refreshNotificationMock = RefreshNotificationMock()
         sut = RoomsViewModel(homeKitAccessible: homeKitAccessibleMock,
-                             roomDataAccessible: roomDataAccessibleMock)
+                             roomDataAccessible: roomDataAccessibleMock,
+                             refreshNotification: refreshNotificationMock)
     }
 
     override func tearDown() {
@@ -83,5 +86,23 @@ final class LightsViewModelTest: XCTestCase {
         sut.onAppear()
 
         XCTAssertEqual(.completed, XCTWaiter().wait(for: [expectErrorShown, expectErrorMesssage], timeout: 1))
+    }
+
+    // MARK: - Refresh Notifification
+
+    func testDataIsReloadedWhenRefreshNotifiactionNotifies() {
+        homeKitAccessibleMock.whenHasRooms()
+
+        let expectRooms = expectation(description: "rooms")
+
+        roomsSinkCancel = sut.$rooms.sink { rooms in
+            if rooms.count > 0 {
+                expectRooms.fulfill()
+            }
+        }
+
+        refreshNotificationMock.whenNotificationPosted()
+
+        XCTAssertEqual(.completed, XCTWaiter().wait(for: [expectRooms], timeout: 1))
     }
 }

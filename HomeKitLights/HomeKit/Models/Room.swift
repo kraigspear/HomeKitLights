@@ -13,12 +13,19 @@ import HomeKit
 struct Room: Identifiable, Hashable {
     let name: String
     let id: UUID
-    let accessories: [Accessory]
+    let lights: Lights
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
+
+    /// The highest brightness value
+    var maxBrightness: Int {
+        lights.max(by: { $0.brightness < $1.brightness })?.brightness ?? 0
+    }
 }
+
+typealias Rooms = [Room]
 
 /**
  * Mock room conforming to `RoomProtocol` that can be used in both
@@ -29,7 +36,7 @@ struct RoomMock {
         let accessory1 = AccessoryMock.light1()
         return Room(name: "Living Room",
                     id: UUID(uuidString: "46A68B10-0E92-4821-91A0-0D11926F284D")!,
-                    accessories: [accessory1])
+                    lights: [accessory1])
     }
 
     static func diningRooom() -> Room {
@@ -38,7 +45,7 @@ struct RoomMock {
 
         return Room(name: "Dining Room",
                     id: UUID(uuidString: "4B3C5FE2-1EA4-4764-AD36-CFE506A43606")!,
-                    accessories: [accessory1, accessory2])
+                    lights: [accessory1, accessory2])
     }
 
     static func kitchen() -> Room {
@@ -49,7 +56,7 @@ struct RoomMock {
 
         return Room(name: "Kitchen",
                     id: UUID(uuidString: "65F06C57-5191-45B8-BF78-9BBD922032A6")!,
-                    accessories: [accessory1, accessory2, accessory3, accessory4])
+                    lights: [accessory1, accessory2, accessory3, accessory4])
     }
 
     static func rooms() -> [Room] {

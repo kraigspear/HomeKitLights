@@ -30,6 +30,11 @@ final class RoomLightsViewModel: ObservableObject {
         self.homeKitAccessible = homeKitAccessible
         self.roomDataAccessible = roomDataAccessible
         self.hapticFeedback = hapticFeedback
+        setInitialBrightness()
+    }
+
+    private func setInitialBrightness() {
+        brightness = Double(room.maxBrightness)
     }
 
     func toggle() {

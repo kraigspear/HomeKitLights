@@ -34,6 +34,7 @@
 		A9D703EA23C915B7009E2229 /* RoomAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703E923C915B7009E2229 /* RoomAccessor.swift */; };
 		A9E98D2A23CCF24B006F171F /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E98D2923CCF24B006F171F /* HapticFeedback.swift */; };
 		A9E98D2C23CDF9DB006F171F /* RoomViewStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E98D2B23CDF9DB006F171F /* RoomViewStyleModifier.swift */; };
+		A9E98D2E23CE01A8006F171F /* RefreshNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E98D2D23CE01A8006F171F /* RefreshNotification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		A9D703E923C915B7009E2229 /* RoomAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomAccessor.swift; sourceTree = "<group>"; };
 		A9E98D2923CCF24B006F171F /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
 		A9E98D2B23CDF9DB006F171F /* RoomViewStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewStyleModifier.swift; sourceTree = "<group>"; };
+		A9E98D2D23CE01A8006F171F /* RefreshNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshNotification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +282,7 @@
 				A9D703D923C8B3FF009E2229 /* BaseOperation.swift */,
 				A9D703E623C91118009E2229 /* SequenceExtensions.swift */,
 				A9E98D2923CCF24B006F171F /* HapticFeedback.swift */,
+				A9E98D2D23CE01A8006F171F /* RefreshNotification.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				A9D52F0523C6258A00C6F91F /* RoomsViewModel.swift in Sources */,
 				A9E98D2A23CCF24B006F171F /* HapticFeedback.swift in Sources */,
 				A9D703DF23C8D4B4009E2229 /* ActivityIndicatorView.swift in Sources */,
+				A9E98D2E23CE01A8006F171F /* RefreshNotification.swift in Sources */,
 				A9D703E323C8F5CE009E2229 /* FilterSortButtons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

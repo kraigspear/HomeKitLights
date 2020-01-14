@@ -30,7 +30,7 @@ struct RoomLightsView: View {
                 TitleView(title: room.name, foregroundColor: Color("RoomText"))
 
                 LightsView(viewModel: viewModel,
-                           accessories: room.accessories)
+                           accessories: room.lights)
                     .frame(height: 50, alignment: .center)
                     .padding(.top, 20)
 
@@ -112,7 +112,7 @@ private struct BrightnessView: View {
 
     var body: some View {
         Slider(value: $viewModel.brightness,
-               in: 1 ... 100,
+               in: 0 ... 100,
                step: 0.1)
             .padding()
     }

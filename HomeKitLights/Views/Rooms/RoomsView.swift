@@ -69,8 +69,11 @@ struct ContentView_Previews: PreviewProvider {
 
         let roomData = RoomDataAccessibleMock()
 
+        let refreshNotification = RefreshNotificationMock()
+
         let viewModel = RoomsViewModel(homeKitAccessible: homeKitAccess,
-                                       roomDataAccessible: roomData)
+                                       roomDataAccessible: roomData,
+                                       refreshNotification: refreshNotification)
 
         viewModel.onAppear()
 

@@ -33,6 +33,11 @@ class HomeKitAccessMock: HomeKitAccessible {
             .eraseToAnyPublisher()
     }
 
+    private(set) var reloadCalled = 0
+    func reload() {
+        reloadCalled += 1
+    }
+
     var rooms: AnyPublisher<[Room], HomeKitAccessError> {
         if let roomsValue = roomsValue {
             return Just<[Room]>(roomsValue)

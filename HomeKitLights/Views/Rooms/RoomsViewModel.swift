@@ -84,19 +84,26 @@ final class RoomsViewModel: ObservableObject {
     /// Initialize a new instance with access to HomeKit
     /// - Parameter homeKitAccessible: Access to HomeKit
     init(homeKitAccessible: HomeKitAccessible,
-         roomDataAccessible: RoomDataAccessible) {
+         roomDataAccessible: RoomDataAccessible,
+         refreshNotification: RefreshNotificationProtocol) {
         self.homeKitAccessible = homeKitAccessible
         self.roomDataAccessible = roomDataAccessible
+        self.refreshNotification = refreshNotification
+
+        sinkToRooms()
 
         roomsUpdatedCancel = roomDataAccessible.roomsUpdated.sink {
-            self.reloadRooms()
+            homeKitAccessible.reload()
         }
+
+        sinkToForegroundNotification()
     }
 
     /// Init with defaults
     convenience init() {
         self.init(homeKitAccessible: HomeKitAccess(),
-                  roomDataAccessible: RoomAccessor.sharedAccessor)
+                  roomDataAccessible: RoomAccessor.sharedAccessor,
+                  refreshNotification: RefreshNotification())
     }
 
     // MARK: - Lifecycle
@@ -106,7 +113,7 @@ final class RoomsViewModel: ObservableObject {
         os_log("onAppear",
                log: log,
                type: .info)
-        reloadRooms()
+        homeKitAccessible.reload()
     }
 
     // MARK: - Loading
@@ -114,8 +121,8 @@ final class RoomsViewModel: ObservableObject {
     /// Allows cancelling of reloadRooms
     private var reloadRoomsCancel: AnyCancellable?
 
-    /// Reload rooms from HomeKit
-    private func reloadRooms() {
+    /// Sink to any room changes
+    private func sinkToRooms() {
         os_log("reloadRooms",
                log: log,
                type: .info)
@@ -169,9 +176,9 @@ final class RoomsViewModel: ObservableObject {
         case .all:
             sortedFilteredRooms = allRooms
         case .off:
-            sortedFilteredRooms = allRooms.filter { $0.accessories.any(itemsAre: { !$0.isOn }) }
+            sortedFilteredRooms = allRooms.filter { $0.lights.any(itemsAre: { !$0.isOn }) }
         case .on:
-            sortedFilteredRooms = allRooms.filter { $0.accessories.any(itemsAre: { $0.isOn }) }
+            sortedFilteredRooms = allRooms.filter { $0.lights.any(itemsAre: { $0.isOn }) }
         }
 
         // Sort by name first to start with name ascending.
@@ -197,5 +204,21 @@ final class RoomsViewModel: ObservableObject {
         roomsLastAccessed.sort { $0.dateLastAccessed > $1.dateLastAccessed }
 
         rooms = roomsLastAccessed.map { $0.room }
+    }
+
+    // MARK: - Foreground Notification
+
+    private var refreshNotificationCancel: AnyCancellable?
+    private let refreshNotification: RefreshNotificationProtocol
+
+    private func sinkToForegroundNotification() {
+        refreshNotificationCancel = refreshNotification.refreshPublisher.sink { _ in
+
+            os_log("refreshNotification refesh",
+                   log: self.log,
+                   type: .debug)
+
+            self.homeKitAccessible.reload()
+        }
     }
 }
