@@ -20,6 +20,7 @@ final class RoomLightsViewModel: ObservableObject {
     private var cancelToggle: AnyCancellable?
 
     @Published var isBusy = false
+    @Published var brightness: Double = 0.0
 
     init(room: Room,
          homeKitAccessible: HomeKitAccessible,

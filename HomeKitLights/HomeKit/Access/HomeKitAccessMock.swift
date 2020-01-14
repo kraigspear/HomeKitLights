@@ -1,5 +1,5 @@
 //
-//  HomeKitAccessPreview.swift
+//  HomeKitAccessMock.swift
 //  HomeKitLights
 //
 //  Created by Kraig Spear on 1/9/20.
@@ -9,7 +9,7 @@
 import Combine
 import Foundation
 
-class HomeKitAccessPreview: HomeKitAccessible {
+class HomeKitAccessMock: HomeKitAccessible {
     private var roomsValue: [Room]?
     private var roomsError: HomeKitAccessError?
 

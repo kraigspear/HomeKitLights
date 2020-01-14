@@ -8,6 +8,10 @@
 
 import SwiftUI
 
+// The only supported accessory is a light. Using a typealias to make it more readable
+typealias Light = Accessory
+typealias Lights = [Light]
+
 // MARK: - RoomLightsView
 
 struct RoomLightsView: View {
@@ -22,17 +26,19 @@ struct RoomLightsView: View {
 
     var body: some View {
         ZStack {
-            VStack {
+            VStack(alignment: .center) {
                 TitleView(title: room.name, foregroundColor: Color("RoomText"))
-                    .padding(.leading, 8)
 
-                ScrollView(.horizontal) {
-                    HStack {
-                        ForEach(room.accessories) {
-                            AccessoryView($0, viewModel: self.viewModel).padding()
-                        }
-                    }
-                }.padding(.trailing, 20)
+                LightsView(viewModel: viewModel,
+                           accessories: room.accessories)
+                    .frame(height: 50, alignment: .center)
+                    .padding(.top, 20)
+
+                BrightnessView(viewModel: viewModel)
+                    .frame(width: nil, height: 40, alignment: .center)
+                    .padding(.top, 20)
+
+                Spacer()
             }.gesture(TapGesture()
                 .onEnded { _ in self.viewModel.toggle() }
             )
@@ -48,31 +54,67 @@ struct RoomLightsView: View {
                 }
                 Spacer()
             }
+        }.cornerRadius(20)
+    }
+}
+
+private struct LightsView: View {
+    @ObservedObject var viewModel: RoomLightsViewModel
+    let lights: Lights
+
+    init(viewModel: RoomLightsViewModel,
+         accessories: Lights) {
+        self.viewModel = viewModel
+        lights = accessories
+    }
+
+    var body: some View {
+        ScrollView(.horizontal) {
+            HStack {
+                ForEach(lights) {
+                    LightView($0, viewModel: self.viewModel).padding()
+                }
+            }
         }
     }
 }
 
-private struct AccessoryView: View {
-    private let accessory: Accessory
+private struct LightView: View {
+    private let light: Light
     private let viewModel: RoomLightsViewModel
 
-    private static let imageSize: CGFloat = 54.0
+    private static let imageSize: CGFloat = 70.0
 
-    init(_ accessory: Accessory,
+    init(_ light: Light,
          viewModel: RoomLightsViewModel) {
-        self.accessory = accessory
+        self.light = light
         self.viewModel = viewModel
     }
 
     var body: some View {
         VStack {
-            Image(uiImage: UIImage(named: accessory.imageName)!)
+            Image(uiImage: UIImage(named: light.imageName)!)
                 .resizable()
-                .frame(width: AccessoryView.imageSize,
-                       height: AccessoryView.imageSize,
+                .frame(width: LightView.imageSize,
+                       height: LightView.imageSize,
                        alignment: .center)
-                .aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fill)
         }
+    }
+}
+
+private struct BrightnessView: View {
+    @ObservedObject var viewModel: RoomLightsViewModel
+
+    init(viewModel: RoomLightsViewModel) {
+        self.viewModel = viewModel
+    }
+
+    var body: some View {
+        Slider(value: $viewModel.brightness,
+               in: 1 ... 100,
+               step: 0.1)
+            .padding()
     }
 }
 
@@ -84,21 +126,30 @@ private extension Accessory {
 
 // MARK: - Previews
 
-// struct RoomView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let room = RoomMock.livingRoom()
-//
-//        let homeKitAccessible = HomeKitAccess()
-//        let lightsViewModel = LightsViewModel(homeKitAccessible: <#T##HomeKitAccessible#>)
-//
-//        return Group {
-//            RoomLightsView(room, viewModel: <#LightsViewModel#>)
-//                .previewLayout(.fixed(width: 400, height: 200))
-//                .environment(\.colorScheme, .light)
-//
-//            RoomLightsView(room)
-//                .previewLayout(.fixed(width: 400, height: 200))
-//                .environment(\.colorScheme, .dark)
-//        }
-//    }
-// }
+struct RoomView_Previews: PreviewProvider {
+    static var previews: some View {
+        let room = RoomMock.livingRoom()
+
+        let homeKit = HomeKitAccessMock()
+        let roomData = RoomDataAccessibleMock()
+        let hapticFeedbackMock = HapticFeedbackMock()
+        let roomLightsViewModel = RoomLightsViewModel(room: room,
+                                                      homeKitAccessible: homeKit,
+                                                      roomDataAccessible: roomData,
+                                                      hapticFeedback: hapticFeedbackMock)
+
+        return Group {
+            RoomLightsView(room,
+                           viewModel: roomLightsViewModel)
+                .roomStyle()
+                .previewLayout(.fixed(width: 400, height: 200))
+                .environment(\.colorScheme, .light)
+
+            RoomLightsView(room,
+                           viewModel: roomLightsViewModel)
+                .roomStyle()
+                .previewLayout(.fixed(width: 400, height: 200))
+                .environment(\.colorScheme, .dark)
+        }
+    }
+}

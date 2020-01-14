@@ -23,7 +23,7 @@
 		A9D52F0123C61FF900C6F91F /* HomeKitAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52F0023C61FF900C6F91F /* HomeKitAccess.swift */; };
 		A9D52F0523C6258A00C6F91F /* RoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52F0423C6258A00C6F91F /* RoomsViewModel.swift */; };
 		A9D52F0823C628D000C6F91F /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52F0723C628D000C6F91F /* Log.swift */; };
-		A9D703D523C76C7E009E2229 /* HomeKitAccessPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703D423C76C7E009E2229 /* HomeKitAccessPreview.swift */; };
+		A9D703D523C76C7E009E2229 /* HomeKitAccessMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703D423C76C7E009E2229 /* HomeKitAccessMock.swift */; };
 		A9D703DA23C8B3FF009E2229 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703D923C8B3FF009E2229 /* BaseOperation.swift */; };
 		A9D703DC23C8B477009E2229 /* CharasticToggleOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703DB23C8B477009E2229 /* CharasticToggleOperation.swift */; };
 		A9D703DF23C8D4B4009E2229 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703DE23C8D4B4009E2229 /* ActivityIndicatorView.swift */; };
@@ -33,6 +33,7 @@
 		A9D703E723C91118009E2229 /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703E623C91118009E2229 /* SequenceExtensions.swift */; };
 		A9D703EA23C915B7009E2229 /* RoomAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703E923C915B7009E2229 /* RoomAccessor.swift */; };
 		A9E98D2A23CCF24B006F171F /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E98D2923CCF24B006F171F /* HapticFeedback.swift */; };
+		A9E98D2C23CDF9DB006F171F /* RoomViewStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E98D2B23CDF9DB006F171F /* RoomViewStyleModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +77,7 @@
 		A9D52F0023C61FF900C6F91F /* HomeKitAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitAccess.swift; sourceTree = "<group>"; };
 		A9D52F0423C6258A00C6F91F /* RoomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewModel.swift; sourceTree = "<group>"; };
 		A9D52F0723C628D000C6F91F /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		A9D703D423C76C7E009E2229 /* HomeKitAccessPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitAccessPreview.swift; sourceTree = "<group>"; };
+		A9D703D423C76C7E009E2229 /* HomeKitAccessMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitAccessMock.swift; sourceTree = "<group>"; };
 		A9D703D923C8B3FF009E2229 /* BaseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
 		A9D703DB23C8B477009E2229 /* CharasticToggleOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharasticToggleOperation.swift; sourceTree = "<group>"; };
 		A9D703DE23C8D4B4009E2229 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 		A9D703E623C91118009E2229 /* SequenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensions.swift; sourceTree = "<group>"; };
 		A9D703E923C915B7009E2229 /* RoomAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomAccessor.swift; sourceTree = "<group>"; };
 		A9E98D2923CCF24B006F171F /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
+		A9E98D2B23CDF9DB006F171F /* RoomViewStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewStyleModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			children = (
 				A9D3F1B523C765D8004783A2 /* RoomLightsView.swift */,
 				A9D703E023C8D5CE009E2229 /* RoomLightsViewModel.swift */,
+				A9E98D2B23CDF9DB006F171F /* RoomViewStyleModifier.swift */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -232,7 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				A9D52F0023C61FF900C6F91F /* HomeKitAccess.swift */,
-				A9D703D423C76C7E009E2229 /* HomeKitAccessPreview.swift */,
+				A9D703D423C76C7E009E2229 /* HomeKitAccessMock.swift */,
 				A9D703DB23C8B477009E2229 /* CharasticToggleOperation.swift */,
 			);
 			path = Access;
@@ -463,9 +466,10 @@
 				A9D703E723C91118009E2229 /* SequenceExtensions.swift in Sources */,
 				A9D703EA23C915B7009E2229 /* RoomAccessor.swift in Sources */,
 				A9D52F0123C61FF900C6F91F /* HomeKitAccess.swift in Sources */,
-				A9D703D523C76C7E009E2229 /* HomeKitAccessPreview.swift in Sources */,
+				A9D703D523C76C7E009E2229 /* HomeKitAccessMock.swift in Sources */,
 				A9D703E523C8F679009E2229 /* TitleView.swift in Sources */,
 				A9D3F1B623C765D8004783A2 /* RoomLightsView.swift in Sources */,
+				A9E98D2C23CDF9DB006F171F /* RoomViewStyleModifier.swift in Sources */,
 				A9D52F0523C6258A00C6F91F /* RoomsViewModel.swift in Sources */,
 				A9E98D2A23CCF24B006F171F /* HapticFeedback.swift in Sources */,
 				A9D703DF23C8D4B4009E2229 /* ActivityIndicatorView.swift in Sources */,

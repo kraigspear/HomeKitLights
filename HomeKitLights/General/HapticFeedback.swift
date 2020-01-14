@@ -8,14 +8,15 @@
 
 import UIKit
 
-
 /// Provides Haptic feedback
 protocol HapticFeedbackProtocol {
-    
     /// Impact has occured
     func impactOccurred()
 }
 
+final class HapticFeedbackMock: HapticFeedbackProtocol {
+    func impactOccurred() {}
+}
 
 /// Wrapper around UIImpactFeedbackGenerator for unit testing.
 final class HapticFeedback: HapticFeedbackProtocol {

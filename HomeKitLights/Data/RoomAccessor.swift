@@ -23,6 +23,18 @@ protocol RoomDataAccessible {
     var roomsUpdated: AnyPublisher<Void, Never> { get }
 }
 
+final class RoomDataAccessibleMock: RoomDataAccessible {
+    func updateAccessTimeForRoom(id _: UUID) {}
+    func fetchLastAccessedRooms() -> [UUID: Date] {
+        return [:]
+    }
+
+    var roomsUpdatedSubject = PassthroughSubject<Void, Never>()
+    var roomsUpdated: AnyPublisher<Void, Never> {
+        roomsUpdatedSubject.eraseToAnyPublisher()
+    }
+}
+
 final class RoomAccessor: RoomDataAccessible {
     private let modelName = "HomeKitLights"
     private let log = Log.data

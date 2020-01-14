@@ -13,7 +13,8 @@ import XCTest
 final class LightsViewModelTest: XCTestCase {
     // MARK: - Dependencies
 
-    private var homeKitAccessibleMock: HomeKitAccessPreview!
+    private var homeKitAccessibleMock: HomeKitAccessMock!
+    private var roomDataAccessibleMock: RoomDataAccessibleMock!
 
     // MARK: - Subject under test
 
@@ -22,8 +23,10 @@ final class LightsViewModelTest: XCTestCase {
     // MARK: - Lifecycle
 
     override func setUp() {
-        homeKitAccessibleMock = HomeKitAccessPreview()
-        sut = RoomsViewModel(homeKitAccessible: homeKitAccessibleMock)
+        homeKitAccessibleMock = HomeKitAccessMock()
+        roomDataAccessibleMock = RoomDataAccessibleMock()
+        sut = RoomsViewModel(homeKitAccessible: homeKitAccessibleMock,
+                             roomDataAccessible: roomDataAccessibleMock)
     }
 
     override func tearDown() {

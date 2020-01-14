@@ -40,13 +40,7 @@ struct RoomsView: View {
                                                                           homeKitAccessible: self.viewModel.homeKitAccessible,
                                                                           roomDataAccessible: RoomAccessor.sharedAccessor,
                                                                           hapticFeedback: HapticFeedback.sharedHapticFeedback))
-                            .frame(minHeight: 150, idealHeight: 150,
-                                   alignment: .center)
-                            .background(Color("RoomBackground"))
-                            .cornerRadius(20)
-                            .padding(.leading, 14)
-                            .padding(.trailing, 14)
-                            .padding(.bottom, 12)
+                            .roomStyle()
                     }
 
                     Spacer()
@@ -68,18 +62,24 @@ struct RoomsView: View {
     }
 }
 
-// struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let homeKitPreview = HomeKitAccessPreview()
-//        homeKitPreview.whenHasRooms()
-//        let viewModel = RoomsViewModel(homeKitAccessible: homeKitPreview)
-//
-//        return Group {
-//            RoomsView(viewModel: viewModel)
-//                .environment(\.colorScheme, .light)
-//
-//            RoomsView(viewModel: viewModel)
-//                .environment(\.colorScheme, .dark)
-//        }
-//    }
-// }
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        let homeKitAccess = HomeKitAccessMock()
+        homeKitAccess.whenHasRooms()
+
+        let roomData = RoomDataAccessibleMock()
+
+        let viewModel = RoomsViewModel(homeKitAccessible: homeKitAccess,
+                                       roomDataAccessible: roomData)
+
+        viewModel.onAppear()
+
+        return Group {
+            RoomsView(viewModel: viewModel)
+                .environment(\.colorScheme, .light)
+
+            RoomsView(viewModel: viewModel)
+                .environment(\.colorScheme, .dark)
+        }
+    }
+}
