@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A94F615323CE4C0000542349 /* HomeKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94F615223CE4C0000542349 /* HomeKitExtensions.swift */; };
+		A983705423CE543A00CBEC63 /* UpdatePowerInRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983705323CE543A00CBEC63 /* UpdatePowerInRoom.swift */; };
+		A983705623CE546300CBEC63 /* RoomUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983705523CE546300CBEC63 /* RoomUpdatable.swift */; };
+		A983705823CE640E00CBEC63 /* UpdateBrightnessInRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983705723CE640E00CBEC63 /* UpdateBrightnessInRoom.swift */; };
 		A9D3F1B623C765D8004783A2 /* RoomLightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3F1B523C765D8004783A2 /* RoomLightsView.swift */; };
 		A9D3F1B823C76649004783A2 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3F1B723C76649004783A2 /* Accessory.swift */; };
 		A9D52EC323C613B900C6F91F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EC223C613B900C6F91F /* AppDelegate.swift */; };
@@ -25,7 +29,7 @@
 		A9D52F0823C628D000C6F91F /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52F0723C628D000C6F91F /* Log.swift */; };
 		A9D703D523C76C7E009E2229 /* HomeKitAccessMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703D423C76C7E009E2229 /* HomeKitAccessMock.swift */; };
 		A9D703DA23C8B3FF009E2229 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703D923C8B3FF009E2229 /* BaseOperation.swift */; };
-		A9D703DC23C8B477009E2229 /* CharasticToggleOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703DB23C8B477009E2229 /* CharasticToggleOperation.swift */; };
+		A9D703DC23C8B477009E2229 /* CharasticWriteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703DB23C8B477009E2229 /* CharasticWriteOperation.swift */; };
 		A9D703DF23C8D4B4009E2229 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703DE23C8D4B4009E2229 /* ActivityIndicatorView.swift */; };
 		A9D703E123C8D5CE009E2229 /* RoomLightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703E023C8D5CE009E2229 /* RoomLightsViewModel.swift */; };
 		A9D703E323C8F5CE009E2229 /* FilterSortButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703E223C8F5CE009E2229 /* FilterSortButtons.swift */; };
@@ -55,6 +59,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A94F615223CE4C0000542349 /* HomeKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitExtensions.swift; sourceTree = "<group>"; };
+		A983705323CE543A00CBEC63 /* UpdatePowerInRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePowerInRoom.swift; sourceTree = "<group>"; };
+		A983705523CE546300CBEC63 /* RoomUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomUpdatable.swift; sourceTree = "<group>"; };
+		A983705723CE640E00CBEC63 /* UpdateBrightnessInRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBrightnessInRoom.swift; sourceTree = "<group>"; };
 		A9D3F1B523C765D8004783A2 /* RoomLightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomLightsView.swift; sourceTree = "<group>"; };
 		A9D3F1B723C76649004783A2 /* Accessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
 		A9D52EBF23C613B900C6F91F /* HomeKitLights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeKitLights.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,7 +88,7 @@
 		A9D52F0723C628D000C6F91F /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		A9D703D423C76C7E009E2229 /* HomeKitAccessMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitAccessMock.swift; sourceTree = "<group>"; };
 		A9D703D923C8B3FF009E2229 /* BaseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
-		A9D703DB23C8B477009E2229 /* CharasticToggleOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharasticToggleOperation.swift; sourceTree = "<group>"; };
+		A9D703DB23C8B477009E2229 /* CharasticWriteOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharasticWriteOperation.swift; sourceTree = "<group>"; };
 		A9D703DE23C8D4B4009E2229 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		A9D703E023C8D5CE009E2229 /* RoomLightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomLightsViewModel.swift; sourceTree = "<group>"; };
 		A9D703E223C8F5CE009E2229 /* FilterSortButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSortButtons.swift; sourceTree = "<group>"; };
@@ -126,6 +134,16 @@
 				A9D52F0423C6258A00C6F91F /* RoomsViewModel.swift */,
 			);
 			path = Rooms;
+			sourceTree = "<group>";
+		};
+		A983705223CE540100CBEC63 /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				A983705323CE543A00CBEC63 /* UpdatePowerInRoom.swift */,
+				A983705523CE546300CBEC63 /* RoomUpdatable.swift */,
+				A983705723CE640E00CBEC63 /* UpdateBrightnessInRoom.swift */,
+			);
+			path = Update;
 			sourceTree = "<group>";
 		};
 		A9D3F1B423C764F6004783A2 /* Room */ = {
@@ -210,6 +228,7 @@
 		A9D52EF523C614B700C6F91F /* HomeKit */ = {
 			isa = PBXGroup;
 			children = (
+				A983705223CE540100CBEC63 /* Update */,
 				A9D52EFF23C61B4000C6F91F /* Access */,
 				A9D52EF623C614BE00C6F91F /* Models */,
 			);
@@ -238,7 +257,8 @@
 			children = (
 				A9D52F0023C61FF900C6F91F /* HomeKitAccess.swift */,
 				A9D703D423C76C7E009E2229 /* HomeKitAccessMock.swift */,
-				A9D703DB23C8B477009E2229 /* CharasticToggleOperation.swift */,
+				A9D703DB23C8B477009E2229 /* CharasticWriteOperation.swift */,
+				A94F615223CE4C0000542349 /* HomeKitExtensions.swift */,
 			);
 			path = Access;
 			sourceTree = "<group>";
@@ -456,19 +476,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A983705623CE546300CBEC63 /* RoomUpdatable.swift in Sources */,
 				A9D703E123C8D5CE009E2229 /* RoomLightsViewModel.swift in Sources */,
-				A9D703DC23C8B477009E2229 /* CharasticToggleOperation.swift in Sources */,
+				A9D703DC23C8B477009E2229 /* CharasticWriteOperation.swift in Sources */,
 				A9D52EC323C613B900C6F91F /* AppDelegate.swift in Sources */,
 				A9D52EC823C613B900C6F91F /* HomeKitLights.xcdatamodeld in Sources */,
+				A94F615323CE4C0000542349 /* HomeKitExtensions.swift in Sources */,
 				A9D52F0823C628D000C6F91F /* Log.swift in Sources */,
 				A9D52ECA23C613B900C6F91F /* RoomsView.swift in Sources */,
 				A9D52EC523C613B900C6F91F /* SceneDelegate.swift in Sources */,
+				A983705823CE640E00CBEC63 /* UpdateBrightnessInRoom.swift in Sources */,
 				A9D52EFC23C616FE00C6F91F /* Room.swift in Sources */,
 				A9D703DA23C8B3FF009E2229 /* BaseOperation.swift in Sources */,
 				A9D3F1B823C76649004783A2 /* Accessory.swift in Sources */,
 				A9D703E723C91118009E2229 /* SequenceExtensions.swift in Sources */,
 				A9D703EA23C915B7009E2229 /* RoomAccessor.swift in Sources */,
 				A9D52F0123C61FF900C6F91F /* HomeKitAccess.swift in Sources */,
+				A983705423CE543A00CBEC63 /* UpdatePowerInRoom.swift in Sources */,
 				A9D703D523C76C7E009E2229 /* HomeKitAccessMock.swift in Sources */,
 				A9D703E523C8F679009E2229 /* TitleView.swift in Sources */,
 				A9D3F1B623C765D8004783A2 /* RoomLightsView.swift in Sources */,

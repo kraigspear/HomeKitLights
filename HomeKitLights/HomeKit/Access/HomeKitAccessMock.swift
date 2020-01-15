@@ -10,6 +10,12 @@ import Combine
 import Foundation
 
 class HomeKitAccessMock: HomeKitAccessible {
+    func updateBrightness(_: Int, forRoom _: Room) -> AnyPublisher<Void, Error> {
+        return Just<Void>(())
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
+
     private var roomsValue: [Room]?
     private var roomsError: HomeKitAccessError?
 

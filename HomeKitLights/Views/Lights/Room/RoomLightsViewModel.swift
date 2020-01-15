@@ -19,8 +19,11 @@ final class RoomLightsViewModel: ObservableObject {
 
     private var cancelToggle: AnyCancellable?
 
+    private var brightnessCancel: AnyCancellable?
+
     @Published var isBusy = false
     @Published var brightness: Double = 0.0
+    @Published var isBrightnessVisible = false
 
     init(room: Room,
          homeKitAccessible: HomeKitAccessible,
@@ -31,10 +34,12 @@ final class RoomLightsViewModel: ObservableObject {
         self.roomDataAccessible = roomDataAccessible
         self.hapticFeedback = hapticFeedback
         setInitialBrightness()
+        sinkToBrightness()
     }
 
     private func setInitialBrightness() {
         brightness = Double(room.maxBrightness)
+        isBrightnessVisible = room.areAnyLightsOn
     }
 
     func toggle() {
@@ -72,5 +77,43 @@ final class RoomLightsViewModel: ObservableObject {
 
             }) { _ in
             }
+    }
+
+    private var sinkToBrightnessCancel: AnyCancellable?
+    /// Subscribe to brightness changes
+    private func sinkToBrightness() {
+        sinkToBrightnessCancel = updatedateBrigthnessPublisher.sink(receiveCompletion: {
+            completed in
+
+            switch completed {
+            case let .failure(error):
+                os_log("Error syncing brightness: %s",
+                       log: self.log,
+                       type: .error,
+                       error.localizedDescription)
+            case .finished:
+                os_log("Finished sinking brightness",
+                       log: Log.homeKitAccess,
+                       type: .debug)
+            }
+
+        }) { _ in }
+    }
+
+    private var updatedateBrigthnessPublisher: AnyPublisher<Void, Error> {
+        $brightness.debounce(for: 1.0, scheduler: RunLoop.main)
+            .setFailureType(to: Error.self)
+            .map { Int($0) }
+            .filter { $0 != self.room.maxBrightness } // Avoid setting to current value
+            .removeDuplicates()
+            .flatMap { brightness -> AnyPublisher<Void, Error> in
+
+                os_log("Updating brightness to value: %d",
+                       log: Log.homeKitAccess,
+                       type: .debug,
+                       brightness)
+
+                return self.homeKitAccessible.updateBrightness(brightness, forRoom: self.room).eraseToAnyPublisher()
+            }.eraseToAnyPublisher()
     }
 }

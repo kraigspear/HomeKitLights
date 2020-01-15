@@ -23,6 +23,10 @@ struct Room: Identifiable, Hashable {
     var maxBrightness: Int {
         lights.max(by: { $0.brightness < $1.brightness })?.brightness ?? 0
     }
+
+    var areAnyLightsOn: Bool {
+        lights.any(itemsAre: { $0.isOn })
+    }
 }
 
 typealias Rooms = [Room]
@@ -57,6 +61,13 @@ struct RoomMock {
         return Room(name: "Kitchen",
                     id: UUID(uuidString: "65F06C57-5191-45B8-BF78-9BBD922032A6")!,
                     lights: [accessory1, accessory2, accessory3, accessory4])
+    }
+
+    static func roomNoBrightness() -> Room {
+        let notBright = AccessoryMock.lightNoBrightness()
+        return Room(name: "Not bright",
+                    id: UUID(uuidString: "F584E2C9-2645-45F1-8B82-EAB38A18D0EB")!,
+                    lights: [notBright])
     }
 
     static func rooms() -> [Room] {

@@ -32,12 +32,16 @@ struct RoomLightsView: View {
                 LightsView(viewModel: viewModel,
                            accessories: room.lights)
                     .frame(height: 50, alignment: .center)
+                    .padding(.leading, 5)
+                    .padding(.trailing, 5)
                     .padding(.top, 20)
+                    .padding(.bottom, viewModel.isBrightnessVisible ? 0 : 20)
 
-                BrightnessView(viewModel: viewModel)
-                    .frame(width: nil, height: 40, alignment: .center)
-                    .padding(.top, 20)
-
+                if viewModel.isBrightnessVisible {
+                    BrightnessView(viewModel: viewModel)
+                        .frame(width: nil, height: 40, alignment: .center)
+                        .padding(.top, 20)
+                }
                 Spacer()
             }.gesture(TapGesture()
                 .onEnded { _ in self.viewModel.toggle() }
@@ -138,18 +142,32 @@ struct RoomView_Previews: PreviewProvider {
                                                       roomDataAccessible: roomData,
                                                       hapticFeedback: hapticFeedbackMock)
 
+        let roomLightsViewModelNotBright = RoomLightsViewModel(room: RoomMock.roomNoBrightness(),
+                                                               homeKitAccessible: homeKit,
+                                                               roomDataAccessible: roomData,
+                                                               hapticFeedback: hapticFeedbackMock)
+
         return Group {
             RoomLightsView(room,
                            viewModel: roomLightsViewModel)
                 .roomStyle()
                 .previewLayout(.fixed(width: 400, height: 200))
                 .environment(\.colorScheme, .light)
+                .previewDisplayName("Light")
 
             RoomLightsView(room,
                            viewModel: roomLightsViewModel)
                 .roomStyle()
                 .previewLayout(.fixed(width: 400, height: 200))
                 .environment(\.colorScheme, .dark)
+                .previewDisplayName("Dark")
+
+            RoomLightsView(room,
+                           viewModel: roomLightsViewModelNotBright)
+                .roomStyle()
+                .previewLayout(.fixed(width: 400, height: 200))
+                .environment(\.colorScheme, .dark)
+                .previewDisplayName("No Brightness")
         }
     }
 }

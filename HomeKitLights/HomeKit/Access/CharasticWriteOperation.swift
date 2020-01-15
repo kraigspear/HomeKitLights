@@ -9,18 +9,19 @@
 import Foundation
 import HomeKit
 
-final class CharasticToggleOperation: BaseOperation {
+/// Wrap writing to a `HMCharacteristic`
+final class CharasticWriteOperation: BaseOperation {
     private let characteristic: HMCharacteristic
-    private let turnOn: Bool
+    private let value: Any
 
     init(characteristic: HMCharacteristic,
-         turnOn: Bool) {
+         value: Any) {
         self.characteristic = characteristic
-        self.turnOn = turnOn
+        self.value = value
     }
 
     override func main() {
-        characteristic.writeValue(turnOn) { error in
+        characteristic.writeValue(value) { error in
             super.error = error
             self.done()
         }
