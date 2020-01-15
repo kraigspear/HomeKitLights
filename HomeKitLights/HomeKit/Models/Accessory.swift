@@ -51,4 +51,16 @@ struct AccessoryMock {
               isOn: false,
               brightness: 50)
     }
+
+    static func lightThatIsOn() -> Light {
+        Light(name: "Some Light", id: UUID(uuidString: "67ACA76F-2BD8-477C-A02E-2D8E5F202AA8")!,
+              isOn: true,
+              brightness: 50)
+    }
+
+    static func lightThatIsOff() -> Light {
+        Light(name: "Some Light", id: UUID(uuidString: "31D60833-62D2-4BDA-B028-A8CFDA4138D2")!,
+              isOn: false,
+              brightness: 50)
+    }
 }

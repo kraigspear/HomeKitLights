@@ -22,42 +22,64 @@ struct RoomsView: View {
 
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack {
-                    if viewModel.isShowingSortFilter {
-                        FilterSortButtons(viewModel: viewModel)
-                            .padding(.top, 8)
-                            .padding(.leading, 8)
-                            .padding(.trailing, 8)
-                    }
-
-                    TitleView(title: "Rooms",
-                              foregroundColor: .primary)
-                        .padding(.bottom, 8)
-
-                    ForEach(viewModel.rooms) {
-                        RoomLightsView($0, viewModel: RoomLightsViewModel(room: $0,
-                                                                          homeKitAccessible: self.viewModel.homeKitAccessible,
-                                                                          roomDataAccessible: RoomAccessor.sharedAccessor,
-                                                                          hapticFeedback: HapticFeedback.sharedHapticFeedback))
-                            .roomStyle()
-                    }
-
-                    Spacer()
+            ZStack {
+                if viewModel.isEmptyStateVisible {
+                    EmptyStateView()
                 }
-            }
-            .accentColor(Color("FilterLightsOn"))
-            .onAppear { self.viewModel.onAppear() }
-            .navigationBarTitle(Text("Lights"), displayMode: .large)
-            .navigationBarItems(trailing:
-                Button(action: {
-                    withAnimation {
-                        self.viewModel.toggleShowingFilter()
+
+                ScrollView {
+                    VStack {
+                        if viewModel.isShowingSortFilter {
+                            FilterSortButtons(viewModel: viewModel)
+                                .padding(.top, 8)
+                                .padding(.leading, 8)
+                                .padding(.trailing, 8)
+                        }
+
+                        TitleView(title: "Rooms",
+                                  foregroundColor: .primary)
+                            .padding(.bottom, 8)
+
+                        ForEach(viewModel.rooms) {
+                            RoomLightsView($0, viewModel: RoomLightsViewModel(room: $0,
+                                                                              homeKitAccessible: self.viewModel.homeKitAccessible,
+                                                                              roomDataAccessible: RoomAccessor.sharedAccessor,
+                                                                              hapticFeedback: HapticFeedback.sharedHapticFeedback))
+                                .roomStyle()
+                        }
+
+                        Spacer()
                     }
-                }, label: {
-                    Image(self.viewModel.filterButtonImage)
-                        .accentColor(Color("FilterLightsOn"))
-            }))
+                }
+                .accentColor(Color("FilterLightsOn"))
+                .onAppear { self.viewModel.onAppear() }
+                .navigationBarTitle(Text("Lights"), displayMode: .large)
+                .navigationBarItems(trailing:
+                    Button(action: {
+                        withAnimation {
+                            self.viewModel.toggleShowingFilter()
+                        }
+                    }, label: {
+                        Image(self.viewModel.filterButtonImage)
+                            .accentColor(Color("FilterLightsOn"))
+                }))
+            }
+        }
+    }
+}
+
+struct EmptyStateView: View {
+    var body: some View {
+        VStack(alignment: .center) {
+            Spacer()
+
+            Text("Either rooms have not been setup in HomeKit, or the required permissions have not been given.")
+                .font(.headline)
+                .multilineTextAlignment(.center)
+                .foregroundColor(.secondary)
+                .padding()
+
+            Spacer()
         }
     }
 }
@@ -70,9 +92,11 @@ struct ContentView_Previews: PreviewProvider {
         let roomData = RoomDataAccessibleMock()
 
         let refreshNotification = RefreshNotificationMock()
+        let roomFilterMock = RoomFilterSortMock()
 
         let viewModel = RoomsViewModel(homeKitAccessible: homeKitAccess,
                                        roomDataAccessible: roomData,
+                                       roomFilterSortable: roomFilterMock,
                                        refreshNotification: refreshNotification)
 
         viewModel.onAppear()

@@ -9,40 +9,11 @@
 import Combine
 import Foundation
 
-class HomeKitAccessMock: HomeKitAccessible {
-    func updateBrightness(_: Int, forRoom _: Room) -> AnyPublisher<Void, Error> {
-        return Just<Void>(())
-            .setFailureType(to: Error.self)
-            .eraseToAnyPublisher()
-    }
+final class HomeKitAccessMock: HomeKitAccessible {
+    // MARK: - Rooms
 
     private var roomsValue: [Room]?
     private var roomsError: HomeKitAccessError?
-
-    private var toggleSuccess = true
-
-    func whenHasRooms() {
-        roomsValue = RoomMock.rooms()
-    }
-
-    func whenRoomsHasError() {
-        roomsError = HomeKitAccessError.homeNotFound
-    }
-
-    func whenToggleSuccess() {
-        toggleSuccess = true
-    }
-
-    func toggle(_: Room) -> AnyPublisher<Void, Error> {
-        Just<Void>(())
-            .setFailureType(to: Error.self)
-            .eraseToAnyPublisher()
-    }
-
-    private(set) var reloadCalled = 0
-    func reload() {
-        reloadCalled += 1
-    }
 
     var rooms: AnyPublisher<[Room], HomeKitAccessError> {
         if let roomsValue = roomsValue {
@@ -56,5 +27,54 @@ class HomeKitAccessMock: HomeKitAccessible {
         }
 
         preconditionFailure("Expected result or error")
+    }
+
+    func whenHasRooms() {
+        roomsValue = RoomMock.rooms()
+        roomsError = nil
+    }
+
+    func whenHasOneRoomOnAndOneRoomOff() {
+        roomsValue = [RoomMock.roomWithLightOn(), RoomMock.roomWithLightOff()]
+        roomsError = nil
+    }
+
+    func whenThereAreNoRooms() {
+        roomsValue = []
+        roomsError = nil
+    }
+
+    func whenRoomsHasError() {
+        roomsValue = nil
+        roomsError = HomeKitAccessError.homeNotFound
+    }
+
+    // MARK: - Toggle
+
+    func whenToggleSuccess() {
+        toggleSuccess = true
+    }
+
+    private var toggleSuccess = true
+
+    func toggle(_: Room) -> AnyPublisher<Void, Error> {
+        Just<Void>(())
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
+
+    // MARK: - Reload
+
+    private(set) var reloadCalled = 0
+    func reload() {
+        reloadCalled += 1
+    }
+
+    // MARK: - Brightness
+
+    func updateBrightness(_: Int, forRoom _: Room) -> AnyPublisher<Void, Error> {
+        return Just<Void>(())
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
     }
 }

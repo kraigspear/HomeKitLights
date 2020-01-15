@@ -70,6 +70,18 @@ struct RoomMock {
                     lights: [notBright])
     }
 
+    static func roomWithLightOn() -> Room {
+        return Room(name: "Room that is on",
+                    id: UUID(uuidString: "C21B4028-730F-4EEB-9694-58135E67ADF2")!,
+                    lights: [AccessoryMock.lightThatIsOn()])
+    }
+
+    static func roomWithLightOff() -> Room {
+        return Room(name: "Room that is Off",
+                    id: UUID(uuidString: "5698437D-A75A-4F51-AD10-7B29680B538C")!,
+                    lights: [AccessoryMock.lightThatIsOff()])
+    }
+
     static func rooms() -> [Room] {
         return [livingRoom(),
                 diningRooom(),

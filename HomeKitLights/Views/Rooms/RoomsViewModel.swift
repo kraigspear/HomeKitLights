@@ -32,9 +32,6 @@ enum RoomSort: Int {
 final class RoomsViewModel: ObservableObject {
     // MARK: - Members
 
-    private static let FilterButtonImage = "SortFilter"
-    private static let FilterButtonImageFilled = "SortFilterFilled"
-
     private let log = Log.lightsView
 
     /// Rooms that lights are in
@@ -58,6 +55,9 @@ final class RoomsViewModel: ObservableObject {
         }
     }
 
+    static let FilterButtonImage = "SortFilter"
+    static let FilterButtonImageFilled = "SortFilterFilled"
+
     @Published var filterButtonImage = RoomsViewModel.FilterButtonImage
     @Published var isShowingSortFilter = false {
         didSet {
@@ -70,14 +70,25 @@ final class RoomsViewModel: ObservableObject {
     }
 
     /// All rooms, Filters are applied to this array
-    private var allRooms: [Room] = []
+    private var allRooms: [Room] = [] {
+        didSet {
+            isEmptyStateVisible = allRooms.isEmpty
+        }
+    }
 
     /// Access to HomeKit
     let homeKitAccessible: HomeKitAccessible
-
     private let roomDataAccessible: RoomDataAccessible
 
+    /// Sorts filters rooms
+    private let roomFilterSortable: RoomFilterSortable
+
     private var roomsUpdatedCancel: AnyCancellable?
+
+    // MARK: - Empty State
+
+    /// There are no rooms, empty state should be shown.
+    @Published var isEmptyStateVisible = true
 
     // MARK: - Init
 
@@ -85,24 +96,31 @@ final class RoomsViewModel: ObservableObject {
     /// - Parameter homeKitAccessible: Access to HomeKit
     init(homeKitAccessible: HomeKitAccessible,
          roomDataAccessible: RoomDataAccessible,
+         roomFilterSortable: RoomFilterSortable,
          refreshNotification: RefreshNotificationProtocol) {
         self.homeKitAccessible = homeKitAccessible
         self.roomDataAccessible = roomDataAccessible
+        self.roomFilterSortable = roomFilterSortable
         self.refreshNotification = refreshNotification
 
         sinkToRooms()
-
-        roomsUpdatedCancel = roomDataAccessible.roomsUpdated.sink {
-            homeKitAccessible.reload()
-        }
-
+        sinkToDataChanges()
         sinkToForegroundNotification()
+    }
+
+    /// Sink to any changes from the database.
+    /// Occures when the last selected item is set
+    private func sinkToDataChanges() {
+        roomsUpdatedCancel = roomDataAccessible.roomsUpdated.sink {
+            self.homeKitAccessible.reload()
+        }
     }
 
     /// Init with defaults
     convenience init() {
         self.init(homeKitAccessible: HomeKitAccess(),
                   roomDataAccessible: RoomAccessor.sharedAccessor,
+                  roomFilterSortable: RoomFilterSort(),
                   refreshNotification: RefreshNotification())
     }
 
@@ -123,7 +141,7 @@ final class RoomsViewModel: ObservableObject {
 
     /// Sink to any room changes
     private func sinkToRooms() {
-        os_log("reloadRooms",
+        os_log("sinkToRooms",
                log: log,
                type: .info)
 
@@ -168,42 +186,11 @@ final class RoomsViewModel: ObservableObject {
                type: .debug)
 
         let filter = RoomFilter(rawValue: filterIndex)!
-        let sort = RoomSort(rawValue: sortIndex)
+        let sort = RoomSort(rawValue: sortIndex)!
 
-        var sortedFilteredRooms: [Room] = []
-
-        switch filter {
-        case .all:
-            sortedFilteredRooms = allRooms
-        case .off:
-            sortedFilteredRooms = allRooms.filter { $0.lights.any(itemsAre: { !$0.isOn }) }
-        case .on:
-            sortedFilteredRooms = allRooms.filter { $0.lights.any(itemsAre: { $0.isOn }) }
-        }
-
-        // Sort by name first to start with name ascending.
-        sortedFilteredRooms.sort { $0.name < $1.name }
-
-        if sort == RoomSort.alphabetical {
-            rooms = sortedFilteredRooms
-            return
-        }
-
-        let lastAccessedRooms = roomDataAccessible.fetchLastAccessedRooms()
-
-        struct RoomLastAccessed {
-            let room: Room
-            let dateLastAccessed: Date
-        }
-
-        var roomsLastAccessed = sortedFilteredRooms.map { room -> RoomLastAccessed in
-            let lastAccessed = lastAccessedRooms[room.id] ?? Date(timeIntervalSince1970: 0)
-            return RoomLastAccessed(room: room, dateLastAccessed: lastAccessed)
-        }
-
-        roomsLastAccessed.sort { $0.dateLastAccessed > $1.dateLastAccessed }
-
-        rooms = roomsLastAccessed.map { $0.room }
+        rooms = roomFilterSortable.apply(filter: filter,
+                                         sort: sort,
+                                         on: allRooms)
     }
 
     // MARK: - Foreground Notification

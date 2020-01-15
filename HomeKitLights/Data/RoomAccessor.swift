@@ -24,12 +24,16 @@ protocol RoomDataAccessible {
 }
 
 final class RoomDataAccessibleMock: RoomDataAccessible {
+    func sendRoomDataUpdated() {
+        roomsUpdatedSubject.send(())
+    }
+
     func updateAccessTimeForRoom(id _: UUID) {}
     func fetchLastAccessedRooms() -> [UUID: Date] {
         return [:]
     }
 
-    var roomsUpdatedSubject = PassthroughSubject<Void, Never>()
+    private var roomsUpdatedSubject = PassthroughSubject<Void, Never>()
     var roomsUpdated: AnyPublisher<Void, Never> {
         roomsUpdatedSubject.eraseToAnyPublisher()
     }
