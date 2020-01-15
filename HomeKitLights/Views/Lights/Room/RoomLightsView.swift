@@ -35,9 +35,9 @@ struct RoomLightsView: View {
                     .padding(.leading, 5)
                     .padding(.trailing, 5)
                     .padding(.top, 20)
-                    .padding(.bottom, viewModel.isBrightnessVisible ? 0 : 20)
+                    .padding(.bottom, viewModel.areLightsOn ? 0 : 20)
 
-                if viewModel.isBrightnessVisible {
+                if viewModel.areLightsOn {
                     BrightnessView(viewModel: viewModel)
                         .frame(width: nil, height: 40, alignment: .center)
                         .padding(.top, 20)
@@ -85,7 +85,7 @@ private struct LightsView: View {
 
 private struct LightView: View {
     private let light: Light
-    private let viewModel: RoomLightsViewModel
+    @ObservedObject private var viewModel: RoomLightsViewModel
 
     private static let imageSize: CGFloat = 70.0
 
@@ -97,12 +97,13 @@ private struct LightView: View {
 
     var body: some View {
         VStack {
-            Image(uiImage: UIImage(named: light.imageName)!)
+            Image(viewModel.imageName)
                 .resizable()
                 .frame(width: LightView.imageSize,
                        height: LightView.imageSize,
                        alignment: .center)
                 .aspectRatio(contentMode: .fill)
+                .opacity(Double(viewModel.imageOpacity))
         }
     }
 }
@@ -119,12 +120,6 @@ private struct BrightnessView: View {
                in: 0 ... 100,
                step: 0.1)
             .padding()
-    }
-}
-
-private extension Accessory {
-    var imageName: String {
-        isOn ? "LightOn" : "LightOff"
     }
 }
 

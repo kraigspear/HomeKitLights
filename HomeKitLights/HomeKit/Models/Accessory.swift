@@ -25,30 +25,30 @@ struct AccessoryMock {
         Light(name: "light1",
               id: UUID(uuidString: "C9C9BC8E-1F6F-458D-BAF4-99722786805D")!,
               isOn: true,
-              brightness: 1)
+              brightness: 95)
     }
 
     static func light2() -> Light {
         Light(name: "light2", id: UUID(uuidString: "D23A4FED-9415-4F7E-BCA3-6A850398E557")!,
               isOn: false,
-              brightness: 1)
+              brightness: 50)
     }
 
     static func light3() -> Light {
         Light(name: "light3", id: UUID(uuidString: "72141C0C-767A-4781-9BAC-BC767BD010D9")!,
               isOn: false,
-              brightness: 1)
+              brightness: 10)
     }
 
     static func light4() -> Light {
         Light(name: "light4", id: UUID(uuidString: "129CFD34-B03F-44B1-A4CC-9DFB0924BB5D")!,
               isOn: true,
-              brightness: 1)
+              brightness: 100)
     }
 
     static func lightNoBrightness() -> Light {
         Light(name: "not bright", id: UUID(uuidString: "72DA99E8-C144-4C12-99C8-5EC0A9526A73")!,
               isOn: false,
-              brightness: 0)
+              brightness: 50)
     }
 }

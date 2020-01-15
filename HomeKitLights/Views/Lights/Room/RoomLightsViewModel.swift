@@ -23,7 +23,9 @@ final class RoomLightsViewModel: ObservableObject {
 
     @Published var isBusy = false
     @Published var brightness: Double = 0.0
-    @Published var isBrightnessVisible = false
+    @Published var areLightsOn = false
+    @Published var imageOpacity: Float = 0.0
+    @Published var imageName = "LightOff"
 
     init(room: Room,
          homeKitAccessible: HomeKitAccessible,
@@ -39,7 +41,24 @@ final class RoomLightsViewModel: ObservableObject {
 
     private func setInitialBrightness() {
         brightness = Double(room.maxBrightness)
-        isBrightnessVisible = room.areAnyLightsOn
+        areLightsOn = room.areAnyLightsOn
+        updateLightOpacity()
+    }
+
+    private func updateLightOpacity() {
+        imageName = areLightsOn ? "LightOn" : "LightOff"
+
+        if areLightsOn {
+            imageOpacity = Float(brightness) / 100.0
+        } else {
+            imageOpacity = 1.0
+        }
+
+        os_log("updateLightOpacity areLightsOn: %s, opactiy: %f",
+               log: log,
+               type: .debug,
+               areLightsOn.description,
+               Float(imageOpacity))
     }
 
     func toggle() {
@@ -82,29 +101,34 @@ final class RoomLightsViewModel: ObservableObject {
     private var sinkToBrightnessCancel: AnyCancellable?
     /// Subscribe to brightness changes
     private func sinkToBrightness() {
-        sinkToBrightnessCancel = updatedateBrigthnessPublisher.sink(receiveCompletion: {
-            completed in
+        sinkToBrightnessCancel = updatedateBrigthnessPublisher
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: {
+                completed in
 
-            switch completed {
-            case let .failure(error):
-                os_log("Error syncing brightness: %s",
-                       log: self.log,
-                       type: .error,
-                       error.localizedDescription)
-            case .finished:
-                os_log("Finished sinking brightness",
-                       log: Log.homeKitAccess,
-                       type: .debug)
+                switch completed {
+                case let .failure(error):
+                    os_log("Error syncing brightness: %s",
+                           log: self.log,
+                           type: .error,
+                           error.localizedDescription)
+                case .finished:
+                    os_log("Finished sinking brightness",
+                           log: Log.homeKitAccess,
+                           type: .debug)
+                }
+
+            }) { _ in
+                self.updateLightOpacity()
             }
-
-        }) { _ in }
     }
 
+    /// Publisher providing a publisher that updates the brightness
     private var updatedateBrigthnessPublisher: AnyPublisher<Void, Error> {
         $brightness.debounce(for: 1.0, scheduler: RunLoop.main)
             .setFailureType(to: Error.self)
             .map { Int($0) }
-            .filter { $0 != self.room.maxBrightness } // Avoid setting to current value
+            .filter { $0 != self.room.maxBrightness } // Avoid setting to the current value - on startup
             .removeDuplicates()
             .flatMap { brightness -> AnyPublisher<Void, Error> in
 
@@ -113,6 +137,7 @@ final class RoomLightsViewModel: ObservableObject {
                        type: .debug,
                        brightness)
 
+                self.hapticFeedback.impactOccurred()
                 return self.homeKitAccessible.updateBrightness(brightness, forRoom: self.room).eraseToAnyPublisher()
             }.eraseToAnyPublisher()
     }
