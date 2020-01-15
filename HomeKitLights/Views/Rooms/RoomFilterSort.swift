@@ -10,7 +10,24 @@ import Foundation
 import os.log
 
 /// Sort filter a list of rooms
+/// - SeeAlso: `RoomsViewModel`
 protocol RoomFilterSortable {
+    /// Apply a sort / filter combination on an array of rooms
+    /// - Parameters:
+    ///   - filter: What filter should be applied
+    ///   - sort: What sort should applied
+    ///   - rooms: Rooms to sort / filter
+    ///   - returns: Sorted / Filter array of rooms.
+    ///
+    /// ```swift
+    ///
+    ///    let filter = RoomFilter(rawValue: filterIndex)!
+    ///    let sort = RoomSort(rawValue: sortIndex)!
+    ///
+    ///    rooms = roomFilterSortable.apply(filter: filter,
+    ///                                     sort: sort,
+    ///                                     on: allRooms)
+    /// ```
     func apply(filter: RoomFilter,
                sort: RoomSort,
                on rooms: [Room]) -> [Room]
@@ -40,6 +57,12 @@ final class RoomFilterSort: RoomFilterSortable {
         self.init(roomDataAccessible: RoomAccessor.sharedAccessor)
     }
 
+    /// Apply a sort / filter combination on an array of rooms
+    /// - Parameters:
+    ///   - filter: What filter should be applied
+    ///   - sort: What sort should applied
+    ///   - rooms: Rooms to sort / filter
+    ///   - returns: Sorted / Filter array of rooms.
     func apply(filter: RoomFilter,
                sort: RoomSort,
                on rooms: [Room]) -> [Room] {

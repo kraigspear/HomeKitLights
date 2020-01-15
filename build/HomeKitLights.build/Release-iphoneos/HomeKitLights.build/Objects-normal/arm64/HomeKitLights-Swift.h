@@ -181,7 +181,10 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import CoreData;
+@import Foundation;
 @import HomeKit;
+@import ObjectiveC;
 @import UIKit;
 #endif
 
@@ -207,13 +210,75 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_CLASS("_TtC13HomeKitLights11AppDelegate")
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-- (BOOL)application:(UIApplication * _Nonnull)application didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions SWIFT_WARN_UNUSED_RESULT;
-- (UISceneConfiguration * _Nonnull)application:(UIApplication * _Nonnull)application configurationForConnectingSceneSession:(UISceneSession * _Nonnull)connectingSceneSession options:(UISceneConnectionOptions * _Nonnull)options SWIFT_WARN_UNUSED_RESULT;
-- (void)application:(UIApplication * _Nonnull)application didDiscardSceneSessions:(NSSet<UISceneSession *> * _Nonnull)sceneSessions;
+- (BOOL)application:(UIApplication * _Nonnull)_ didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)_ SWIFT_WARN_UNUSED_RESULT;
+- (UISceneConfiguration * _Nonnull)application:(UIApplication * _Nonnull)_ configurationForConnectingSceneSession:(UISceneSession * _Nonnull)connectingSceneSession options:(UISceneConnectionOptions * _Nonnull)_ SWIFT_WARN_UNUSED_RESULT;
+- (void)application:(UIApplication * _Nonnull)_ didDiscardSceneSessions:(NSSet<UISceneSession *> * _Nonnull)_;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
+SWIFT_CLASS("_TtC13HomeKitLights13BaseOperation")
+@interface BaseOperation : NSOperation
+/// Override of NSOperation start.
+/// Not intended to be overridden in BaseOperation child classes
+- (void)start;
+- (void)main;
+/// Always true.
+/// Not intended to be overriden
+@property (nonatomic, readonly, getter=isAsynchronous) BOOL asynchronous;
+@property (nonatomic, getter=isExecuting) BOOL executing;
+/// True if the operation is finished
+@property (nonatomic, getter=isFinished) BOOL finished;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+/// Wrap writing to a <code>HMCharacteristic</code>
+SWIFT_CLASS("_TtC13HomeKitLights23CharasticWriteOperation")
+@interface CharasticWriteOperation : BaseOperation
+- (void)main;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/// Convert HomeKit objects from <code>HMHomeManager</code> to App Specific model objects.
+SWIFT_CLASS("_TtC13HomeKitLights13HomeKitAccess")
+@interface HomeKitAccess : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class HMHomeManager;
+
+@interface HomeKitAccess (SWIFT_EXTENSION(HomeKitLights)) <HMHomeManagerDelegate>
+- (void)homeManagerDidUpdateHomes:(HMHomeManager * _Nonnull)homeManager;
+@end
+
+@class NSEntityDescription;
+@class NSManagedObjectContext;
+
+SWIFT_CLASS_NAMED("RoomEntity")
+@interface RoomEntity : NSManagedObject
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface RoomEntity (SWIFT_EXTENSION(HomeKitLights))
+@property (nonatomic, copy) NSUUID * _Nullable id;
+@property (nonatomic, copy) NSDate * _Nullable lastAccessed;
+@end
 
 @class UIWindow;
 @class UIScene;
@@ -221,12 +286,12 @@ SWIFT_CLASS("_TtC13HomeKitLights11AppDelegate")
 SWIFT_CLASS("_TtC13HomeKitLights13SceneDelegate")
 @interface SceneDelegate : UIResponder <UIWindowSceneDelegate>
 @property (nonatomic, strong) UIWindow * _Nullable window;
-- (void)scene:(UIScene * _Nonnull)scene willConnectToSession:(UISceneSession * _Nonnull)session options:(UISceneConnectionOptions * _Nonnull)connectionOptions;
-- (void)sceneDidDisconnect:(UIScene * _Nonnull)scene;
-- (void)sceneDidBecomeActive:(UIScene * _Nonnull)scene;
-- (void)sceneWillResignActive:(UIScene * _Nonnull)scene;
-- (void)sceneWillEnterForeground:(UIScene * _Nonnull)scene;
-- (void)sceneDidEnterBackground:(UIScene * _Nonnull)scene;
+- (void)scene:(UIScene * _Nonnull)scene willConnectToSession:(UISceneSession * _Nonnull)_ options:(UISceneConnectionOptions * _Nonnull)_;
+- (void)sceneDidDisconnect:(UIScene * _Nonnull)_;
+- (void)sceneDidBecomeActive:(UIScene * _Nonnull)_;
+- (void)sceneWillResignActive:(UIScene * _Nonnull)_;
+- (void)sceneWillEnterForeground:(UIScene * _Nonnull)_;
+- (void)sceneDidEnterBackground:(UIScene * _Nonnull)_;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

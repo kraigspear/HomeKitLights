@@ -30,8 +30,10 @@ final class RoomDataAccessibleMock: RoomDataAccessible {
 
     func updateAccessTimeForRoom(id _: UUID) {}
     func fetchLastAccessedRooms() -> [UUID: Date] {
-        return [:]
+        lastAccessedRoomsValue
     }
+
+    var lastAccessedRoomsValue: [UUID: Date] = [:]
 
     private var roomsUpdatedSubject = PassthroughSubject<Void, Never>()
     var roomsUpdated: AnyPublisher<Void, Never> {

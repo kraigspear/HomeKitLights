@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>RoomsViewModel Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/RoomsViewModel" class="dashAnchor"></a>
+    <a title="RoomsViewModel Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">HomeKitLights Docs</a> (37% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">HomeKitLights Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        RoomsViewModel Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../homekit.html">HomeKit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../homekitlights.html">HomeKitLights</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BaseOperation.html">BaseOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CharasticWriteOperation.html">CharasticWriteOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HapticFeedback.html">HapticFeedback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HapticFeedbackMock.html">HapticFeedbackMock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HomeKitAccess.html">HomeKitAccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HomeKitAccessMock.html">HomeKitAccessMock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RefreshNotification.html">RefreshNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RefreshNotificationMock.html">RefreshNotificationMock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomAccessor.html">RoomAccessor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomDataAccessibleMock.html">RoomDataAccessibleMock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomEntity.html">RoomEntity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomFilterSort.html">RoomFilterSort</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomFilterSortMock.html">RoomFilterSortMock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomLightsViewModel.html">RoomLightsViewModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomsViewModel.html">RoomsViewModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SceneDelegate.html">SceneDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UpdateBrightnessInRoom.html">UpdateBrightnessInRoom</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UpdatePowerInRoom.html">UpdatePowerInRoom</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/HomeKitAccessError.html">HomeKitAccessError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoomFilter.html">RoomFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoomSort.html">RoomSort</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/HMAccessory.html">HMAccessory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/HMCharacteristic.html">HMCharacteristic</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/HMRoom.html">HMRoom</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Sequence.html">Sequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/View.html">View</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/HapticFeedbackProtocol.html">HapticFeedbackProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/HomeKitAccessible.html">HomeKitAccessible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RefreshNotificationProtocol.html">RefreshNotificationProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RoomDataAccessible.html">RoomDataAccessible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RoomFilterSortable.html">RoomFilterSortable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RoomUpdatable.html">RoomUpdatable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Accessory.html">Accessory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AccessoryMock.html">AccessoryMock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ActivityView.html">ActivityView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ContentView_Previews.html">ContentView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EmptyStateView.html">EmptyStateView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FilterButtons.html">FilterButtons</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FilterSortButtons.html">FilterSortButtons</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Log.html">Log</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Room.html">Room</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RoomLightsView.html">RoomLightsView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RoomMock.html">RoomMock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RoomViewStyleModifier.html">RoomViewStyleModifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RoomView_Previews.html">RoomView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RoomsView.html">RoomsView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SortButtons.html">SortButtons</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TitleView.html">TitleView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:13HomeKitLights5Lighta">Light</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:13HomeKitLights0C0a">Lights</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:13HomeKitLights5Roomsa">Rooms</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>RoomsViewModel</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">RoomsViewModel</span> <span class="p">:</span> <span class="kt">ObservableObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>ViewModel showing HomeKit rooms containing lights</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Members"></a>
+                <a name="//apple_ref/swift/Section/Members" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Members"></a>
+                  <h3 class="section-name"><p>Members</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights14RoomsViewModelC5roomsSayAA4RoomVGvp"></a>
+                    <a name="//apple_ref/swift/Property/rooms" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights14RoomsViewModelC5roomsSayAA4RoomVGvp">rooms</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Rooms that lights are in</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Published</span>
+<span class="k">var</span> <span class="nv">rooms</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/Room.html">Room</a></span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights14RoomsViewModelC14isShowingErrorSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isShowingError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights14RoomsViewModelC14isShowingErrorSbvp">isShowingError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>True to show an alert, showing an error message</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Published</span>
+<span class="k">var</span> <span class="nv">isShowingError</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights14RoomsViewModelC12errorMessageSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/errorMessage" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights14RoomsViewModelC12errorMessageSSSgvp">errorMessage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Error message to show in an Alert</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Published</span>
+<span class="k">var</span> <span class="nv">errorMessage</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights14RoomsViewModelC11filterIndexSivp"></a>
+                    <a name="//apple_ref/swift/Property/filterIndex" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights14RoomsViewModelC11filterIndexSivp">filterIndex</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Published</span>
+<span class="k">var</span> <span class="nv">filterIndex</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights14RoomsViewModelC9sortIndexSivp"></a>
+                    <a name="//apple_ref/swift/Property/sortIndex" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights14RoomsViewModelC9sortIndexSivp">sortIndex</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Published</span>
+<span class="k">var</span> <span class="nv">sortIndex</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights14RoomsViewModelC17FilterButtonImageSSvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/FilterButtonImage" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights14RoomsViewModelC17FilterButtonImageSSvpZ">FilterButtonImage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">FilterButtonImage</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights14RoomsViewModelC23FilterButtonImageFilledSSvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/FilterButtonImageFilled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights14RoomsViewModelC23FilterButtonImageFilledSSvpZ">FilterButtonImageFilled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">let</span> <span class="nv">FilterButtonImageFilled</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights14RoomsViewModelC17filterButtonImageSSvp"></a>
+                    <a name="//apple_ref/swift/Property/filterButtonImage" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights14RoomsViewModelC17filterButtonImageSSvp">filterButtonImage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Published</span>
+<span class="k">var</span> <span class="nv">filterButtonImage</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights14RoomsViewModelC19isShowingSortFilterSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isShowingSortFilter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights14RoomsViewModelC19isShowingSortFilterSbvp">isShowingSortFilter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Published</span>
+<span class="k">var</span> <span class="nv">isShowingSortFilter</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights14RoomsViewModelC19toggleShowingFilteryyF"></a>
+                    <a name="//apple_ref/swift/Method/toggleShowingFilter()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights14RoomsViewModelC19toggleShowingFilteryyF">toggleShowingFilter()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">toggleShowingFilter</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights14RoomsViewModelC04homeB10AccessibleAA0abH0_pvp"></a>
+                    <a name="//apple_ref/swift/Property/homeKitAccessible" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights14RoomsViewModelC04homeB10AccessibleAA0abH0_pvp">homeKitAccessible</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Access to HomeKit</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">homeKitAccessible</span><span class="p">:</span> <span class="kt"><a href="../Protocols/HomeKitAccessible.html">HomeKitAccessible</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Empty%20State"></a>
+                <a name="//apple_ref/swift/Section/Empty State" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Empty%20State"></a>
+                  <h3 class="section-name"><p>Empty State</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights14RoomsViewModelC19isEmptyStateVisibleSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isEmptyStateVisible" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights14RoomsViewModelC19isEmptyStateVisibleSbvp">isEmptyStateVisible</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>There are no rooms, empty state should be shown.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Published</span>
+<span class="k">var</span> <span class="nv">isEmptyStateVisible</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Init"></a>
+                <a name="//apple_ref/swift/Section/Init" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Init"></a>
+                  <h3 class="section-name"><p>Init</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights14RoomsViewModelC04homeB10Accessible08roomDataH00I14FilterSortable19refreshNotificationAcA0abH0_p_AA04RoomjH0_pAA0okL0_pAA07RefreshN8Protocol_ptcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(homeKitAccessible:roomDataAccessible:roomFilterSortable:refreshNotification:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights14RoomsViewModelC04homeB10Accessible08roomDataH00I14FilterSortable19refreshNotificationAcA0abH0_p_AA04RoomjH0_pAA0okL0_pAA07RefreshN8Protocol_ptcfc">init(homeKitAccessible:roomDataAccessible:roomFilterSortable:refreshNotification:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize a new instance with access to HomeKit</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">homeKitAccessible</span><span class="p">:</span> <span class="kt"><a href="../Protocols/HomeKitAccessible.html">HomeKitAccessible</a></span><span class="p">,</span>
+     <span class="nv">roomDataAccessible</span><span class="p">:</span> <span class="kt"><a href="../Protocols/RoomDataAccessible.html">RoomDataAccessible</a></span><span class="p">,</span>
+     <span class="nv">roomFilterSortable</span><span class="p">:</span> <span class="kt"><a href="../Protocols/RoomFilterSortable.html">RoomFilterSortable</a></span><span class="p">,</span>
+     <span class="nv">refreshNotification</span><span class="p">:</span> <span class="kt"><a href="../Protocols/RefreshNotificationProtocol.html">RefreshNotificationProtocol</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>homeKitAccessible</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Access to HomeKit</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights14RoomsViewModelCACycfc"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights14RoomsViewModelCACycfc">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Init with defaults</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Lifecycle"></a>
+                <a name="//apple_ref/swift/Section/Lifecycle" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Lifecycle"></a>
+                  <h3 class="section-name"><p>Lifecycle</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights14RoomsViewModelC8onAppearyyF"></a>
+                    <a name="//apple_ref/swift/Method/onAppear()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights14RoomsViewModelC8onAppearyyF">onAppear()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when a view appears</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">onAppear</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Copyright © 2020 DornerWorks. All rights reserved.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

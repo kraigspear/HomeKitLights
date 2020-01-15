@@ -4,9 +4,21 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>AppIcon60x60@2x.png</key>
+		<data>
+		HoyWbYabe1y4dTqAZvT/R4VIWNg=
+		</data>
+		<key>AppIcon76x76@2x~ipad.png</key>
+		<data>
+		66Tp0TmbZc5ZzGFvkJYsH0kk5GI=
+		</data>
+		<key>Assets.car</key>
+		<data>
+		IGEQhuFeAIZOKDJmhSymez7GeXg=
+		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		RU+o0JJMYKQ9n8TGSNa5Q5FmHtg=
+		v6uXZjCgY05oDgDfADF860fNjrQ=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -14,23 +26,23 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		T3rftDhyqddKyRv1bGPkPaLH0UM=
+		o/oI8mcJDzwWbg7dd4cb5Zm/YCU=
 		</data>
 		<key>HomeKitLights.momd/HomeKitLights.mom</key>
 		<data>
-		cJ/PCiCXXNBKuFbBctP0/36KHrE=
+		LLQ6kxyjluVUUiGlpiw3ICY8Rak=
 		</data>
 		<key>HomeKitLights.momd/HomeKitLights.omo</key>
 		<data>
-		acxzJXINprFYwcy2DBxx01kTGZc=
+		OfBK6ESS6Ap/BZhBOrWp3j5+iow=
 		</data>
 		<key>HomeKitLights.momd/VersionInfo.plist</key>
 		<data>
-		9jXJSiTvcwK4OcICbAx6D9HGq4g=
+		tW7k78lBkykGG0yW/wHzpjTO6w8=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		otCaXLx5CX7w6pgSoM0x0nDn5VE=
+		EtpRVARAbWs3neM67+yXX56eOCs=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -43,11 +55,32 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>AppIcon60x60@2x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			BimgvqZKJjBCGY9LrazoRuuwWdldef6ucNw/vLp3mWA=
+			</data>
+		</dict>
+		<key>AppIcon76x76@2x~ipad.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			lT/n816Qq+Ec//Tfl9sJYVkqimUopcb+UlacmW6ZmgE=
+			</data>
+		</dict>
+		<key>Assets.car</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Q54HvpnEtdPfRB4C26eRieOyTAbe+xCjbcm6EoLf828=
+			</data>
+		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			u0HsHHZm/rVaY8vIoPzGWvXvOxbcu0I3FczI7n9vJOw=
+			KJEbOhY7bMqrAcSNVb/VyJyVKoPlRVViemKLXj6Op7g=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
@@ -61,28 +94,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			HQ5jMqvctsoTBKmtIFx9w+WHM+DJ5ROxqKikhwVs+2s=
+			5Xx2x3s7s+nhx+jxyIFr2Mkp0JfuBBdyRuPf7V5Oyc4=
 			</data>
 		</dict>
 		<key>HomeKitLights.momd/HomeKitLights.mom</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			CP8Y6ClRm2/NHwYpSH8zmdNH5cH7+uMS7720luLJ5Pg=
+			uXVb3lzasVQZeHcUlG0ftEt29V1XRmyyYzWJWu+ppmM=
 			</data>
 		</dict>
 		<key>HomeKitLights.momd/HomeKitLights.omo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			F3Dl+udfH8Ihjo0aD1CMms8lVQTUgKuhWDDTIR2HFb4=
+			hqA6Sj6Dxh+UnKKaDzen5NfRoTWe3hDY/fzLc88S0tk=
 			</data>
 		</dict>
 		<key>HomeKitLights.momd/VersionInfo.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			GlzclmlwcJH8/4/dhDpxfBuPn56xEpU2ImVe0Kj/QQo=
+			l298pAm/wyuylfYZqqfiZ1PLGDIyIyd9PtOAo54cG8s=
 			</data>
 		</dict>
 		<key>embedded.mobileprovision</key>

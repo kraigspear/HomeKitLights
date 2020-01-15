@@ -12,6 +12,7 @@
 		A983705623CE546300CBEC63 /* RoomUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983705523CE546300CBEC63 /* RoomUpdatable.swift */; };
 		A983705823CE640E00CBEC63 /* UpdateBrightnessInRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983705723CE640E00CBEC63 /* UpdateBrightnessInRoom.swift */; };
 		A9967B6C23CF96B700C46436 /* RoomFilterSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9967B6B23CF96B700C46436 /* RoomFilterSort.swift */; };
+		A9967B7223CFAA2400C46436 /* RoomFilterSortTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9967B7123CFAA2400C46436 /* RoomFilterSortTest.swift */; };
 		A9D3F1B623C765D8004783A2 /* RoomLightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3F1B523C765D8004783A2 /* RoomLightsView.swift */; };
 		A9D3F1B823C76649004783A2 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3F1B723C76649004783A2 /* Accessory.swift */; };
 		A9D52EC323C613B900C6F91F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EC223C613B900C6F91F /* AppDelegate.swift */; };
@@ -65,6 +66,7 @@
 		A983705523CE546300CBEC63 /* RoomUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomUpdatable.swift; sourceTree = "<group>"; };
 		A983705723CE640E00CBEC63 /* UpdateBrightnessInRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBrightnessInRoom.swift; sourceTree = "<group>"; };
 		A9967B6B23CF96B700C46436 /* RoomFilterSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomFilterSort.swift; sourceTree = "<group>"; };
+		A9967B7123CFAA2400C46436 /* RoomFilterSortTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomFilterSortTest.swift; sourceTree = "<group>"; };
 		A9D3F1B523C765D8004783A2 /* RoomLightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomLightsView.swift; sourceTree = "<group>"; };
 		A9D3F1B723C76649004783A2 /* Accessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
 		A9D52EBF23C613B900C6F91F /* HomeKitLights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeKitLights.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +151,23 @@
 			path = Update;
 			sourceTree = "<group>";
 		};
+		A9967B6F23CFA9D300C46436 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A9967B7023CFA9DE00C46436 /* Rooms */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A9967B7023CFA9DE00C46436 /* Rooms */ = {
+			isa = PBXGroup;
+			children = (
+				A9D52EDC23C613BB00C6F91F /* RoomsViewModelTest.swift */,
+				A9967B7123CFAA2400C46436 /* RoomFilterSortTest.swift */,
+			);
+			path = Rooms;
+			sourceTree = "<group>";
+		};
 		A9D3F1B423C764F6004783A2 /* Room */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,8 +231,8 @@
 		A9D52EDB23C613BB00C6F91F /* HomeKitLightsTests */ = {
 			isa = PBXGroup;
 			children = (
+				A9967B6F23CFA9D300C46436 /* Views */,
 				A9D52F0923C62B8800C6F91F /* Mocks */,
-				A9D52EDC23C613BB00C6F91F /* RoomsViewModelTest.swift */,
 				A9D52EDE23C613BB00C6F91F /* Info.plist */,
 			);
 			path = HomeKitLightsTests;
@@ -513,6 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9967B7223CFAA2400C46436 /* RoomFilterSortTest.swift in Sources */,
 				A9D52EDD23C613BB00C6F91F /* RoomsViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
