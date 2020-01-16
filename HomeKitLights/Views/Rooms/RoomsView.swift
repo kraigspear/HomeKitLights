@@ -24,6 +24,7 @@ struct RoomsView: View {
         NavigationView {
             if viewModel.isEmptyStateVisible {
                 EmptyStateView(viewModel: viewModel)
+                    .accentColor(Color("FilterLightsOn"))
             }
 
             ScrollView {
