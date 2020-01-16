@@ -57,10 +57,19 @@ final class HomeKitAccessMock: HomeKitAccessible {
 
     private var toggleSuccess = true
 
+    private var toggleSubject = PassthroughSubject<Void, Error>()
+
+    func sendToggleSuccess() {
+        toggleSubject.send(())
+        toggleSubject.send(completion: .finished)
+    }
+
+    func sendToggleError() {
+        toggleSubject.send(completion: .failure(HomeKitAccessError.homeNotFound))
+    }
+
     func toggle(_: Room) -> AnyPublisher<Void, Error> {
-        Just<Void>(())
-            .setFailureType(to: Error.self)
-            .eraseToAnyPublisher()
+        toggleSubject.eraseToAnyPublisher()
     }
 
     // MARK: - Reload

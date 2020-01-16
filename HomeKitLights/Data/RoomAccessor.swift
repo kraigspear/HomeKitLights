@@ -28,7 +28,15 @@ final class RoomDataAccessibleMock: RoomDataAccessible {
         roomsUpdatedSubject.send(())
     }
 
-    func updateAccessTimeForRoom(id _: UUID) {}
+    private(set) var updateAcccessTimeForRoomUUID: UUID?
+
+    var updateAccessTimeForRoomCalled: (() -> Void)?
+
+    func updateAccessTimeForRoom(id: UUID) {
+        updateAcccessTimeForRoomUUID = id
+        updateAccessTimeForRoomCalled?()
+    }
+
     func fetchLastAccessedRooms() -> [UUID: Date] {
         lastAccessedRoomsValue
     }

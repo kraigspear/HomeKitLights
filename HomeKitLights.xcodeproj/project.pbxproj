@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A92848F323D0A2D100C68AD2 /* RoomsLightsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92848F223D0A2D100C68AD2 /* RoomsLightsViewModelTest.swift */; };
 		A94F615323CE4C0000542349 /* HomeKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94F615223CE4C0000542349 /* HomeKitExtensions.swift */; };
 		A983705423CE543A00CBEC63 /* UpdatePowerInRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983705323CE543A00CBEC63 /* UpdatePowerInRoom.swift */; };
 		A983705623CE546300CBEC63 /* RoomUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983705523CE546300CBEC63 /* RoomUpdatable.swift */; };
@@ -61,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A92848F223D0A2D100C68AD2 /* RoomsLightsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsLightsViewModelTest.swift; sourceTree = "<group>"; };
 		A94F615223CE4C0000542349 /* HomeKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitExtensions.swift; sourceTree = "<group>"; };
 		A983705323CE543A00CBEC63 /* UpdatePowerInRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePowerInRoom.swift; sourceTree = "<group>"; };
 		A983705523CE546300CBEC63 /* RoomUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomUpdatable.swift; sourceTree = "<group>"; };
@@ -133,12 +135,21 @@
 		A956051323CCAEEA00617A67 /* Rooms */ = {
 			isa = PBXGroup;
 			children = (
+				A9D52F0323C6257600C6F91F /* Lights */,
 				A9D703E223C8F5CE009E2229 /* FilterSortButtons.swift */,
 				A9967B6B23CF96B700C46436 /* RoomFilterSort.swift */,
 				A9D52EC923C613B900C6F91F /* RoomsView.swift */,
 				A9D52F0423C6258A00C6F91F /* RoomsViewModel.swift */,
 			);
 			path = Rooms;
+			sourceTree = "<group>";
+		};
+		A96109FB23D0A09C000B58D2 /* Lights */ = {
+			isa = PBXGroup;
+			children = (
+				A92848F223D0A2D100C68AD2 /* RoomsLightsViewModelTest.swift */,
+			);
+			path = Lights;
 			sourceTree = "<group>";
 		};
 		A983705223CE540100CBEC63 /* Update */ = {
@@ -162,20 +173,11 @@
 		A9967B7023CFA9DE00C46436 /* Rooms */ = {
 			isa = PBXGroup;
 			children = (
+				A96109FB23D0A09C000B58D2 /* Lights */,
 				A9D52EDC23C613BB00C6F91F /* RoomsViewModelTest.swift */,
 				A9967B7123CFAA2400C46436 /* RoomFilterSortTest.swift */,
 			);
 			path = Rooms;
-			sourceTree = "<group>";
-		};
-		A9D3F1B423C764F6004783A2 /* Room */ = {
-			isa = PBXGroup;
-			children = (
-				A9D3F1B523C765D8004783A2 /* RoomLightsView.swift */,
-				A9D703E023C8D5CE009E2229 /* RoomLightsViewModel.swift */,
-				A9E98D2B23CDF9DB006F171F /* RoomViewStyleModifier.swift */,
-			);
-			path = Room;
 			sourceTree = "<group>";
 		};
 		A9D52EB623C613B900C6F91F = {
@@ -289,7 +291,6 @@
 			isa = PBXGroup;
 			children = (
 				A956051323CCAEEA00617A67 /* Rooms */,
-				A9D52F0323C6257600C6F91F /* Lights */,
 				A9D703E423C8F679009E2229 /* TitleView.swift */,
 			);
 			path = Views;
@@ -298,7 +299,9 @@
 		A9D52F0323C6257600C6F91F /* Lights */ = {
 			isa = PBXGroup;
 			children = (
-				A9D3F1B423C764F6004783A2 /* Room */,
+				A9D3F1B523C765D8004783A2 /* RoomLightsView.swift */,
+				A9D703E023C8D5CE009E2229 /* RoomLightsViewModel.swift */,
+				A9E98D2B23CDF9DB006F171F /* RoomViewStyleModifier.swift */,
 			);
 			path = Lights;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A92848F323D0A2D100C68AD2 /* RoomsLightsViewModelTest.swift in Sources */,
 				A9967B7223CFAA2400C46436 /* RoomFilterSortTest.swift in Sources */,
 				A9D52EDD23C613BB00C6F91F /* RoomsViewModelTest.swift in Sources */,
 			);

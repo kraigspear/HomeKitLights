@@ -131,7 +131,7 @@ final class RoomLightsViewModel: ObservableObject {
     private var sinkToBrightnessCancel: AnyCancellable?
     /// Subscribe to brightness changes
     private func sinkToBrightness() {
-        sinkToBrightnessCancel = updatedateBrigthnessPublisher
+        sinkToBrightnessCancel = updateBrightnessPublisher
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: {
                 completed in
@@ -154,7 +154,7 @@ final class RoomLightsViewModel: ObservableObject {
     }
 
     /// Publisher providing a publisher that updates the brightness
-    private var updatedateBrigthnessPublisher: AnyPublisher<Void, Error> {
+    private var updateBrightnessPublisher: AnyPublisher<Void, Error> {
         $brightness.debounce(for: 1.0, scheduler: RunLoop.main)
             .setFailureType(to: Error.self)
             .map { Int($0) }

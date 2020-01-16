@@ -15,7 +15,8 @@ protocol HapticFeedbackProtocol {
 }
 
 final class HapticFeedbackMock: HapticFeedbackProtocol {
-    func impactOccurred() {}
+    private(set) var impactOccurredCount = 0
+    func impactOccurred() { impactOccurredCount += 1 }
 }
 
 /// Wrapper around UIImpactFeedbackGenerator for unit testing.
