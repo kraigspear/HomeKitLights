@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A92848F323D0A2D100C68AD2 /* RoomsLightsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92848F223D0A2D100C68AD2 /* RoomsLightsViewModelTest.swift */; };
+		A92848F523D0C3B500C68AD2 /* URLOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92848F423D0C3B500C68AD2 /* URLOpener.swift */; };
 		A94F615323CE4C0000542349 /* HomeKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94F615223CE4C0000542349 /* HomeKitExtensions.swift */; };
 		A983705423CE543A00CBEC63 /* UpdatePowerInRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983705323CE543A00CBEC63 /* UpdatePowerInRoom.swift */; };
 		A983705623CE546300CBEC63 /* RoomUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983705523CE546300CBEC63 /* RoomUpdatable.swift */; };
@@ -63,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		A92848F223D0A2D100C68AD2 /* RoomsLightsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsLightsViewModelTest.swift; sourceTree = "<group>"; };
+		A92848F423D0C3B500C68AD2 /* URLOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpener.swift; sourceTree = "<group>"; };
 		A94F615223CE4C0000542349 /* HomeKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitExtensions.swift; sourceTree = "<group>"; };
 		A983705323CE543A00CBEC63 /* UpdatePowerInRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePowerInRoom.swift; sourceTree = "<group>"; };
 		A983705523CE546300CBEC63 /* RoomUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomUpdatable.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				A9E98D2923CCF24B006F171F /* HapticFeedback.swift */,
 				A9E98D2D23CE01A8006F171F /* RefreshNotification.swift */,
 				A9D703E623C91118009E2229 /* SequenceExtensions.swift */,
+				A92848F423D0C3B500C68AD2 /* URLOpener.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				A9D52EC323C613B900C6F91F /* AppDelegate.swift in Sources */,
 				A9D52EC823C613B900C6F91F /* HomeKitLights.xcdatamodeld in Sources */,
 				A94F615323CE4C0000542349 /* HomeKitExtensions.swift in Sources */,
+				A92848F523D0C3B500C68AD2 /* URLOpener.swift in Sources */,
 				A9D52F0823C628D000C6F91F /* Log.swift in Sources */,
 				A9D52ECA23C613B900C6F91F /* RoomsView.swift in Sources */,
 				A9D52EC523C613B900C6F91F /* SceneDelegate.swift in Sources */,

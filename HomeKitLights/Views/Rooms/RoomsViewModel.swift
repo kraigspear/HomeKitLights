@@ -7,8 +7,8 @@
 //
 
 import Combine
-import Foundation
 import os.log
+import UIKit
 
 /// Filter that can be applied to rooms
 enum RoomFilter: Int {
@@ -80,6 +80,9 @@ final class RoomsViewModel: ObservableObject {
     let homeKitAccessible: HomeKitAccessible
     private let roomDataAccessible: RoomDataAccessible
 
+    /// Open Settings, Home App
+    private let urlOpener: URLOpenable
+
     /// Sorts filters rooms
     private let roomFilterSortable: RoomFilterSortable
 
@@ -97,11 +100,13 @@ final class RoomsViewModel: ObservableObject {
     init(homeKitAccessible: HomeKitAccessible,
          roomDataAccessible: RoomDataAccessible,
          roomFilterSortable: RoomFilterSortable,
-         refreshNotification: RefreshNotificationProtocol) {
+         refreshNotification: RefreshNotificationProtocol,
+         urlOpener: URLOpenable) {
         self.homeKitAccessible = homeKitAccessible
         self.roomDataAccessible = roomDataAccessible
         self.roomFilterSortable = roomFilterSortable
         self.refreshNotification = refreshNotification
+        self.urlOpener = urlOpener
 
         sinkToRooms()
         sinkToDataChanges()
@@ -121,7 +126,8 @@ final class RoomsViewModel: ObservableObject {
         self.init(homeKitAccessible: HomeKitAccess(),
                   roomDataAccessible: RoomAccessor.sharedAccessor,
                   roomFilterSortable: RoomFilterSort(),
-                  refreshNotification: RefreshNotification())
+                  refreshNotification: RefreshNotification(),
+                  urlOpener: URLOpener())
     }
 
     // MARK: - Lifecycle
@@ -207,5 +213,17 @@ final class RoomsViewModel: ObservableObject {
 
             self.homeKitAccessible.reload()
         }
+    }
+
+    // MARK: - Empty State
+
+    func showHomeApp() {
+        let url = URL(string: "com.apple.home://")!
+        urlOpener.open(url)
+    }
+
+    func showPermissions() {
+        let url = URL(string: UIApplication.openSettingsURLString)!
+        urlOpener.open(url)
     }
 }
