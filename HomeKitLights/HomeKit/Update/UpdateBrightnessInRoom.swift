@@ -18,7 +18,7 @@ final class UpdateBrightnessInRoom: RoomUpdatable {
     let room: Room
     private let brightness: Int
 
-    var charastericToUpdate: String {
+    var characteristicToUpdate: String {
         HMCharacteristicTypeBrightness
     }
 

@@ -28,7 +28,7 @@ final class RoomsLightsViewModelTest: XCTestCase {
         roomDataAccessibleMock = RoomDataAccessibleMock()
         hapticFeedbackMock = HapticFeedbackMock()
 
-        let room = RoomMock.diningRooom()
+        let room = RoomMock.diningRoom()
 
         sut = RoomLightsViewModel(room: room,
                                   homeKitAccessible: homeKitAccessibleMock,

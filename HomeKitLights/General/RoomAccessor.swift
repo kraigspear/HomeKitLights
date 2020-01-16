@@ -16,7 +16,7 @@ protocol RoomDataAccessible {
     /// - Parameter id: ID of the room to update
     func updateAccessTimeForRoom(id: UUID)
 
-    /// Dictionary of Dates keyd by the ID of the room, last accessed
+    /// Dictionary of Dates keyed by the ID of the room, last accessed
     func fetchLastAccessedRooms() -> [UUID: Date]
 
     /// Publisher when rooms have been updated
@@ -28,12 +28,12 @@ final class RoomDataAccessibleMock: RoomDataAccessible {
         roomsUpdatedSubject.send(())
     }
 
-    private(set) var updateAcccessTimeForRoomUUID: UUID?
+    private(set) var updateAccessTimeForRoomUUID: UUID?
 
     var updateAccessTimeForRoomCalled: (() -> Void)?
 
     func updateAccessTimeForRoom(id: UUID) {
-        updateAcccessTimeForRoomUUID = id
+        updateAccessTimeForRoomUUID = id
         updateAccessTimeForRoomCalled?()
     }
 

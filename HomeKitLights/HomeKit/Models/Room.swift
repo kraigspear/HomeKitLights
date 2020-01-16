@@ -43,7 +43,7 @@ struct RoomMock {
                     lights: [accessory1])
     }
 
-    static func diningRooom() -> Room {
+    static func diningRoom() -> Room {
         let accessory1 = AccessoryMock.light1()
         let accessory2 = AccessoryMock.light2()
 
@@ -71,20 +71,20 @@ struct RoomMock {
     }
 
     static func roomWithLightOn() -> Room {
-        return Room(name: "Room that is on",
-                    id: UUID(uuidString: "C21B4028-730F-4EEB-9694-58135E67ADF2")!,
-                    lights: [AccessoryMock.lightThatIsOn()])
+        Room(name: "Room that is on",
+             id: UUID(uuidString: "C21B4028-730F-4EEB-9694-58135E67ADF2")!,
+             lights: [AccessoryMock.lightThatIsOn()])
     }
 
     static func roomWithLightOff() -> Room {
-        return Room(name: "Room that is Off",
-                    id: UUID(uuidString: "5698437D-A75A-4F51-AD10-7B29680B538C")!,
-                    lights: [AccessoryMock.lightThatIsOff()])
+        Room(name: "Room that is Off",
+             id: UUID(uuidString: "5698437D-A75A-4F51-AD10-7B29680B538C")!,
+             lights: [AccessoryMock.lightThatIsOff()])
     }
 
     static func rooms() -> [Room] {
-        return [livingRoom(),
-                diningRooom(),
-                kitchen()]
+        [livingRoom(),
+         diningRoom(),
+         kitchen()]
     }
 }

@@ -15,7 +15,7 @@ final class UpdatePowerInRoom: RoomUpdatable {
     let homeKitHomeManager: HMHomeManager
     let room: Room
 
-    var charastericToUpdate: String {
+    var characteristicToUpdate: String {
         HMCharacteristicTypePowerState
     }
 

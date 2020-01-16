@@ -54,27 +54,27 @@ extension HMAccessory {
     }
 
     func toAccessory() -> Accessory {
-        return Accessory(name: name,
-                         id: uniqueIdentifier,
-                         isOn: isOn,
-                         brightness: brightness)
+        Accessory(name: name,
+                  id: uniqueIdentifier,
+                  isOn: isOn,
+                  brightness: brightness)
     }
 }
 
 extension HMRoom {
     var lightsAreOn: Bool {
-        let charastics = powerStateCharacteristics
+        let characteristics = powerStateCharacteristics
 
-        let countOn = charastics.reduce(0) { (total, charastic) -> Int in
-            if charastic.isOn {
+        let countOn = characteristics.reduce(0) { (total, characteristic) -> Int in
+            if characteristic.isOn {
                 return total + 1
             } else {
                 return total
             }
         }
 
-        let countOff = charastics.reduce(0) { (total, charastic) -> Int in
-            if charastic.isOn {
+        let countOff = characteristics.reduce(0) { (total, characteristic) -> Int in
+            if characteristic.isOn {
                 return total
             } else {
                 return total + 1

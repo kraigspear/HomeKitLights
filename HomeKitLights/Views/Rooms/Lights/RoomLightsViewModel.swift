@@ -25,7 +25,7 @@ final class RoomLightsViewModel: ObservableObject {
     /// Access to local room data. Last modified time.
     private let roomDataAccessible: RoomDataAccessible
 
-    /// Access to the device haptics
+    /// Access to the device haptic
     private let hapticFeedback: HapticFeedbackProtocol
 
     // MARK: - Published (View State)
@@ -41,13 +41,13 @@ final class RoomLightsViewModel: ObservableObject {
 
     // MARK: - Init
 
-    /// Return a newly initilized RoomLightsViewModel
+    /// Return a newly initialized RoomLightsViewModel
     /// - Parameters:
     ///   - room: Room that is being shown
     ///   - homeKitAccessible: Access to HomeKit to change room state
     ///   - roomDataAccessible: Access to local room data. Last modified time.
-    ///   - hapticFeedback: Access to the device haptics
-    ///   - returns: Newly initilized RoomLightsViewModel
+    ///   - hapticFeedback: Access to the device haptic's
+    ///   - returns: Newly initialized RoomLightsViewModel
     init(room: Room,
          homeKitAccessible: HomeKitAccessible,
          roomDataAccessible: RoomDataAccessible,

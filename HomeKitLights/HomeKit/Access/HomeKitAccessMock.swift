@@ -82,7 +82,7 @@ final class HomeKitAccessMock: HomeKitAccessible {
     // MARK: - Brightness
 
     func updateBrightness(_: Int, forRoom _: Room) -> AnyPublisher<Void, Error> {
-        return Just<Void>(())
+        Just<Void>(())
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
     }

@@ -10,7 +10,7 @@ import UIKit
 
 /// Provides Haptic feedback
 protocol HapticFeedbackProtocol {
-    /// Impact has occured
+    /// Impact has occurred
     func impactOccurred()
 }
 

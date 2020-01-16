@@ -20,7 +20,7 @@ struct RoomLightsView: View {
     private let room: Room
     @ObservedObject var viewModel: RoomLightsViewModel
 
-    /// Returns a newly initilized RoomLightsView with the room and ViewModel
+    /// Returns a newly initialized RoomLightsView with the room and ViewModel
     /// - Parameters:
     ///   - room: Room that is being viewed
     ///   - viewModel: ViewModel containing state

@@ -114,7 +114,7 @@ final class RoomsViewModel: ObservableObject {
     }
 
     /// Sink to any changes from the database.
-    /// Occures when the last selected item is set
+    /// Occurs when the last selected item is set
     private func sinkToDataChanges() {
         roomsUpdatedCancel = roomDataAccessible.roomsUpdated.sink {
             self.homeKitAccessible.reload()

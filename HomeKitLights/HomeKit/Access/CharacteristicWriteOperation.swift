@@ -1,5 +1,5 @@
 //
-//  CharasticToggleOperation.swift
+//  CharacteristicWriteOperation.swift
 //  HomeKitLights
 //
 //  Created by Kraig Spear on 1/10/20.
@@ -10,7 +10,7 @@ import Foundation
 import HomeKit
 
 /// Wrap writing to a `HMCharacteristic`
-final class CharasticWriteOperation: BaseOperation {
+final class CharacteristicWriteOperation: BaseOperation {
     private let characteristic: HMCharacteristic
     private let value: Any
 

@@ -11,7 +11,7 @@ import Foundation
 import HomeKit
 import os.log
 
-/// Errors that can occure when accessing HomeKit
+/// Errors that can occur when accessing HomeKit
 enum HomeKitAccessError: Error {
     /// There isn't a home associated with this account / device
     /// Nothing can happen.
@@ -21,7 +21,7 @@ enum HomeKitAccessError: Error {
 
 /// Access to HomeKit data
 protocol HomeKitAccessible {
-    /// HomeKit rooms associtated with this account / device
+    /// HomeKit rooms associated with this account / device
     /// - Remarks: Only rooms for the first home is returned. Multiple homes are not supported.
     var rooms: AnyPublisher<[Room], HomeKitAccessError> { get }
 

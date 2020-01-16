@@ -47,18 +47,18 @@ open class BaseOperation: Operation {
 
     /**
      Always true.
-     Not intended to be overriden
+     Not intended to be overridden
      */
     public final override var isAsynchronous: Bool {
-        return true
+        true
     }
 
-    private var _executing: Bool = false
+    private var _executing = false
 
     private let executingKey = "isExecuting"
     public final override var isExecuting: Bool {
         get {
-            return _executing
+            _executing
         }
         set {
             willChangeValue(forKey: executingKey)
@@ -75,7 +75,7 @@ open class BaseOperation: Operation {
      */
     public final override var isFinished: Bool {
         get {
-            return _finished
+            _finished
         }
         set {
             willChangeValue(forKey: finishedKey)

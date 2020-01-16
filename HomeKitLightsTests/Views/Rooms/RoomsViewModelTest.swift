@@ -33,7 +33,8 @@ final class RoomsViewModelTest: XCTestCase {
         sut = RoomsViewModel(homeKitAccessible: homeKitAccessibleMock,
                              roomDataAccessible: roomDataAccessibleMock,
                              roomFilterSortable: roomSortMock,
-                             refreshNotification: refreshNotificationMock)
+                             refreshNotification: refreshNotificationMock,
+                             urlOpener: URLOpener())
     }
 
     override func tearDown() {

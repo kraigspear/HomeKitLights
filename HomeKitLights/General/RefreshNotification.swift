@@ -9,7 +9,7 @@
 import Combine
 import UIKit
 
-/// A refresh should occure
+/// A refresh should occur
 protocol RefreshNotificationProtocol {
     var refreshPublisher: AnyPublisher<Notification, Never> { get }
 }
