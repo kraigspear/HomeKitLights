@@ -14,10 +14,16 @@ typealias Lights = [Light]
 
 // MARK: - RoomLightsView
 
+/// View containing the room, brightness, indicators for each light in a room
 struct RoomLightsView: View {
+    /// Room that is being displayed
     private let room: Room
     @ObservedObject var viewModel: RoomLightsViewModel
 
+    /// Returns a newly initilized RoomLightsView with the room and ViewModel
+    /// - Parameters:
+    ///   - room: Room that is being viewed
+    ///   - viewModel: ViewModel containing state
     init(_ room: Room,
          viewModel: RoomLightsViewModel) {
         self.room = room
@@ -48,13 +54,10 @@ struct RoomLightsView: View {
             )
 
             VStack {
-                Spacer()
                 HStack {
                     Spacer()
-
                     ActivityView(isActive: $viewModel.isBusy)
-
-                    Spacer()
+                        .padding()
                 }
                 Spacer()
             }
