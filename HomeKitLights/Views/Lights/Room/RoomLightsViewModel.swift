@@ -129,7 +129,6 @@ final class RoomLightsViewModel: ObservableObject {
             .setFailureType(to: Error.self)
             .map { Int($0) }
             .filter { $0 != self.room.maxBrightness } // Avoid setting to the current value - on startup
-            .removeDuplicates()
             .flatMap { brightness -> AnyPublisher<Void, Error> in
 
                 os_log("Updating brightness to value: %d",
