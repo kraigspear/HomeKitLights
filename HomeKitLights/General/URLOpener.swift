@@ -8,11 +8,17 @@
 
 import UIKit
 
+/// Type that is able to open a URL
 protocol URLOpenable {
+    /// Open a URL
+    /// - Parameter url: URL to open
     func open(_ url: URL)
 }
 
+/// Opens a URL
 final class URLOpener: URLOpenable {
+    /// Open a URL
+    /// - Parameter url: URL to open
     func open(_ url: URL) {
         UIApplication.shared.open(url)
     }

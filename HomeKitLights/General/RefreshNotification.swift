@@ -11,6 +11,7 @@ import UIKit
 
 /// A refresh should occur
 protocol RefreshNotificationProtocol {
+    /// Publisher that notifies that a refresh should occure.
     var refreshPublisher: AnyPublisher<Notification, Never> { get }
 }
 
@@ -29,6 +30,7 @@ final class RefreshNotificationMock: RefreshNotificationProtocol {
 }
 
 final class RefreshNotification: RefreshNotificationProtocol {
+    /// Publisher that notifies that a refresh should occure.
     var refreshPublisher: AnyPublisher<Notification, Never> {
         NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification).eraseToAnyPublisher()
     }
