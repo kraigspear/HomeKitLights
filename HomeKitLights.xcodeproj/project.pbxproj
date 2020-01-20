@@ -7,21 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A92848F323D0A2D100C68AD2 /* RoomsLightsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92848F223D0A2D100C68AD2 /* RoomsLightsViewModelTest.swift */; };
+		A92848F523D0C3B500C68AD2 /* URLOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92848F423D0C3B500C68AD2 /* URLOpener.swift */; };
+		A94F615323CE4C0000542349 /* HomeKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94F615223CE4C0000542349 /* HomeKitExtensions.swift */; };
+		A983705423CE543A00CBEC63 /* UpdatePowerInRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983705323CE543A00CBEC63 /* UpdatePowerInRoom.swift */; };
+		A983705623CE546300CBEC63 /* RoomUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983705523CE546300CBEC63 /* RoomUpdatable.swift */; };
+		A983705823CE640E00CBEC63 /* UpdateBrightnessInRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983705723CE640E00CBEC63 /* UpdateBrightnessInRoom.swift */; };
+		A9967B6C23CF96B700C46436 /* RoomFilterSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9967B6B23CF96B700C46436 /* RoomFilterSort.swift */; };
+		A9967B7223CFAA2400C46436 /* RoomFilterSortTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9967B7123CFAA2400C46436 /* RoomFilterSortTest.swift */; };
+		A9D3F1B623C765D8004783A2 /* RoomLightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3F1B523C765D8004783A2 /* RoomLightsView.swift */; };
+		A9D3F1B823C76649004783A2 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3F1B723C76649004783A2 /* Accessory.swift */; };
 		A9D52EC323C613B900C6F91F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EC223C613B900C6F91F /* AppDelegate.swift */; };
 		A9D52EC523C613B900C6F91F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EC423C613B900C6F91F /* SceneDelegate.swift */; };
 		A9D52EC823C613B900C6F91F /* HomeKitLights.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EC623C613B900C6F91F /* HomeKitLights.xcdatamodeld */; };
-		A9D52ECA23C613B900C6F91F /* LightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EC923C613B900C6F91F /* LightsView.swift */; };
+		A9D52ECA23C613B900C6F91F /* RoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EC923C613B900C6F91F /* RoomsView.swift */; };
 		A9D52ECC23C613BA00C6F91F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9D52ECB23C613BA00C6F91F /* Assets.xcassets */; };
 		A9D52ECF23C613BA00C6F91F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9D52ECE23C613BA00C6F91F /* Preview Assets.xcassets */; };
-		A9D52ED223C613BA00C6F91F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9D52ED023C613BA00C6F91F /* LaunchScreen.storyboard */; };
-		A9D52EDD23C613BB00C6F91F /* HomeKitLightsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EDC23C613BB00C6F91F /* HomeKitLightsTests.swift */; };
+		A9D52EDD23C613BB00C6F91F /* RoomsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EDC23C613BB00C6F91F /* RoomsViewModelTest.swift */; };
 		A9D52EE823C613BB00C6F91F /* HomeKitLightsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EE723C613BB00C6F91F /* HomeKitLightsUITests.swift */; };
 		A9D52EFA23C6159200C6F91F /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D52EF923C6159200C6F91F /* HomeKit.framework */; };
 		A9D52EFC23C616FE00C6F91F /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EFB23C616FE00C6F91F /* Room.swift */; };
-		A9D52EFE23C6174500C6F91F /* HomeKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52EFD23C6174500C6F91F /* HomeKitModel.swift */; };
 		A9D52F0123C61FF900C6F91F /* HomeKitAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52F0023C61FF900C6F91F /* HomeKitAccess.swift */; };
-		A9D52F0523C6258A00C6F91F /* LightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52F0423C6258A00C6F91F /* LightsViewModel.swift */; };
+		A9D52F0523C6258A00C6F91F /* RoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52F0423C6258A00C6F91F /* RoomsViewModel.swift */; };
 		A9D52F0823C628D000C6F91F /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D52F0723C628D000C6F91F /* Log.swift */; };
+		A9D703D523C76C7E009E2229 /* HomeKitAccessMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703D423C76C7E009E2229 /* HomeKitAccessMock.swift */; };
+		A9D703DA23C8B3FF009E2229 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703D923C8B3FF009E2229 /* BaseOperation.swift */; };
+		A9D703DC23C8B477009E2229 /* CharacteristicWriteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703DB23C8B477009E2229 /* CharacteristicWriteOperation.swift */; };
+		A9D703DF23C8D4B4009E2229 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703DE23C8D4B4009E2229 /* ActivityIndicatorView.swift */; };
+		A9D703E123C8D5CE009E2229 /* RoomLightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703E023C8D5CE009E2229 /* RoomLightsViewModel.swift */; };
+		A9D703E323C8F5CE009E2229 /* FilterSortButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703E223C8F5CE009E2229 /* FilterSortButtons.swift */; };
+		A9D703E523C8F679009E2229 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703E423C8F679009E2229 /* TitleView.swift */; };
+		A9D703E723C91118009E2229 /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D703E623C91118009E2229 /* SequenceExtensions.swift */; };
+		A9E98D2A23CCF24B006F171F /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E98D2923CCF24B006F171F /* HapticFeedback.swift */; };
+		A9E98D2C23CDF9DB006F171F /* RoomViewStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E98D2B23CDF9DB006F171F /* RoomViewStyleModifier.swift */; };
+		A9E98D2E23CE01A8006F171F /* RefreshNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E98D2D23CE01A8006F171F /* RefreshNotification.swift */; };
+		E638216081BD590D6E7307DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6382AF56D2B993E858360DD /* LaunchScreen.storyboard */; };
+		E63824FD44A4976AEFC97A1D /* RoomAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382B6DDF461E425FACF69E /* RoomAccessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,17 +63,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A92848F223D0A2D100C68AD2 /* RoomsLightsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsLightsViewModelTest.swift; sourceTree = "<group>"; };
+		A92848F423D0C3B500C68AD2 /* URLOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpener.swift; sourceTree = "<group>"; };
+		A94F615223CE4C0000542349 /* HomeKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitExtensions.swift; sourceTree = "<group>"; };
+		A983705323CE543A00CBEC63 /* UpdatePowerInRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePowerInRoom.swift; sourceTree = "<group>"; };
+		A983705523CE546300CBEC63 /* RoomUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomUpdatable.swift; sourceTree = "<group>"; };
+		A983705723CE640E00CBEC63 /* UpdateBrightnessInRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBrightnessInRoom.swift; sourceTree = "<group>"; };
+		A9967B6B23CF96B700C46436 /* RoomFilterSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomFilterSort.swift; sourceTree = "<group>"; };
+		A9967B7123CFAA2400C46436 /* RoomFilterSortTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomFilterSortTest.swift; sourceTree = "<group>"; };
+		A9D3F1B523C765D8004783A2 /* RoomLightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomLightsView.swift; sourceTree = "<group>"; };
+		A9D3F1B723C76649004783A2 /* Accessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
 		A9D52EBF23C613B900C6F91F /* HomeKitLights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeKitLights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D52EC223C613B900C6F91F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9D52EC423C613B900C6F91F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A9D52EC723C613B900C6F91F /* HomeKitLights.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HomeKitLights.xcdatamodel; sourceTree = "<group>"; };
-		A9D52EC923C613B900C6F91F /* LightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsView.swift; sourceTree = "<group>"; };
+		A9D52EC923C613B900C6F91F /* RoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsView.swift; sourceTree = "<group>"; };
 		A9D52ECB23C613BA00C6F91F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9D52ECE23C613BA00C6F91F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A9D52ED123C613BA00C6F91F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9D52ED323C613BA00C6F91F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9D52ED823C613BB00C6F91F /* HomeKitLightsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeKitLightsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9D52EDC23C613BB00C6F91F /* HomeKitLightsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitLightsTests.swift; sourceTree = "<group>"; };
+		A9D52EDC23C613BB00C6F91F /* RoomsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewModelTest.swift; sourceTree = "<group>"; };
 		A9D52EDE23C613BB00C6F91F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9D52EE323C613BB00C6F91F /* HomeKitLightsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeKitLightsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D52EE723C613BB00C6F91F /* HomeKitLightsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitLightsUITests.swift; sourceTree = "<group>"; };
@@ -60,10 +90,22 @@
 		A9D52EF723C6159100C6F91F /* HomeKitLights.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomeKitLights.entitlements; sourceTree = "<group>"; };
 		A9D52EF923C6159200C6F91F /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 		A9D52EFB23C616FE00C6F91F /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
-		A9D52EFD23C6174500C6F91F /* HomeKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitModel.swift; sourceTree = "<group>"; };
 		A9D52F0023C61FF900C6F91F /* HomeKitAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitAccess.swift; sourceTree = "<group>"; };
-		A9D52F0423C6258A00C6F91F /* LightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsViewModel.swift; sourceTree = "<group>"; };
+		A9D52F0423C6258A00C6F91F /* RoomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewModel.swift; sourceTree = "<group>"; };
 		A9D52F0723C628D000C6F91F /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		A9D703D423C76C7E009E2229 /* HomeKitAccessMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKitAccessMock.swift; sourceTree = "<group>"; };
+		A9D703D923C8B3FF009E2229 /* BaseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
+		A9D703DB23C8B477009E2229 /* CharacteristicWriteOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicWriteOperation.swift; sourceTree = "<group>"; };
+		A9D703DE23C8D4B4009E2229 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		A9D703E023C8D5CE009E2229 /* RoomLightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomLightsViewModel.swift; sourceTree = "<group>"; };
+		A9D703E223C8F5CE009E2229 /* FilterSortButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSortButtons.swift; sourceTree = "<group>"; };
+		A9D703E423C8F679009E2229 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		A9D703E623C91118009E2229 /* SequenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensions.swift; sourceTree = "<group>"; };
+		A9E98D2923CCF24B006F171F /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
+		A9E98D2B23CDF9DB006F171F /* RoomViewStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewStyleModifier.swift; sourceTree = "<group>"; };
+		A9E98D2D23CE01A8006F171F /* RefreshNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshNotification.swift; sourceTree = "<group>"; };
+		E6382AF56D2B993E858360DD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E6382B6DDF461E425FACF69E /* RoomAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomAccessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +134,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A956051323CCAEEA00617A67 /* Rooms */ = {
+			isa = PBXGroup;
+			children = (
+				A9D52F0323C6257600C6F91F /* Lights */,
+				A9D703E223C8F5CE009E2229 /* FilterSortButtons.swift */,
+				A9967B6B23CF96B700C46436 /* RoomFilterSort.swift */,
+				A9D52EC923C613B900C6F91F /* RoomsView.swift */,
+				A9D52F0423C6258A00C6F91F /* RoomsViewModel.swift */,
+			);
+			path = Rooms;
+			sourceTree = "<group>";
+		};
+		A96109FB23D0A09C000B58D2 /* Lights */ = {
+			isa = PBXGroup;
+			children = (
+				A92848F223D0A2D100C68AD2 /* RoomsLightsViewModelTest.swift */,
+			);
+			path = Lights;
+			sourceTree = "<group>";
+		};
+		A983705223CE540100CBEC63 /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				A983705323CE543A00CBEC63 /* UpdatePowerInRoom.swift */,
+				A983705523CE546300CBEC63 /* RoomUpdatable.swift */,
+				A983705723CE640E00CBEC63 /* UpdateBrightnessInRoom.swift */,
+			);
+			path = Update;
+			sourceTree = "<group>";
+		};
+		A9967B6F23CFA9D300C46436 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A9967B7023CFA9DE00C46436 /* Rooms */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A9967B7023CFA9DE00C46436 /* Rooms */ = {
+			isa = PBXGroup;
+			children = (
+				A96109FB23D0A09C000B58D2 /* Lights */,
+				A9D52EDC23C613BB00C6F91F /* RoomsViewModelTest.swift */,
+				A9967B7123CFAA2400C46436 /* RoomFilterSortTest.swift */,
+			);
+			path = Rooms;
+			sourceTree = "<group>";
+		};
 		A9D52EB623C613B900C6F91F = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +206,9 @@
 		A9D52EC123C613B900C6F91F /* HomeKitLights */ = {
 			isa = PBXGroup;
 			children = (
+				A9D703E823C915A5009E2229 /* Data */,
+				A9D703DD23C8D498009E2229 /* UIKit */,
+				A9D703D823C8B3EF009E2229 /* General */,
 				A9D52F0623C628C500C6F91F /* Log */,
 				A9D52EF523C614B700C6F91F /* HomeKit */,
 				A9D52F0223C6256400C6F91F /* Views */,
@@ -123,7 +216,6 @@
 				A9D52EC223C613B900C6F91F /* AppDelegate.swift */,
 				A9D52EC423C613B900C6F91F /* SceneDelegate.swift */,
 				A9D52ECB23C613BA00C6F91F /* Assets.xcassets */,
-				A9D52ED023C613BA00C6F91F /* LaunchScreen.storyboard */,
 				A9D52ED323C613BA00C6F91F /* Info.plist */,
 				A9D52EC623C613B900C6F91F /* HomeKitLights.xcdatamodeld */,
 				A9D52ECD23C613BA00C6F91F /* Preview Content */,
@@ -142,9 +234,9 @@
 		A9D52EDB23C613BB00C6F91F /* HomeKitLightsTests */ = {
 			isa = PBXGroup;
 			children = (
-				A9D52F0923C62B8800C6F91F /* Mocks */,
-				A9D52EDC23C613BB00C6F91F /* HomeKitLightsTests.swift */,
+				A9967B6F23CFA9D300C46436 /* Views */,
 				A9D52EDE23C613BB00C6F91F /* Info.plist */,
+				E6382AF56D2B993E858360DD /* LaunchScreen.storyboard */,
 			);
 			path = HomeKitLightsTests;
 			sourceTree = "<group>";
@@ -161,6 +253,7 @@
 		A9D52EF523C614B700C6F91F /* HomeKit */ = {
 			isa = PBXGroup;
 			children = (
+				A983705223CE540100CBEC63 /* Update */,
 				A9D52EFF23C61B4000C6F91F /* Access */,
 				A9D52EF623C614BE00C6F91F /* Models */,
 			);
@@ -171,7 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				A9D52EFB23C616FE00C6F91F /* Room.swift */,
-				A9D52EFD23C6174500C6F91F /* HomeKitModel.swift */,
+				A9D3F1B723C76649004783A2 /* Accessory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -188,6 +281,9 @@
 			isa = PBXGroup;
 			children = (
 				A9D52F0023C61FF900C6F91F /* HomeKitAccess.swift */,
+				A9D703D423C76C7E009E2229 /* HomeKitAccessMock.swift */,
+				A9D703DB23C8B477009E2229 /* CharacteristicWriteOperation.swift */,
+				A94F615223CE4C0000542349 /* HomeKitExtensions.swift */,
 			);
 			path = Access;
 			sourceTree = "<group>";
@@ -195,7 +291,8 @@
 		A9D52F0223C6256400C6F91F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A9D52F0323C6257600C6F91F /* Lights */,
+				A956051323CCAEEA00617A67 /* Rooms */,
+				A9D703E423C8F679009E2229 /* TitleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,8 +300,9 @@
 		A9D52F0323C6257600C6F91F /* Lights */ = {
 			isa = PBXGroup;
 			children = (
-				A9D52EC923C613B900C6F91F /* LightsView.swift */,
-				A9D52F0423C6258A00C6F91F /* LightsViewModel.swift */,
+				A9D3F1B523C765D8004783A2 /* RoomLightsView.swift */,
+				A9D703E023C8D5CE009E2229 /* RoomLightsViewModel.swift */,
+				A9E98D2B23CDF9DB006F171F /* RoomViewStyleModifier.swift */,
 			);
 			path = Lights;
 			sourceTree = "<group>";
@@ -217,11 +315,32 @@
 			path = Log;
 			sourceTree = "<group>";
 		};
-		A9D52F0923C62B8800C6F91F /* Mocks */ = {
+		A9D703D823C8B3EF009E2229 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				A9D703D923C8B3FF009E2229 /* BaseOperation.swift */,
+				A9E98D2923CCF24B006F171F /* HapticFeedback.swift */,
+				A9E98D2D23CE01A8006F171F /* RefreshNotification.swift */,
+				A9D703E623C91118009E2229 /* SequenceExtensions.swift */,
+				A92848F423D0C3B500C68AD2 /* URLOpener.swift */,
+				E6382B6DDF461E425FACF69E /* RoomAccessor.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		A9D703DD23C8D498009E2229 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				A9D703DE23C8D4B4009E2229 /* ActivityIndicatorView.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		A9D703E823C915A5009E2229 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Mocks;
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +353,7 @@
 				A9D52EBB23C613B900C6F91F /* Sources */,
 				A9D52EBC23C613B900C6F91F /* Frameworks */,
 				A9D52EBD23C613B900C6F91F /* Resources */,
+				A9D3F1B323C75D76004783A2 /* Swiftformat */,
 			);
 			buildRules = (
 			);
@@ -328,9 +448,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9D52ED223C613BA00C6F91F /* LaunchScreen.storyboard in Resources */,
 				A9D52ECF23C613BA00C6F91F /* Preview Assets.xcassets in Resources */,
 				A9D52ECC23C613BA00C6F91F /* Assets.xcassets in Resources */,
+				E638216081BD590D6E7307DA /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,20 +470,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A9D3F1B323C75D76004783A2 /* Swiftformat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftformat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A9D52EBB23C613B900C6F91F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A983705623CE546300CBEC63 /* RoomUpdatable.swift in Sources */,
+				A9D703E123C8D5CE009E2229 /* RoomLightsViewModel.swift in Sources */,
+				A9D703DC23C8B477009E2229 /* CharacteristicWriteOperation.swift in Sources */,
 				A9D52EC323C613B900C6F91F /* AppDelegate.swift in Sources */,
 				A9D52EC823C613B900C6F91F /* HomeKitLights.xcdatamodeld in Sources */,
+				A94F615323CE4C0000542349 /* HomeKitExtensions.swift in Sources */,
+				A92848F523D0C3B500C68AD2 /* URLOpener.swift in Sources */,
 				A9D52F0823C628D000C6F91F /* Log.swift in Sources */,
-				A9D52ECA23C613B900C6F91F /* LightsView.swift in Sources */,
+				A9D52ECA23C613B900C6F91F /* RoomsView.swift in Sources */,
 				A9D52EC523C613B900C6F91F /* SceneDelegate.swift in Sources */,
+				A983705823CE640E00CBEC63 /* UpdateBrightnessInRoom.swift in Sources */,
 				A9D52EFC23C616FE00C6F91F /* Room.swift in Sources */,
+				A9D703DA23C8B3FF009E2229 /* BaseOperation.swift in Sources */,
+				A9D3F1B823C76649004783A2 /* Accessory.swift in Sources */,
+				A9D703E723C91118009E2229 /* SequenceExtensions.swift in Sources */,
 				A9D52F0123C61FF900C6F91F /* HomeKitAccess.swift in Sources */,
-				A9D52EFE23C6174500C6F91F /* HomeKitModel.swift in Sources */,
-				A9D52F0523C6258A00C6F91F /* LightsViewModel.swift in Sources */,
+				A983705423CE543A00CBEC63 /* UpdatePowerInRoom.swift in Sources */,
+				A9D703D523C76C7E009E2229 /* HomeKitAccessMock.swift in Sources */,
+				A9967B6C23CF96B700C46436 /* RoomFilterSort.swift in Sources */,
+				A9D703E523C8F679009E2229 /* TitleView.swift in Sources */,
+				A9D3F1B623C765D8004783A2 /* RoomLightsView.swift in Sources */,
+				A9E98D2C23CDF9DB006F171F /* RoomViewStyleModifier.swift in Sources */,
+				A9D52F0523C6258A00C6F91F /* RoomsViewModel.swift in Sources */,
+				A9E98D2A23CCF24B006F171F /* HapticFeedback.swift in Sources */,
+				A9D703DF23C8D4B4009E2229 /* ActivityIndicatorView.swift in Sources */,
+				A9E98D2E23CE01A8006F171F /* RefreshNotification.swift in Sources */,
+				A9D703E323C8F5CE009E2229 /* FilterSortButtons.swift in Sources */,
+				E63824FD44A4976AEFC97A1D /* RoomAccessor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,7 +531,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9D52EDD23C613BB00C6F91F /* HomeKitLightsTests.swift in Sources */,
+				A92848F323D0A2D100C68AD2 /* RoomsLightsViewModelTest.swift in Sources */,
+				A9967B7223CFAA2400C46436 /* RoomFilterSortTest.swift in Sources */,
+				A9D52EDD23C613BB00C6F91F /* RoomsViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,17 +559,6 @@
 			targetProxy = A9D52EE423C613BB00C6F91F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		A9D52ED023C613BA00C6F91F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A9D52ED123C613BA00C6F91F /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A9D52EEA23C613BB00C6F91F /* Debug */ = {
@@ -530,6 +681,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HomeKitLights/HomeKitLights.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeKitLights/Preview Content\"";
 				DEVELOPMENT_TEAM = 66V249GP6S;
 				ENABLE_PREVIEWS = YES;
@@ -541,7 +693,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dornworks.HomeKitLights;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -551,6 +703,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HomeKitLights/HomeKitLights.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeKitLights/Preview Content\"";
 				DEVELOPMENT_TEAM = 66V249GP6S;
 				ENABLE_PREVIEWS = YES;
@@ -562,7 +715,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dornworks.HomeKitLights;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

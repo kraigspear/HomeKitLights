@@ -1,9 +1,0 @@
-version: "Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
-options: "fe74f333291a275c512f7bf1dad7e03c"
-build_time: [1578493623, 849489000]
-inputs:
-  "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/AppDelegate.swift": [9223372036, 854775807]
-  "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/LightsView.swift": [9223372036, 854775807]
-  "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/SceneDelegate.swift": [9223372036, 854775807]
-  "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Room.swift": [9223372036, 854775807]
-  "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/HomeKitModel.swift": [9223372036, 854775807]
