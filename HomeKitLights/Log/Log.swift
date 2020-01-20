@@ -13,4 +13,6 @@ import os.log
 struct Log {
     /// Log for view containing lights
     static let lightsView = OSLog(subsystem: "com.dornerworks.HomeKitLights", category: "💡lightsView")
+    static let homeKitAccess = OSLog(subsystem: "com.dornerworks.HomeKitLights", category: "🏚🛠HomeKitAccess")
+    static let data = OSLog(subsystem: "com.dornerworks.HomeKitLights", category: "🐸Data")
 }

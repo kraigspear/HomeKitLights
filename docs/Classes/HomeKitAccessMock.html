@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HomeKitAccessMock Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/HomeKitAccessMock" class="dashAnchor"></a>
+    <a title="HomeKitAccessMock Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">HomeKitLights Docs</a> (37% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">HomeKitLights Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        HomeKitAccessMock Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../homekit.html">HomeKit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../homekitlights.html">HomeKitLights</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AppDelegate.html">AppDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BaseOperation.html">BaseOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CharasticWriteOperation.html">CharasticWriteOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HapticFeedback.html">HapticFeedback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HapticFeedbackMock.html">HapticFeedbackMock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HomeKitAccess.html">HomeKitAccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HomeKitAccessMock.html">HomeKitAccessMock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RefreshNotification.html">RefreshNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RefreshNotificationMock.html">RefreshNotificationMock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomAccessor.html">RoomAccessor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomDataAccessibleMock.html">RoomDataAccessibleMock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomEntity.html">RoomEntity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomFilterSort.html">RoomFilterSort</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomFilterSortMock.html">RoomFilterSortMock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomLightsViewModel.html">RoomLightsViewModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomsViewModel.html">RoomsViewModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SceneDelegate.html">SceneDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UpdateBrightnessInRoom.html">UpdateBrightnessInRoom</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UpdatePowerInRoom.html">UpdatePowerInRoom</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/HomeKitAccessError.html">HomeKitAccessError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoomFilter.html">RoomFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoomSort.html">RoomSort</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/HMAccessory.html">HMAccessory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/HMCharacteristic.html">HMCharacteristic</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/HMRoom.html">HMRoom</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Sequence.html">Sequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/View.html">View</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/HapticFeedbackProtocol.html">HapticFeedbackProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/HomeKitAccessible.html">HomeKitAccessible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RefreshNotificationProtocol.html">RefreshNotificationProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RoomDataAccessible.html">RoomDataAccessible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RoomFilterSortable.html">RoomFilterSortable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RoomUpdatable.html">RoomUpdatable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Accessory.html">Accessory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AccessoryMock.html">AccessoryMock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ActivityView.html">ActivityView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ContentView_Previews.html">ContentView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EmptyStateView.html">EmptyStateView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FilterButtons.html">FilterButtons</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FilterSortButtons.html">FilterSortButtons</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Log.html">Log</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Room.html">Room</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RoomLightsView.html">RoomLightsView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RoomMock.html">RoomMock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RoomViewStyleModifier.html">RoomViewStyleModifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RoomView_Previews.html">RoomView_Previews</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/RoomsView.html">RoomsView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SortButtons.html">SortButtons</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TitleView.html">TitleView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:13HomeKitLights5Lighta">Light</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:13HomeKitLights0C0a">Lights</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:13HomeKitLights5Roomsa">Rooms</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>HomeKitAccessMock</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">HomeKitAccessMock</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/HomeKitAccessible.html">HomeKitAccessible</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Rooms"></a>
+                <a name="//apple_ref/swift/Section/Rooms" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Rooms"></a>
+                  <h3 class="section-name"><p>Rooms</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights0aB10AccessibleP5rooms7Combine12AnyPublisherVySayAA4RoomVGAA0aB11AccessErrorOGvp"></a>
+                    <a name="//apple_ref/swift/Property/rooms" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights0aB10AccessibleP5rooms7Combine12AnyPublisherVySayAA4RoomVGAA0aB11AccessErrorOGvp">rooms</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">rooms</span><span class="p">:</span> <span class="kt">AnyPublisher</span><span class="o">&lt;</span><span class="p">[</span><span class="kt"><a href="../Structs/Room.html">Room</a></span><span class="p">],</span> <span class="kt"><a href="../Enums/HomeKitAccessError.html">HomeKitAccessError</a></span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights0aB10AccessMockC12whenHasRoomsyyF"></a>
+                    <a name="//apple_ref/swift/Method/whenHasRooms()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights0aB10AccessMockC12whenHasRoomsyyF">whenHasRooms()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">whenHasRooms</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights0aB10AccessMockC019whenHasOneRoomOnAndhI3OffyyF"></a>
+                    <a name="//apple_ref/swift/Method/whenHasOneRoomOnAndOneRoomOff()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights0aB10AccessMockC019whenHasOneRoomOnAndhI3OffyyF">whenHasOneRoomOnAndOneRoomOff()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">whenHasOneRoomOnAndOneRoomOff</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights0aB10AccessMockC19whenThereAreNoRoomsyyF"></a>
+                    <a name="//apple_ref/swift/Method/whenThereAreNoRooms()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights0aB10AccessMockC19whenThereAreNoRoomsyyF">whenThereAreNoRooms()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">whenThereAreNoRooms</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights0aB10AccessMockC17whenRoomsHasErroryyF"></a>
+                    <a name="//apple_ref/swift/Method/whenRoomsHasError()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights0aB10AccessMockC17whenRoomsHasErroryyF">whenRoomsHasError()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">whenRoomsHasError</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Toggle"></a>
+                <a name="//apple_ref/swift/Section/Toggle" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Toggle"></a>
+                  <h3 class="section-name"><p>Toggle</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights0aB10AccessMockC17whenToggleSuccessyyF"></a>
+                    <a name="//apple_ref/swift/Method/whenToggleSuccess()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights0aB10AccessMockC17whenToggleSuccessyyF">whenToggleSuccess()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">whenToggleSuccess</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights0aB10AccessibleP6toggley7Combine12AnyPublisherVyyts5Error_pGAA4RoomVF"></a>
+                    <a name="//apple_ref/swift/Method/toggle(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights0aB10AccessibleP6toggley7Combine12AnyPublisherVyyts5Error_pGAA4RoomVF">toggle(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">toggle</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt"><a href="../Structs/Room.html">Room</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyPublisher</span><span class="o">&lt;</span><span class="kt">Void</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Reload"></a>
+                <a name="//apple_ref/swift/Section/Reload" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Reload"></a>
+                  <h3 class="section-name"><p>Reload</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights0aB10AccessMockC12reloadCalledSivp"></a>
+                    <a name="//apple_ref/swift/Property/reloadCalled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights0aB10AccessMockC12reloadCalledSivp">reloadCalled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">reloadCalled</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights0aB10AccessibleP6reloadyyF"></a>
+                    <a name="//apple_ref/swift/Method/reload()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights0aB10AccessibleP6reloadyyF">reload()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">reload</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Brightness"></a>
+                <a name="//apple_ref/swift/Section/Brightness" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Brightness"></a>
+                  <h3 class="section-name"><p>Brightness</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13HomeKitLights0aB10AccessibleP16updateBrightness_7forRoom7Combine12AnyPublisherVyyts5Error_pGSi_AA0H0VtF"></a>
+                    <a name="//apple_ref/swift/Method/updateBrightness(_:forRoom:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13HomeKitLights0aB10AccessibleP16updateBrightness_7forRoom7Combine12AnyPublisherVyyts5Error_pGSi_AA0H0VtF">updateBrightness(_:forRoom:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateBrightness</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">forRoom</span> <span class="nv">_</span><span class="p">:</span> <span class="kt"><a href="../Structs/Room.html">Room</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyPublisher</span><span class="o">&lt;</span><span class="kt">Void</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Copyright © 2020 DornerWorks. All rights reserved.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

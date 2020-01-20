@@ -9,79 +9,688 @@
     },
     {
       "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/AppDelegate.swift",
-      "line": 17,
+      "line": 14,
       "symbol": "AppDelegate.application(_:didFinishLaunchingWithOptions:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/AppDelegate.swift",
-      "line": 24,
+      "line": 21,
       "symbol": "AppDelegate.application(_:configurationForConnecting:options:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/AppDelegate.swift",
-      "line": 30,
+      "line": 27,
       "symbol": "AppDelegate.application(_:didDiscardSceneSessions:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/AppDelegate.swift",
-      "line": 38,
+      "line": 35,
       "symbol": "AppDelegate.persistentContainer",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/AppDelegate.swift",
-      "line": 67,
+      "line": 64,
       "symbol": "AppDelegate.saveContext()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/HomeKitModel.swift",
-      "line": 15,
-      "symbol": "HomeKitModel.name",
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Data/RoomAccessor.swift",
+      "line": 14,
+      "symbol": "RoomDataAccessible",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Data/RoomAccessor.swift",
+      "line": 26,
+      "symbol": "RoomDataAccessibleMock",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Data/RoomAccessor.swift",
+      "line": 27,
+      "symbol": "RoomDataAccessibleMock.sendRoomDataUpdated()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Data/RoomAccessor.swift",
+      "line": 36,
+      "symbol": "RoomDataAccessibleMock.lastAccessedRoomsValue",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/HomeKitModel.swift",
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Data/RoomAccessor.swift",
+      "line": 44,
+      "symbol": "RoomAccessor",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Data/RoomAccessor.swift",
+      "line": 54,
+      "symbol": "RoomAccessor.sharedAccessor",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Data/RoomAccessor.swift",
+      "line": 99,
+      "symbol": "RoomAccessor.reload()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/General/BaseOperation.swift",
+      "line": 11,
+      "symbol": "BaseOperation",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/General/BaseOperation.swift",
+      "line": 29,
+      "symbol": "BaseOperation.main()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/General/BaseOperation.swift",
+      "line": 33,
+      "symbol": "BaseOperation.anyDependencyHasErrors",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/General/BaseOperation.swift",
+      "line": 37,
+      "symbol": "BaseOperation.firstDependencyError",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/General/BaseOperation.swift",
+      "line": 59,
+      "symbol": "BaseOperation.isExecuting",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/General/HapticFeedback.swift",
+      "line": 17,
+      "symbol": "HapticFeedbackMock",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/General/HapticFeedback.swift",
+      "line": 25,
+      "symbol": "HapticFeedback.sharedHapticFeedback",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/General/RefreshNotification.swift",
+      "line": 14,
+      "symbol": "RefreshNotificationProtocol.refreshPublisher",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/General/RefreshNotification.swift",
+      "line": 19,
+      "symbol": "RefreshNotificationMock.whenNotificationPosted()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/General/RefreshNotification.swift",
+      "line": 26,
+      "symbol": "RefreshNotificationMock.refreshPublisher",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/General/RefreshNotification.swift",
+      "line": 31,
+      "symbol": "RefreshNotification",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/General/RefreshNotification.swift",
+      "line": 32,
+      "symbol": "RefreshNotification.refreshPublisher",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/General/SequenceExtensions.swift",
+      "line": 12,
+      "symbol": "Sequence.any(itemsAre:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/CharasticWriteOperation.swift",
+      "line": 17,
+      "symbol": "CharasticWriteOperation.init(characteristic:value:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/CharasticWriteOperation.swift",
+      "line": 23,
+      "symbol": "CharasticWriteOperation.main()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitAccess.swift",
+      "line": 59,
+      "symbol": "HomeKitAccess.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitAccess.swift",
+      "line": 110,
+      "symbol": "HMCharacteristic.writeValue(value:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitAccess.swift",
+      "line": 130,
+      "symbol": "HomeKitAccess.homeManagerDidUpdateHomes(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitAccessMock.swift",
+      "line": 12,
+      "symbol": "HomeKitAccessMock",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitAccessMock.swift",
+      "line": 32,
+      "symbol": "HomeKitAccessMock.whenHasRooms()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitAccessMock.swift",
+      "line": 37,
+      "symbol": "HomeKitAccessMock.whenHasOneRoomOnAndOneRoomOff()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitAccessMock.swift",
+      "line": 42,
+      "symbol": "HomeKitAccessMock.whenThereAreNoRooms()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitAccessMock.swift",
+      "line": 47,
+      "symbol": "HomeKitAccessMock.whenRoomsHasError()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitAccessMock.swift",
+      "line": 54,
+      "symbol": "HomeKitAccessMock.whenToggleSuccess()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitAccessMock.swift",
+      "line": 68,
+      "symbol": "HomeKitAccessMock.reloadCalled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitExtensions.swift",
+      "line": 13,
+      "symbol": "HMRoom.toRoom()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitExtensions.swift",
+      "line": 26,
+      "symbol": "HMCharacteristic.isOn",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitExtensions.swift",
+      "line": 40,
+      "symbol": "HMAccessory.isOn",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitExtensions.swift",
+      "line": 44,
+      "symbol": "HMAccessory.isLight",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitExtensions.swift",
+      "line": 48,
+      "symbol": "HMAccessory.brightnessCharastic",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitExtensions.swift",
+      "line": 52,
+      "symbol": "HMAccessory.brightness",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitExtensions.swift",
+      "line": 56,
+      "symbol": "HMAccessory.toAccessory()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitExtensions.swift",
+      "line": 65,
+      "symbol": "HMRoom.lightsAreOn",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitExtensions.swift",
+      "line": 87,
+      "symbol": "HMRoom.powerStateCharacteristics",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitExtensions.swift",
+      "line": 93,
+      "symbol": "HMRoom.lightBulbServices",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Access/HomeKitExtensions.swift",
+      "line": 100,
+      "symbol": "HMRoom.characteristicsOfType(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Accessory.swift",
+      "line": 13,
+      "symbol": "Accessory.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Accessory.swift",
+      "line": 15,
+      "symbol": "Accessory.isOn",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Accessory.swift",
       "line": 16,
-      "symbol": "HomeKitModel.uniqueIdentifier",
+      "symbol": "Accessory.brightness",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Accessory.swift",
+      "line": 23,
+      "symbol": "AccessoryMock",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Accessory.swift",
+      "line": 24,
+      "symbol": "AccessoryMock.light1()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Accessory.swift",
+      "line": 31,
+      "symbol": "AccessoryMock.light2()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Accessory.swift",
+      "line": 37,
+      "symbol": "AccessoryMock.light3()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Accessory.swift",
+      "line": 43,
+      "symbol": "AccessoryMock.light4()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Accessory.swift",
+      "line": 49,
+      "symbol": "AccessoryMock.lightNoBrightness()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Accessory.swift",
+      "line": 55,
+      "symbol": "AccessoryMock.lightThatIsOn()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Accessory.swift",
+      "line": 61,
+      "symbol": "AccessoryMock.lightThatIsOff()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Room.swift",
+      "line": 14,
+      "symbol": "Room.name",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Room.swift",
-      "line": 38,
-      "symbol": "RoomMock.name",
+      "line": 16,
+      "symbol": "Room.lights",
       "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Room.swift",
+      "line": 27,
+      "symbol": "Room.areAnyLightsOn",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Room.swift",
+      "line": 32,
+      "symbol": "Rooms",
+      "symbol_kind": "source.lang.swift.decl.typealias",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Room.swift",
       "line": 39,
-      "symbol": "RoomMock.uniqueIdentifier",
+      "symbol": "RoomMock.livingRoom()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Room.swift",
+      "line": 46,
+      "symbol": "RoomMock.diningRooom()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Room.swift",
+      "line": 55,
+      "symbol": "RoomMock.kitchen()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Room.swift",
+      "line": 66,
+      "symbol": "RoomMock.roomNoBrightness()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Room.swift",
+      "line": 73,
+      "symbol": "RoomMock.roomWithLightOn()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Room.swift",
+      "line": 79,
+      "symbol": "RoomMock.roomWithLightOff()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Models/Room.swift",
+      "line": 85,
+      "symbol": "RoomMock.rooms()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/RoomUpdatable.swift",
+      "line": 14,
+      "symbol": "RoomUpdatable",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/RoomUpdatable.swift",
+      "line": 15,
+      "symbol": "RoomUpdatable.homeKitHomeManager",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/LightsView.swift",
-      "line": 11,
-      "symbol": "LightsView",
-      "symbol_kind": "source.lang.swift.decl.struct",
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/RoomUpdatable.swift",
+      "line": 16,
+      "symbol": "RoomUpdatable.charastericToUpdate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/LightsView.swift",
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/RoomUpdatable.swift",
       "line": 17,
-      "symbol": "ContentView_Previews",
-      "symbol_kind": "source.lang.swift.decl.struct",
+      "symbol": "RoomUpdatable.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/RoomUpdatable.swift",
+      "line": 18,
+      "symbol": "RoomUpdatable.room",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/RoomUpdatable.swift",
+      "line": 19,
+      "symbol": "RoomUpdatable.operationQueue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/RoomUpdatable.swift",
+      "line": 22,
+      "symbol": "RoomUpdatable",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/RoomUpdatable.swift",
+      "line": 23,
+      "symbol": "RoomUpdatable.log",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/RoomUpdatable.swift",
+      "line": 25,
+      "symbol": "RoomUpdatable.hmRoom",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/RoomUpdatable.swift",
+      "line": 33,
+      "symbol": "RoomUpdatable.failHomeNotFound",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/RoomUpdatable.swift",
+      "line": 37,
+      "symbol": "RoomUpdatable.charastericsToUpdate(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/RoomUpdatable.swift",
+      "line": 41,
+      "symbol": "RoomUpdatable.update()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/UpdateBrightnessInRoom.swift",
+      "line": 15,
+      "symbol": "UpdateBrightnessInRoom",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/UpdateBrightnessInRoom.swift",
+      "line": 16,
+      "symbol": "UpdateBrightnessInRoom.operationQueue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/UpdateBrightnessInRoom.swift",
+      "line": 17,
+      "symbol": "UpdateBrightnessInRoom.homeKitHomeManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/UpdateBrightnessInRoom.swift",
+      "line": 18,
+      "symbol": "UpdateBrightnessInRoom.room",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/UpdateBrightnessInRoom.swift",
+      "line": 21,
+      "symbol": "UpdateBrightnessInRoom.charastericToUpdate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/UpdateBrightnessInRoom.swift",
+      "line": 25,
+      "symbol": "UpdateBrightnessInRoom.init(room:brightness:homeKitHomeManager:operationQueue:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/UpdateBrightnessInRoom.swift",
+      "line": 35,
+      "symbol": "UpdateBrightnessInRoom.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/UpdatePowerInRoom.swift",
+      "line": 13,
+      "symbol": "UpdatePowerInRoom",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/UpdatePowerInRoom.swift",
+      "line": 14,
+      "symbol": "UpdatePowerInRoom.operationQueue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/UpdatePowerInRoom.swift",
+      "line": 15,
+      "symbol": "UpdatePowerInRoom.homeKitHomeManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/UpdatePowerInRoom.swift",
+      "line": 16,
+      "symbol": "UpdatePowerInRoom.room",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/UpdatePowerInRoom.swift",
+      "line": 18,
+      "symbol": "UpdatePowerInRoom.charastericToUpdate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/UpdatePowerInRoom.swift",
+      "line": 22,
+      "symbol": "UpdatePowerInRoom.init(room:homeKitHomeManager:operationQueue:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/HomeKit/Update/UpdatePowerInRoom.swift",
+      "line": 30,
+      "symbol": "UpdatePowerInRoom.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Log/Log.swift",
+      "line": 16,
+      "symbol": "Log.homeKitAccess",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Log/Log.swift",
+      "line": 17,
+      "symbol": "Log.data",
+      "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
@@ -93,51 +702,387 @@
     },
     {
       "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/SceneDelegate.swift",
-      "line": 14,
+      "line": 13,
       "symbol": "SceneDelegate.window",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/SceneDelegate.swift",
-      "line": 17,
+      "line": 15,
       "symbol": "SceneDelegate.scene(_:willConnectTo:options:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/SceneDelegate.swift",
-      "line": 38,
+      "line": 36,
       "symbol": "SceneDelegate.sceneDidDisconnect(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/SceneDelegate.swift",
-      "line": 45,
+      "line": 43,
       "symbol": "SceneDelegate.sceneDidBecomeActive(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/SceneDelegate.swift",
-      "line": 50,
+      "line": 48,
       "symbol": "SceneDelegate.sceneWillResignActive(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/SceneDelegate.swift",
-      "line": 55,
+      "line": 53,
       "symbol": "SceneDelegate.sceneWillEnterForeground(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/SceneDelegate.swift",
-      "line": 60,
+      "line": 58,
       "symbol": "SceneDelegate.sceneDidEnterBackground(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/UIKit/ActivityIndicatorView.swift",
+      "line": 12,
+      "symbol": "ActivityView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/UIKit/ActivityIndicatorView.swift",
+      "line": 13,
+      "symbol": "ActivityView.isActive",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Lights/Room/RoomLightsView.swift",
+      "line": 12,
+      "symbol": "Light",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Lights/Room/RoomLightsView.swift",
+      "line": 13,
+      "symbol": "Lights",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Lights/Room/RoomLightsView.swift",
+      "line": 17,
+      "symbol": "RoomLightsView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Lights/Room/RoomLightsView.swift",
+      "line": 19,
+      "symbol": "RoomLightsView.viewModel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Lights/Room/RoomLightsView.swift",
+      "line": 21,
+      "symbol": "RoomLightsView.init(_:viewModel:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Lights/Room/RoomLightsView.swift",
+      "line": 128,
+      "symbol": "RoomView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Lights/Room/RoomLightsViewModel.swift",
+      "line": 13,
+      "symbol": "RoomLightsViewModel",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Lights/Room/RoomLightsViewModel.swift",
+      "line": 24,
+      "symbol": "RoomLightsViewModel.isBusy",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Lights/Room/RoomLightsViewModel.swift",
+      "line": 25,
+      "symbol": "RoomLightsViewModel.brightness",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Lights/Room/RoomLightsViewModel.swift",
+      "line": 26,
+      "symbol": "RoomLightsViewModel.areLightsOn",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Lights/Room/RoomLightsViewModel.swift",
+      "line": 27,
+      "symbol": "RoomLightsViewModel.imageOpacity",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Lights/Room/RoomLightsViewModel.swift",
+      "line": 28,
+      "symbol": "RoomLightsViewModel.imageName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Lights/Room/RoomLightsViewModel.swift",
+      "line": 30,
+      "symbol": "RoomLightsViewModel.init(room:homeKitAccessible:roomDataAccessible:hapticFeedback:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Lights/Room/RoomLightsViewModel.swift",
+      "line": 64,
+      "symbol": "RoomLightsViewModel.toggle()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Lights/Room/RoomViewStyleModifier.swift",
+      "line": 11,
+      "symbol": "RoomViewStyleModifier",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Lights/Room/RoomViewStyleModifier.swift",
+      "line": 22,
+      "symbol": "View.roomStyle()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/FilterSortButtons.swift",
+      "line": 12,
+      "symbol": "FilterSortButtons",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/FilterSortButtons.swift",
+      "line": 13,
+      "symbol": "FilterSortButtons.viewModel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/FilterSortButtons.swift",
+      "line": 15,
+      "symbol": "FilterSortButtons.init(viewModel:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/FilterSortButtons.swift",
+      "line": 27,
+      "symbol": "FilterButtons",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/FilterSortButtons.swift",
+      "line": 28,
+      "symbol": "FilterButtons.viewModel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/FilterSortButtons.swift",
+      "line": 30,
+      "symbol": "FilterButtons.init(viewModel:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/FilterSortButtons.swift",
+      "line": 49,
+      "symbol": "SortButtons",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/FilterSortButtons.swift",
+      "line": 50,
+      "symbol": "SortButtons.viewModel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/RoomFilterSort.swift",
+      "line": 36,
+      "symbol": "RoomFilterSortMock",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/RoomFilterSort.swift",
+      "line": 37,
+      "symbol": "RoomFilterSortMock.appliedCount",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/RoomFilterSort.swift",
+      "line": 52,
+      "symbol": "RoomFilterSort.init(roomDataAccessible:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/RoomFilterSort.swift",
+      "line": 56,
+      "symbol": "RoomFilterSort.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/RoomsView.swift",
+      "line": 13,
+      "symbol": "RoomsView.viewModel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/RoomsView.swift",
+      "line": 15,
+      "symbol": "RoomsView.init(viewModel:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/RoomsView.swift",
+      "line": 19,
+      "symbol": "RoomsView.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/RoomsView.swift",
+      "line": 71,
+      "symbol": "EmptyStateView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/RoomsView.swift",
+      "line": 87,
+      "symbol": "ContentView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/RoomsViewModel.swift",
+      "line": 46,
+      "symbol": "RoomsViewModel.filterIndex",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/RoomsViewModel.swift",
+      "line": 52,
+      "symbol": "RoomsViewModel.sortIndex",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/RoomsViewModel.swift",
+      "line": 58,
+      "symbol": "RoomsViewModel.FilterButtonImage",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/RoomsViewModel.swift",
+      "line": 59,
+      "symbol": "RoomsViewModel.FilterButtonImageFilled",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/RoomsViewModel.swift",
+      "line": 61,
+      "symbol": "RoomsViewModel.filterButtonImage",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/RoomsViewModel.swift",
+      "line": 62,
+      "symbol": "RoomsViewModel.isShowingSortFilter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/Rooms/RoomsViewModel.swift",
+      "line": 68,
+      "symbol": "RoomsViewModel.toggleShowingFilter()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/HomeKitLights/Views/TitleView.swift",
+      "line": 17,
+      "symbol": "TitleView.init(title:foregroundColor:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/build/HomeKitLights.build/Release-iphoneos/HomeKitLights.build/DerivedSources/CoreDataGenerated/HomeKitLights/RoomEntity+CoreDataClass.swift",
+      "line": 13,
+      "symbol": "RoomEntity",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/build/HomeKitLights.build/Release-iphoneos/HomeKitLights.build/DerivedSources/CoreDataGenerated/HomeKitLights/RoomEntity+CoreDataClass.swift",
+      "line": 14,
+      "symbol": "RoomEntity",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/build/HomeKitLights.build/Release-iphoneos/HomeKitLights.build/DerivedSources/CoreDataGenerated/HomeKitLights/RoomEntity+CoreDataProperties.swift",
+      "line": 14,
+      "symbol": "RoomEntity.fetchRequest()",
+      "symbol_kind": "source.lang.swift.decl.function.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/build/HomeKitLights.build/Release-iphoneos/HomeKitLights.build/DerivedSources/CoreDataGenerated/HomeKitLights/RoomEntity+CoreDataProperties.swift",
+      "line": 18,
+      "symbol": "RoomEntity.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/kraigspear/Projects/Xcode/HomeKitLights/build/HomeKitLights.build/Release-iphoneos/HomeKitLights.build/DerivedSources/CoreDataGenerated/HomeKitLights/RoomEntity+CoreDataProperties.swift",
+      "line": 19,
+      "symbol": "RoomEntity.lastAccessed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     }
   ],

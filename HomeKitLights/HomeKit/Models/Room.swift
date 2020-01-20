@@ -10,55 +10,81 @@ import Foundation
 import HomeKit
 
 /// Represents a Room from HomeKit
-protocol RoomProtocol: HomeKitModel {}
+struct Room: Identifiable, Hashable {
+    let name: String
+    let id: UUID
+    let lights: Lights
 
-/// Represents a Room from HomeKit
-struct Room: RoomProtocol {
-    /// Inner room from HomeKit
-    private let homeKitRoom: HMRoom
-
-    /// Initialize a new room from a `HMRoom`
-    /// - Parameter homeKitRoom: `HMRoom` that is being abstracted
-    init(homeKitRoom: HMRoom) {
-        self.homeKitRoom = homeKitRoom
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 
-    /// The unique identifier for a room.
-    var uniqueIdentifier: UUID { homeKitRoom.uniqueIdentifier }
+    /// The highest brightness value
+    var maxBrightness: Int {
+        lights.max(by: { $0.brightness < $1.brightness })?.brightness ?? 0
+    }
 
-    /// The name of the room.
-    var name: String { homeKitRoom.name }
+    var areAnyLightsOn: Bool {
+        lights.any(itemsAre: { $0.isOn })
+    }
 }
+
+typealias Rooms = [Room]
 
 /**
  * Mock room conforming to `RoomProtocol` that can be used in both
  * Unit Test & SwiftUI previews
  */
-struct RoomMock: RoomProtocol {
-    let name: String
-    let uniqueIdentifier: UUID
-
-    init(name: String,
-         uniqueIdentifier: UUID) {
-        self.name = name
-        self.uniqueIdentifier = uniqueIdentifier
+struct RoomMock {
+    static func livingRoom() -> Room {
+        let accessory1 = AccessoryMock.light1()
+        return Room(name: "Living Room",
+                    id: UUID(uuidString: "46A68B10-0E92-4821-91A0-0D11926F284D")!,
+                    lights: [accessory1])
     }
 
-    static func livingRoom() -> RoomMock {
-        RoomMock(name: "Living Room", uniqueIdentifier: UUID(uuidString: "46A68B10-0E92-4821-91A0-0D11926F284D")!)
+    static func diningRoom() -> Room {
+        let accessory1 = AccessoryMock.light1()
+        let accessory2 = AccessoryMock.light2()
+
+        return Room(name: "Dining Room",
+                    id: UUID(uuidString: "4B3C5FE2-1EA4-4764-AD36-CFE506A43606")!,
+                    lights: [accessory1, accessory2])
     }
 
-    static func diningRooom() -> RoomMock {
-        RoomMock(name: "Dining Room", uniqueIdentifier: UUID(uuidString: "4B3C5FE2-1EA4-4764-AD36-CFE506A43606")!)
+    static func kitchen() -> Room {
+        let accessory1 = AccessoryMock.light1()
+        let accessory2 = AccessoryMock.light2()
+        let accessory3 = AccessoryMock.light3()
+        let accessory4 = AccessoryMock.light4()
+
+        return Room(name: "Kitchen",
+                    id: UUID(uuidString: "65F06C57-5191-45B8-BF78-9BBD922032A6")!,
+                    lights: [accessory1, accessory2, accessory3, accessory4])
     }
 
-    static func kitchen() -> RoomMock {
-        RoomMock(name: "Kitchen", uniqueIdentifier: UUID(uuidString: "4B3C5FE2-1EA4-4764-AD36-CFE506A43606")!)
+    static func roomNoBrightness() -> Room {
+        let notBright = AccessoryMock.lightNoBrightness()
+        return Room(name: "Not bright",
+                    id: UUID(uuidString: "F584E2C9-2645-45F1-8B82-EAB38A18D0EB")!,
+                    lights: [notBright])
     }
 
-    static func rooms() -> [RoomMock] {
-        return [livingRoom(),
-                diningRooom(),
-                kitchen()]
+    static func roomWithLightOn() -> Room {
+        Room(name: "Room that is on",
+             id: UUID(uuidString: "C21B4028-730F-4EEB-9694-58135E67ADF2")!,
+             lights: [AccessoryMock.lightThatIsOn()])
+    }
+
+    static func roomWithLightOff() -> Room {
+        Room(name: "Room that is Off",
+             id: UUID(uuidString: "5698437D-A75A-4F51-AD10-7B29680B538C")!,
+             lights: [AccessoryMock.lightThatIsOff()])
+    }
+
+    static func rooms() -> [Room] {
+        [livingRoom(),
+         diningRoom(),
+         kitchen()]
     }
 }
