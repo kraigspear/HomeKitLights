@@ -4,7 +4,6 @@ HomeKit Example
 ### Overview
 
 Provide an example highlighting use of HomeKit.
-This Application can be used as an example to a prospective client on how HomeKit could be used as part of their IoT project. 
 
 ### Platform
 - iOS 13 and above. 
