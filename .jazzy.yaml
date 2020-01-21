@@ -9,6 +9,8 @@ custom_categories:
   - RoomsViewModel
   - FilterSortButton
   - TitleView
+  - RefreshNotificationProtocol
+  - RefreshNotification
 - name: RoomLightsView
   children:
   - RoomLightsView
@@ -18,6 +20,20 @@ custom_categories:
   children:
   - RoomDataAccessible
   - RoomAccessor
+- name: HomeKitModels
+  children:
+  - Room
+  - Accessory
+- name: HomeKitAccess
+  children:
+  - HomeKitAccessible
+  - CharacteristicWriteOperation
+  - HomeKitAccessError
+- name: HomeKitUpdate
+  children:
+  - RoomUpdatable
+  - UpdateBrightnessInRoom
+  - UpdatePowerInRoom
 - name: General
   children:
   - BaseOperation
@@ -26,4 +42,6 @@ custom_categories:
   - RefreshNotificationProtocol
   - RefreshNotification
   - URLOpenable
-  - URLOpener
+  - URLOpener  
+
+

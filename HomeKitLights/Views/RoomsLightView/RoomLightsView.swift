@@ -16,9 +16,15 @@ typealias Lights = [Light]
 
 /// View containing the room, brightness, indicators for each light in a room
 struct RoomLightsView: View {
+    // MARK: - Members
+
     /// Room that is being displayed
     private let room: Room
+
+    /// ViewModel backing this View.
     @ObservedObject var viewModel: RoomLightsViewModel
+
+    // MARK: - Init
 
     /// Returns a newly initialized RoomLightsView with the room and ViewModel
     /// - Parameters:
@@ -29,6 +35,8 @@ struct RoomLightsView: View {
         self.room = room
         self.viewModel = viewModel
     }
+
+    // MARK: - Body
 
     var body: some View {
         ZStack {

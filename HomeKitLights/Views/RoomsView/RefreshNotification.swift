@@ -10,8 +10,23 @@ import Combine
 import UIKit
 
 /// A refresh should occur
+/// SeeAlso: `RoomsViewModel`
 protocol RefreshNotificationProtocol {
-    /// Publisher that notifies that a refresh should occure.
+    /**
+     Publisher that notifies that a refresh should occur.
+     ```swift
+     private func sinkToForegroundNotification() {
+         refreshNotificationCancel = refreshNotification.refreshPublisher.sink { _ in
+
+             os_log("refreshNotification refesh",
+                    log: self.log,
+                    type: .debug)
+
+             self.homeKitAccessible.reload()
+         }
+     }
+     ```
+     */
     var refreshPublisher: AnyPublisher<Notification, Never> { get }
 }
 
@@ -29,8 +44,23 @@ final class RefreshNotificationMock: RefreshNotificationProtocol {
     }
 }
 
+/// Notification indicating that data should reload
 final class RefreshNotification: RefreshNotificationProtocol {
-    /// Publisher that notifies that a refresh should occure.
+    /**
+     Publisher that notifies that a refresh should occur.
+     ```swift
+     private func sinkToForegroundNotification() {
+         refreshNotificationCancel = refreshNotification.refreshPublisher.sink { _ in
+
+             os_log("refreshNotification refesh",
+                    log: self.log,
+                    type: .debug)
+
+             self.homeKitAccessible.reload()
+         }
+     }
+     ```
+     */
     var refreshPublisher: AnyPublisher<Notification, Never> {
         NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification).eraseToAnyPublisher()
     }

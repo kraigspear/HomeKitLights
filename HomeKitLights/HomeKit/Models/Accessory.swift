@@ -8,7 +8,10 @@
 
 import Foundation
 
-/// Struc representation of an `HMAccessory` from HomeKit
+/// Struct representation of an `HMAccessory` from HomeKit
+/// Accessory is also a light
+/// In the world of HomeKit an Accessory can be many things, (Garage Door, Cealing Fan)
+/// but in this App it is only a light.
 /// - SeeAlso: `HMAccessory`
 struct Accessory: Identifiable {
     /// Name of accessory
