@@ -30,7 +30,7 @@ protocol RoomFilterSortable {
     /// ```
     func apply(filter: RoomFilter,
                sort: RoomSort,
-               on rooms: [Room]) -> [Room]
+               on rooms: Rooms) -> Rooms
 }
 
 final class RoomFilterSortMock: RoomFilterSortable {
@@ -38,7 +38,7 @@ final class RoomFilterSortMock: RoomFilterSortable {
 
     func apply(filter _: RoomFilter,
                sort _: RoomSort,
-               on rooms: [Room]) -> [Room] {
+               on rooms: Rooms) -> Rooms {
         appliedCount += 1
         return rooms
     }
@@ -73,7 +73,7 @@ final class RoomFilterSort: RoomFilterSortable {
     ///   - returns: Sorted / Filter array of rooms.
     func apply(filter: RoomFilter,
                sort: RoomSort,
-               on rooms: [Room]) -> [Room] {
+               on rooms: Rooms) -> Rooms {
         os_log("applySortFilter",
                log: Log.homeKitAccess,
                type: .debug)
@@ -103,7 +103,7 @@ final class RoomFilterSort: RoomFilterSortable {
 private extension Array where Element == Room {
     /// Filter lights by filter passed in
     /// - Parameter filter: What to filter on
-    func filter(by filter: RoomFilter) -> [Room] {
+    func filter(by filter: RoomFilter) -> Rooms {
         switch filter {
         case .all:
             return self

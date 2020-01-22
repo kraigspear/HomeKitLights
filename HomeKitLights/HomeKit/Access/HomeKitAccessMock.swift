@@ -12,18 +12,18 @@ import Foundation
 final class HomeKitAccessMock: HomeKitAccessible {
     // MARK: - Rooms
 
-    private var roomsValue: [Room]?
+    private var roomsValue: Rooms?
     private var roomsError: HomeKitAccessError?
 
-    var rooms: AnyPublisher<[Room], HomeKitAccessError> {
+    var rooms: AnyPublisher<Rooms, HomeKitAccessError> {
         if let roomsValue = roomsValue {
-            return Just<[Room]>(roomsValue)
+            return Just<Rooms>(roomsValue)
                 .setFailureType(to: HomeKitAccessError.self)
                 .eraseToAnyPublisher()
         }
 
         if let roomsError = roomsError {
-            return Fail<[Room], HomeKitAccessError>(error: roomsError).eraseToAnyPublisher()
+            return Fail<Rooms, HomeKitAccessError>(error: roomsError).eraseToAnyPublisher()
         }
 
         preconditionFailure("Expected result or error")

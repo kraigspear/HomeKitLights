@@ -94,7 +94,7 @@ struct RoomMock {
              lights: [AccessoryMock.lightThatIsOff()])
     }
 
-    static func rooms() -> [Room] {
+    static func rooms() -> Rooms {
         [livingRoom(),
          diningRoom(),
          kitchen()]

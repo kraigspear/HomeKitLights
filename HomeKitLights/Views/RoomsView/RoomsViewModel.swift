@@ -35,7 +35,7 @@ final class RoomsViewModel: ObservableObject {
     private let log = Log.lightsView
 
     /// Rooms that lights are in
-    @Published var rooms: [Room] = []
+    @Published var rooms: Rooms = []
 
     /// True to show an alert, showing an error message
     @Published var isShowingError = false
@@ -70,7 +70,7 @@ final class RoomsViewModel: ObservableObject {
     }
 
     /// All rooms, Filters are applied to this array
-    private var allRooms: [Room] = [] {
+    private var allRooms: Rooms = [] {
         didSet {
             isEmptyStateVisible = allRooms.isEmpty
         }
