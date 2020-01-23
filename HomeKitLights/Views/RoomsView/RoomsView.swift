@@ -26,7 +26,10 @@ struct RoomsView: View {
 
     var body: some View {
         NavigationView {
-            if viewModel.isEmptyStateVisible {
+            if viewModel.isMissingPermissionStateVisisble {
+                MissingPermissionStateView(viewModel: viewModel)
+                    .accentColor(Color("FilterLightsOn"))
+            } else if viewModel.isEmptyStateVisible {
                 EmptyStateView(viewModel: viewModel)
                     .accentColor(Color("FilterLightsOn"))
             }
@@ -82,15 +85,37 @@ struct EmptyStateView: View {
         VStack(alignment: .center) {
             Spacer()
 
-            Text("Either rooms have not been setup in HomeKit, or the required permissions have not been given.")
+            Text("There are no rooms with lights setup in HomeKit. Open the Home App and add at least one light to a room.")
                 .font(.headline)
                 .multilineTextAlignment(.center)
                 .foregroundColor(.secondary)
                 .padding()
 
-            Button("Home App") {
+            Button("Open Home App") {
                 self.viewModel.showHomeApp()
             }.padding()
+
+            Spacer()
+        }
+    }
+}
+
+struct MissingPermissionStateView: View {
+    private let viewModel: RoomsViewModel
+
+    init(viewModel: RoomsViewModel) {
+        self.viewModel = viewModel
+    }
+
+    var body: some View {
+        VStack(alignment: .center) {
+            Spacer()
+
+            Text("The app needs permission to access your HomeKit data.")
+                .font(.headline)
+                .multilineTextAlignment(.center)
+                .foregroundColor(.secondary)
+                .padding()
 
             Button("Permissions") {
                 self.viewModel.showPermissions()

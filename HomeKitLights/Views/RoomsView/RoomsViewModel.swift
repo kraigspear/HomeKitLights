@@ -93,6 +93,9 @@ final class RoomsViewModel: ObservableObject {
     /// There are no rooms, empty state should be shown.
     @Published var isEmptyStateVisible = true
 
+    /// Missing HomeKit permissions, permission request state should be shown.
+    @Published var isMissingPermissionStateVisisble = true
+
     // MARK: - Init
 
     /// Initialize a new instance with access to HomeKit
@@ -121,6 +124,7 @@ final class RoomsViewModel: ObservableObject {
     /// Occurs when the last selected item is set
     private func sinkToDataChanges() {
         roomsUpdatedCancel = roomDataAccessible.roomsUpdated.sink {
+            self.isMissingPermissionStateVisisble = !self.homeKitAccessible.authorizationStatus().contains(.authorized)
             self.homeKitAccessible.reload()
         }
     }
@@ -141,6 +145,7 @@ final class RoomsViewModel: ObservableObject {
         os_log("onAppear",
                log: log,
                type: .info)
+        isMissingPermissionStateVisisble = !homeKitAccessible.authorizationStatus().contains(.authorized)
         homeKitAccessible.reload()
     }
 
@@ -214,7 +219,7 @@ final class RoomsViewModel: ObservableObject {
             os_log("refreshNotification refesh",
                    log: self.log,
                    type: .debug)
-
+            self.isMissingPermissionStateVisisble = !self.homeKitAccessible.authorizationStatus().contains(.authorized)
             self.homeKitAccessible.reload()
         }
     }

@@ -38,6 +38,9 @@ protocol HomeKitAccessible {
     ///   - room: Room to set the brightness on
     func updateBrightness(_ brightness: Int,
                           forRoom room: Room) -> AnyPublisher<Void, Error>
+
+    /// Returns authorization status of a HMHomeManager object
+    func authorizationStatus() -> HMHomeManagerAuthorizationStatus
 }
 
 /**
@@ -103,6 +106,10 @@ final class HomeKitAccess: NSObject, HomeKitAccessible {
         UpdatePowerInRoom(room: room,
                           homeKitHomeManager: homeKitHomeManager,
                           operationQueue: updateHomeKitQueue).update().eraseToAnyPublisher()
+    }
+
+    func authorizationStatus() -> HMHomeManagerAuthorizationStatus {
+        return HMHomeManager().authorizationStatus
     }
 }
 
