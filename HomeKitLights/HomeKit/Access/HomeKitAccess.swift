@@ -109,7 +109,7 @@ final class HomeKitAccess: NSObject, HomeKitAccessible {
     }
 
     func authorizationStatus() -> HMHomeManagerAuthorizationStatus {
-        return HMHomeManager().authorizationStatus
+        HMHomeManager().authorizationStatus
     }
 }
 

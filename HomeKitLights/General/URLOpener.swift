@@ -9,7 +9,7 @@
 import UIKit
 
 /// Type that is able to open a URL
-protocol URLOpenable {
+protocol URLOpening {
     /**
       Open a URL
        Parameter url: URL to open
@@ -24,7 +24,7 @@ protocol URLOpenable {
 }
 
 /// Opens a URL
-final class URLOpener: URLOpenable {
+final class URLOpener: URLOpening {
     /**
       Open a URL
        Parameter url: URL to open

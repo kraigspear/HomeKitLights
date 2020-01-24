@@ -67,10 +67,10 @@ extension HMAccessory {
 
     /// Converts this `HMAccessory` to a `Accessory`
     func toAccessory() -> Accessory {
-        return Accessory(name: name,
-                         id: uniqueIdentifier,
-                         isOn: isOn,
-                         brightness: brightness)
+        Accessory(name: name,
+                  id: uniqueIdentifier,
+                  isOn: isOn,
+                  brightness: brightness)
     }
 }
 

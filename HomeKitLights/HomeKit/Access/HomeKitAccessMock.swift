@@ -83,7 +83,7 @@ final class HomeKitAccessMock: HomeKitAccessible {
     // MARK: - Authorization Status
 
     func authorizationStatus() -> HMHomeManagerAuthorizationStatus {
-        return .authorized
+        .authorized
     }
 
     // MARK: - Brightness

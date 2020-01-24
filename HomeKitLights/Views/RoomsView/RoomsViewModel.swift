@@ -81,7 +81,7 @@ final class RoomsViewModel: ObservableObject {
     private let roomDataAccessible: RoomDataAccessible
 
     /// Open Settings, Home App
-    private let urlOpener: URLOpenable
+    private let urlOpener: URLOpening
 
     /// Sorts filters rooms
     private let roomFilterSortable: RoomFilterSortable
@@ -108,7 +108,7 @@ final class RoomsViewModel: ObservableObject {
          roomDataAccessible: RoomDataAccessible,
          roomFilterSortable: RoomFilterSortable,
          refreshNotification: RefreshNotificationProtocol,
-         urlOpener: URLOpenable) {
+         urlOpener: URLOpening) {
         self.homeKitAccessible = homeKitAccessible
         self.roomDataAccessible = roomDataAccessible
         self.roomFilterSortable = roomFilterSortable
