@@ -146,4 +146,28 @@ final class RoomsLightsViewModelTest: XCTestCase {
 
         XCTAssertEqual(0.255, setOpacity)
     }
+
+    // MARK: - Not Reachable
+
+    func testNotReachableShownWhenRoomReportsNotReachable() {
+        let room = RoomMock.notReachable()
+
+        sut = RoomLightsViewModel(room: room,
+                                  homeKitAccessible: homeKitAccessibleMock,
+                                  roomDataAccessible: roomDataAccessibleMock,
+                                  hapticFeedback: hapticFeedbackMock)
+
+        XCTAssertTrue(sut.isReachableMessageShown)
+    }
+
+    func testNotReachableIsNotShownWhenRoomReportsReachabletReachable() {
+        let room = RoomMock.roomWithLightOn()
+
+        sut = RoomLightsViewModel(room: room,
+                                  homeKitAccessible: homeKitAccessibleMock,
+                                  roomDataAccessible: roomDataAccessibleMock,
+                                  hapticFeedback: hapticFeedbackMock)
+
+        XCTAssertFalse(sut.isReachableMessageShown)
+    }
 }

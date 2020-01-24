@@ -139,15 +139,22 @@ extension HomeKitAccess: HMHomeManagerDelegate {
                log: log,
                type: .info)
 
-        guard let firstHome = homeManager.homes.first else {
+        var rooms = Rooms()
+
+        defer {
+            DispatchQueue.main.async {
+                self.roomsCurrentValueSubject.value = rooms
+            }
+        }
+
+        guard let primaryHome = homeManager.primaryHome else {
+            os_log("Primary home not found",
+                   log: Log.homeKitAccess,
+                   type: .debug)
             return
         }
 
-        let rooms = firstHome.rooms.map { $0.toRoom() }
+        rooms = primaryHome.rooms.map { $0.toRoom() }
             .filter { !$0.lights.isEmpty }
-
-        DispatchQueue.main.async {
-            self.roomsCurrentValueSubject.value = rooms
-        }
     }
 }

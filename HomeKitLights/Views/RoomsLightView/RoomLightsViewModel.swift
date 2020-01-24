@@ -36,6 +36,8 @@ final class RoomLightsViewModel: ObservableObject {
     @Published var isBusy = false
     /// True if the view should show state indicating that the lights are on / off
     @Published var areLightsOn = false
+    /// Should the not reachable message be shown?
+    @Published var isReachableMessageShown = true
     /// The opacity of the light images to indicate brightness
     @Published var imageOpacity: Float = 0.0
     /// The name of the image that represents a light.
@@ -57,6 +59,7 @@ final class RoomLightsViewModel: ObservableObject {
          roomDataAccessible: RoomDataAccessible,
          hapticFeedback: HapticFeedbackProtocol) {
         self.room = room
+        isReachableMessageShown = !room.isReachable
         self.homeKitAccessible = homeKitAccessible
         self.roomDataAccessible = roomDataAccessible
         self.hapticFeedback = hapticFeedback
@@ -87,6 +90,13 @@ final class RoomLightsViewModel: ObservableObject {
 
     /// Toggle power state
     func toggle() {
+        guard room.isReachable else {
+            os_log("Not reachable, can't toggle",
+                   log: log,
+                   type: .debug)
+            return
+        }
+
         os_log("Toggle: %s",
                log: log,
                type: .debug,

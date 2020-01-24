@@ -51,11 +51,18 @@ struct RoomLightsView: View {
                     .padding(.top, 20)
                     .padding(.bottom, viewModel.areLightsOn ? 0 : 20)
 
-                if viewModel.areLightsOn {
+                if viewModel.areLightsOn && !viewModel.isReachableMessageShown {
                     BrightnessView(viewModel: viewModel)
                         .frame(width: nil, height: 40, alignment: .center)
                         .padding(.top, 20)
                 }
+
+                if viewModel.isReachableMessageShown {
+                    Text("No Response")
+                        .font(.footnote)
+                        .foregroundColor(.red)
+                }
+
                 Spacer()
             }.gesture(TapGesture()
                 .onEnded { _ in self.viewModel.toggle() }
@@ -153,6 +160,11 @@ struct RoomView_Previews: PreviewProvider {
                                                                roomDataAccessible: roomData,
                                                                hapticFeedback: hapticFeedbackMock)
 
+        let roomNotReachableViewModel = RoomLightsViewModel(room: RoomMock.notReachable(),
+                                                            homeKitAccessible: homeKit,
+                                                            roomDataAccessible: roomData,
+                                                            hapticFeedback: hapticFeedbackMock)
+
         return Group {
             RoomLightsView(room,
                            viewModel: roomLightsViewModel)
@@ -174,6 +186,13 @@ struct RoomView_Previews: PreviewProvider {
                 .previewLayout(.fixed(width: 400, height: 200))
                 .environment(\.colorScheme, .dark)
                 .previewDisplayName("No Brightness")
+
+            RoomLightsView(room,
+                           viewModel: roomNotReachableViewModel)
+                .roomStyle()
+                .previewLayout(.fixed(width: 400, height: 200))
+                .environment(\.colorScheme, .dark)
+                .previewDisplayName("Not Reachable")
         }
     }
 }
