@@ -68,6 +68,7 @@ extension HMAccessory {
         Accessory(name: name,
                   id: uniqueIdentifier,
                   isOn: isOn,
+                  isReachable: isReachable,
                   brightness: brightness)
     }
 }
