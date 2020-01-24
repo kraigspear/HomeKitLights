@@ -155,12 +155,12 @@
 		A956051323CCAEEA00617A67 /* RoomsView */ = {
 			isa = PBXGroup;
 			children = (
+				A9D703E223C8F5CE009E2229 /* FilterSortButtons.swift */,
+				A9E98D2D23CE01A8006F171F /* RefreshNotification.swift */,
+				A9967B6B23CF96B700C46436 /* RoomFilterSort.swift */,
 				A9D52EC923C613B900C6F91F /* RoomsView.swift */,
 				A9D52F0423C6258A00C6F91F /* RoomsViewModel.swift */,
-				A9D703E223C8F5CE009E2229 /* FilterSortButtons.swift */,
-				A9967B6B23CF96B700C46436 /* RoomFilterSort.swift */,
 				A941132D23D638FF002983B0 /* TitleView.swift */,
-				A9E98D2D23CE01A8006F171F /* RefreshNotification.swift */,
 			);
 			path = RoomsView;
 			sourceTree = "<group>";
@@ -673,7 +673,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HomeKitLights/HomeKitLights.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeKitLights/Preview Content\"";
 				DEVELOPMENT_TEAM = 66V249GP6S;
 				ENABLE_PREVIEWS = YES;
@@ -695,7 +695,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HomeKitLights/HomeKitLights.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeKitLights/Preview Content\"";
 				DEVELOPMENT_TEAM = 66V249GP6S;
 				ENABLE_PREVIEWS = YES;
