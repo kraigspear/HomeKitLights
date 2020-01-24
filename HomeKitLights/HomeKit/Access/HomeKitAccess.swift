@@ -23,7 +23,7 @@ enum HomeKitAccessError: Error {
 protocol HomeKitAccessible {
     /// HomeKit rooms associated with this account / device
     /// - Remarks: Only rooms for the first home is returned. Multiple homes are not supported.
-    var rooms: AnyPublisher<[Room], HomeKitAccessError> { get }
+    var rooms: AnyPublisher<Rooms, HomeKitAccessError> { get }
 
     /// Reload any room changes.
     func reload()
@@ -38,6 +38,9 @@ protocol HomeKitAccessible {
     ///   - room: Room to set the brightness on
     func updateBrightness(_ brightness: Int,
                           forRoom room: Room) -> AnyPublisher<Void, Error>
+
+    /// Returns authorization status of a HMHomeManager object
+    func authorizationStatus() -> HMHomeManagerAuthorizationStatus
 }
 
 /**
@@ -65,11 +68,11 @@ final class HomeKitAccess: NSObject, HomeKitAccessible {
     // MARK: - Rooms
 
     /// Rooms subject. Set when rooms have been loaded
-    private let roomsCurrentValueSubject = CurrentValueSubject<[Room], HomeKitAccessError>([])
+    private let roomsCurrentValueSubject = CurrentValueSubject<Rooms, HomeKitAccessError>([])
 
     /// HomeKit rooms associtated with this account / device
     /// - Remarks: Only rooms for the first home is returned. Multiple homes are not supported.
-    var rooms: AnyPublisher<[Room], HomeKitAccessError> {
+    var rooms: AnyPublisher<Rooms, HomeKitAccessError> {
         roomsCurrentValueSubject.eraseToAnyPublisher()
     }
 
@@ -103,6 +106,10 @@ final class HomeKitAccess: NSObject, HomeKitAccessible {
         UpdatePowerInRoom(room: room,
                           homeKitHomeManager: homeKitHomeManager,
                           operationQueue: updateHomeKitQueue).update().eraseToAnyPublisher()
+    }
+
+    func authorizationStatus() -> HMHomeManagerAuthorizationStatus {
+        return HMHomeManager().authorizationStatus
     }
 }
 

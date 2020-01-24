@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Base class that provides convience methods on top of `Operation`
 open class BaseOperation: Operation {
     /// Indicates if there was an error executing the operation. Nil if the operation was a
     /// Success or an error otherwise.
@@ -26,14 +27,17 @@ open class BaseOperation: Operation {
         }
     }
 
+    /// Override to provide code to execute in the operation
     open override func main() {
         done()
     }
 
+    /// Did any dependency of this BaseOperation have an error
     final var anyDependencyHasErrors: Bool {
         firstDependencyError != nil
     }
 
+    /// First error found in any dependency of this operation
     var firstDependencyError: Error? {
         for dependency in dependencies {
             if let baseOperation = dependency as? BaseOperation {
@@ -56,6 +60,8 @@ open class BaseOperation: Operation {
     private var _executing = false
 
     private let executingKey = "isExecuting"
+
+    /// The value of this property is true if the operation is currently executing its main task or false if it is not.
     public final override var isExecuting: Bool {
         get {
             _executing
@@ -71,7 +77,7 @@ open class BaseOperation: Operation {
     private let finishedKey = "isFinished"
 
     /**
-     True if the operation is finished
+     The value of this property is true if the operation has finished its main task or false if it is executing that task or has not yet started it.
      */
     public final override var isFinished: Bool {
         get {
@@ -85,7 +91,7 @@ open class BaseOperation: Operation {
     }
 
     /// Set this operation as being completed. Needs to always be called no matter if the operation
-    /// is successful or not
+    /// is successful or not. Will not be removed from queue if not called.
     public final func done() {
         isExecuting = false
         isFinished = true

@@ -9,7 +9,9 @@
 import SwiftUI
 import UIKit
 
+/// Makes a `UIActivityIndicatorView` available to SwiftUI
 struct ActivityView: UIViewRepresentable {
+    /// Is the activity indicaotr currently animating
     @Binding var isActive: Bool
 
     func makeUIView(context _: UIViewRepresentableContext<ActivityView>) -> UIActivityIndicatorView {

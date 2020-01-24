@@ -2,8 +2,49 @@ author: Kraig Spear
 copyright: 'Copyright © 2020 DornerWorks. All rights reserved.'
 documentation: guides/*.md
 
-#custom_categories:
-#- name: HomeKit
-#  children:
-#    - RoomProtocol
-#    - Room
+custom_categories:
+- name: RoomsView
+  children:
+  - RoomsView
+  - RoomsViewModel
+  - FilterSortButton
+  - TitleView
+  - RefreshNotificationProtocol
+  - RefreshNotification
+- name: RoomLightsView
+  children:
+  - RoomLightsView
+  - RoomLightsViewModel
+  - RoomViewStyleModifier
+- name: Database
+  children:
+  - RoomDataAccessible
+  - RoomAccessor
+- name: HomeKitModels
+  children:
+  - Room
+  - Accessory
+- name: HomeKitAccess
+  children:
+  - HomeKitAccessible
+  - CharacteristicWriteOperation
+  - HomeKitAccessError
+- name: HomeKitUpdate
+  children:
+  - RoomUpdatable
+  - UpdateBrightnessInRoom
+  - UpdatePowerInRoom
+- name: UIKit
+  children:
+  - ActivityView  
+- name: General
+  children:
+  - BaseOperation
+  - HapticFeedbackProtocol
+  - HapticFeedback
+  - RefreshNotificationProtocol
+  - RefreshNotification
+  - URLOpenable
+  - URLOpener  
+
+
