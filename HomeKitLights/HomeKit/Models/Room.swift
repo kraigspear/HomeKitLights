@@ -9,27 +9,39 @@
 import Foundation
 import HomeKit
 
-/// Represents a Room from HomeKit
-struct Room: Identifiable, Hashable {
-    let name: String
-    let id: UUID
-    let lights: Lights
+typealias Rooms = [Room]
 
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
+/// Struct representation of `HMRoom`
+/// - SeeAlso: `Light`
+/// - SeeAlso: `RoomView`
+/// - SeeAlso: `RoomViewModel`
+/// - SeeAlso: `HMRoom`
+struct Room: Identifiable {
+    /// The name of the Room
+    let name: String
+    /// UUID for this room
+    let id: UUID
+    /// Lights that belong to this Room
+    let lights: Lights
 
     /// The highest brightness value
     var maxBrightness: Int {
         lights.max(by: { $0.brightness < $1.brightness })?.brightness ?? 0
     }
 
+    /// True if there are any lights on in this room
     var areAnyLightsOn: Bool {
         lights.any(itemsAre: { $0.isOn })
     }
 }
 
-typealias Rooms = [Room]
+extension Room: Hashable {
+    /// Hashes the essential components of this value by feeding them into the given hasher.
+    /// - Parameter: hasher
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
 
 /**
  * Mock room conforming to `RoomProtocol` that can be used in both
@@ -82,7 +94,7 @@ struct RoomMock {
              lights: [AccessoryMock.lightThatIsOff()])
     }
 
-    static func rooms() -> [Room] {
+    static func rooms() -> Rooms {
         [livingRoom(),
          diningRoom(),
          kitchen()]

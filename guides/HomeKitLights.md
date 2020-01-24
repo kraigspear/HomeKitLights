@@ -19,3 +19,5 @@
 Permissions 
 
 ![Permissions](assets/images/image1.png)
+
+![DarkMode](assets/images/DarkMode.gif)

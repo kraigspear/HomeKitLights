@@ -11,17 +11,34 @@ import Foundation
 import HomeKit
 import os.log
 
+/**
+  Updates the value in a room in HomeKit
+
+ - SeeAlso: `UpdateBrightnessInRoom`
+ - SeeAlso: `UpdatePowerInRoom`
+ */
 protocol RoomUpdatable {
+    /// Access to HomeKit
     var homeKitHomeManager: HMHomeManager { get }
+
+    /// What is being updated
     var characteristicToUpdate: String { get }
+
+    /// Value to update
     var value: Any? { get }
+
+    /// Room being updated
     var room: Room { get }
+
+    /// Queue to run operation on that does the update
     var operationQueue: OperationQueue { get }
 }
 
 extension RoomUpdatable {
+    /// OSLog to log to
     var log: OSLog { Log.homeKitAccess }
 
+    /// Gets the room matching the ID for this `RoomUpdatable`
     var hmRoom: HMRoom? {
         guard let firstHome = homeKitHomeManager.homes.first else {
             assertionFailure("Finding room, but no home setup?")
@@ -30,14 +47,20 @@ extension RoomUpdatable {
         return firstHome.rooms.first(where: { $0.uniqueIdentifier == room.id })
     }
 
+    /// Failed due to the home not being found
     var failHomeNotFound: AnyPublisher<Void, Error> {
         Fail<Void, Error>(error: HomeKitAccessError.homeNotFound).eraseToAnyPublisher()
     }
 
+    /// Retrive the `HMCharacteristic` matching the charastirc
+    /// - Parameter room: Room being updated, charastric comes from this room.
+    /// - Returns: Array of HMCharacteristic for this room matching `characteristicToUpdate`
     func characteristicToUpdate(_ room: HMRoom) -> [HMCharacteristic] {
         room.characteristicsOfType(characteristicToUpdate)
     }
 
+    /// Update per properites of `RoomUpdatable`
+    /// - Returns: Publisher indicating success, failure.
     func update() -> AnyPublisher<Void, Error> {
         guard let hmRoom = self.hmRoom,
             let value = self.value else {

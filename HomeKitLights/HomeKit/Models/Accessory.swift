@@ -8,13 +8,25 @@
 
 import Foundation
 
-/// Represents an Accessory from HomeKit
-struct Accessory: Identifiable, Hashable {
+/// Struct representation of an `HMAccessory` from HomeKit
+/// Accessory is also a light
+/// In the world of HomeKit an Accessory can be many things, (Garage Door, Cealing Fan)
+/// but in this App it is only a light.
+/// - SeeAlso: `HMAccessory`
+struct Accessory: Identifiable {
+    /// Name of accessory
     let name: String
-    let id: UUID
-    let isOn: Bool
-    let brightness: Int
 
+    /// UUID identifying this Accessory
+    let id: UUID
+    /// Is this Accessory on/off
+    let isOn: Bool
+
+    /// Brightness level for this Accessory
+    let brightness: Int
+}
+
+extension Accessory: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
