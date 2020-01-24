@@ -51,11 +51,12 @@ final class RoomFilterSortTest: XCTestCase {
     func testSortOrderIsAlphabetical() {
         let room1 = Room(name: "Zed Light",
                          id: UUID(uuidString: "89435E47-026F-42ED-92CB-B7EE1A05AB5E")!,
-                         lights: [AccessoryMock.lightThatIsOn()])
+                         lights: [AccessoryMock.lightThatIsOn()],
+                         isReachable: true)
 
         let room2 = Room(name: "A light",
                          id: UUID(uuidString: "287329CC-E04D-45BC-B9C8-42729A1B2103")!,
-                         lights: [AccessoryMock.lightThatIsOn()])
+                         lights: [AccessoryMock.lightThatIsOn()], isReachable: true)
 
         let rooms = sut.apply(filter: RoomFilter.all,
                               sort: .alphabetical,
@@ -71,11 +72,11 @@ final class RoomFilterSortTest: XCTestCase {
 
         let room1 = Room(name: "Breakfast Nook",
                          id: id1,
-                         lights: [AccessoryMock.lightThatIsOn()])
+                         lights: [AccessoryMock.lightThatIsOn()], isReachable: true)
 
         let room2 = Room(name: "Hallway",
                          id: id2,
-                         lights: [AccessoryMock.lightThatIsOn()])
+                         lights: [AccessoryMock.lightThatIsOn()], isReachable: true)
 
         let dateNow = Date()
 

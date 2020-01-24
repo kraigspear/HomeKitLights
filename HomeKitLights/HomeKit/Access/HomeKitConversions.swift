@@ -8,6 +8,7 @@
 
 import Foundation
 import HomeKit
+import os.log
 
 extension HMRoom {
     /// Covert this `HMRoom` to a `Room`
@@ -17,7 +18,8 @@ extension HMRoom {
 
         let room = Room(name: name,
                         id: uniqueIdentifier,
-                        lights: lightAccessories)
+                        lights: lightAccessories,
+                        isReachable: isReachable)
 
         return room
     }
@@ -65,15 +67,18 @@ extension HMAccessory {
 
     /// Converts this `HMAccessory` to a `Accessory`
     func toAccessory() -> Accessory {
-        Accessory(name: name,
-                  id: uniqueIdentifier,
-                  isOn: isOn,
-                  isReachable: isReachable,
-                  brightness: brightness)
+        return Accessory(name: name,
+                         id: uniqueIdentifier,
+                         isOn: isOn,
+                         brightness: brightness)
     }
 }
 
 extension HMRoom {
+    var isReachable: Bool {
+        !(powerStateCharacteristics.any { $0.value == nil })
+    }
+
     /// Are the lights in this room on?
     /// Considered on or off for greater amount of lights that are off / on
     var lightsAreOn: Bool {
