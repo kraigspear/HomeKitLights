@@ -227,6 +227,7 @@
 			children = (
 				A9D52EC223C613B900C6F91F /* AppDelegate.swift */,
 				A9D52ECB23C613BA00C6F91F /* Assets.xcassets */,
+				E6382AF56D2B993E858360DD /* LaunchScreen.storyboard */,
 				A9D52F0223C6256400C6F91F /* Views */,
 				A941132F23D645EC002983B0 /* Database */,
 				A9D52EF523C614B700C6F91F /* HomeKit */,
@@ -254,7 +255,6 @@
 			children = (
 				A9967B6F23CFA9D300C46436 /* Views */,
 				A9D52EDE23C613BB00C6F91F /* Info.plist */,
-				E6382AF56D2B993E858360DD /* LaunchScreen.storyboard */,
 			);
 			path = HomeKitLightsTests;
 			sourceTree = "<group>";
@@ -673,7 +673,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HomeKitLights/HomeKitLights.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeKitLights/Preview Content\"";
 				DEVELOPMENT_TEAM = 66V249GP6S;
 				ENABLE_PREVIEWS = YES;
@@ -695,7 +695,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HomeKitLights/HomeKitLights.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeKitLights/Preview Content\"";
 				DEVELOPMENT_TEAM = 66V249GP6S;
 				ENABLE_PREVIEWS = YES;
