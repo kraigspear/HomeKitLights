@@ -170,4 +170,53 @@ final class RoomsLightsViewModelTest: XCTestCase {
 
         XCTAssertFalse(sut.isReachableMessageShown)
     }
+
+    // MARK: - Error
+
+    func testErrorIsShownWhenFailedToSetWithHomeKit() {
+        let expectIsBusy = expectation(description: "isBusy")
+        let expectIsNotBusy = expectation(description: "isNotBusy")
+
+        expectIsBusy.expectedFulfillmentCount = 1
+        expectIsNotBusy.expectedFulfillmentCount = 2
+
+        isBusyCancel = sut.$isBusy.sink { isBusy in
+
+            if isBusy {
+                expectIsBusy.fulfill()
+            } else {
+                expectIsNotBusy.fulfill()
+            }
+        }
+
+        sut.toggle()
+
+        homeKitAccessibleMock.sendToggleError()
+
+        XCTAssertEqual(.completed, XCTWaiter().wait(for: [expectIsBusy, expectIsNotBusy], timeout: 1))
+        XCTAssertTrue(sut.isReachableMessageShown)
+    }
+
+    func testErrorIsNotShownWhenSetWithHomeKit() {
+        let expectIsBusy = expectation(description: "isBusy")
+        let expectIsNotBusy = expectation(description: "isNotBusy")
+
+        expectIsBusy.expectedFulfillmentCount = 1
+        expectIsNotBusy.expectedFulfillmentCount = 2
+
+        isBusyCancel = sut.$isBusy.sink { isBusy in
+
+            if isBusy {
+                expectIsBusy.fulfill()
+            } else {
+                expectIsNotBusy.fulfill()
+            }
+        }
+
+        sut.toggle()
+        homeKitAccessibleMock.sendToggleSuccess()
+
+        XCTAssertEqual(.completed, XCTWaiter().wait(for: [expectIsBusy, expectIsNotBusy], timeout: 1))
+        XCTAssertFalse(sut.isReachableMessageShown)
+    }
 }

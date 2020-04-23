@@ -122,10 +122,12 @@ final class RoomLightsViewModel: ObservableObject {
                            log: self.log,
                            type: .error,
                            error.localizedDescription)
+                    self.isReachableMessageShown = true
                 case .finished:
                     os_log("Success toggle lights",
                            log: self.log,
                            type: .info)
+                    self.isReachableMessageShown = false
                     self.roomDataAccessible.updateAccessTimeForRoom(id: self.room.id)
                 }
 
@@ -153,11 +155,13 @@ final class RoomLightsViewModel: ObservableObject {
 
                 switch completed {
                 case let .failure(error):
+                    self.isReachableMessageShown = true
                     os_log("Error syncing brightness: %s",
                            log: self.log,
                            type: .error,
                            error.localizedDescription)
                 case .finished:
+                    self.isReachableMessageShown = false
                     os_log("Finished sinking brightness",
                            log: Log.homeKitAccess,
                            type: .debug)
