@@ -117,7 +117,7 @@ private struct LightView: View {
         VStack {
             Image(viewModel.imageName)
                 .resizable()
-                .frame(width: LightView.imageSize,
+                .frame(width: 44.2,
                        height: LightView.imageSize,
                        alignment: .center)
                 .aspectRatio(contentMode: .fill)
