@@ -10,11 +10,11 @@
 import XCTest
 
 final class RoomFilterSortTest: XCTestCase {
-    private var roomDataAccessibleMock: RoomDataAccessibleMock!
+    private var roomDataAccessibleMock: RoomDatabaseAccessorMock!
     private var sut: RoomFilterSort!
 
     override func setUp() {
-        roomDataAccessibleMock = RoomDataAccessibleMock()
+        roomDataAccessibleMock = RoomDatabaseAccessorMock()
         sut = RoomFilterSort(roomDataAccessible: roomDataAccessibleMock)
     }
 

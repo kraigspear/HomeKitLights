@@ -14,7 +14,7 @@ final class RoomsViewModelTest: XCTestCase {
     // MARK: - Dependencies
 
     private var homeKitAccessibleMock: HomeKitAccessMock!
-    private var roomDataAccessibleMock: RoomDataAccessibleMock!
+    private var roomDataAccessibleMock: RoomDatabaseAccessorMock!
     private var refreshNotificationMock: RefreshNotificationMock!
     private var roomSortMock: RoomFilterSortMock!
 
@@ -27,7 +27,7 @@ final class RoomsViewModelTest: XCTestCase {
     override func setUp() {
         homeKitAccessibleMock = HomeKitAccessMock()
         homeKitAccessibleMock.whenHasRooms()
-        roomDataAccessibleMock = RoomDataAccessibleMock()
+        roomDataAccessibleMock = RoomDatabaseAccessorMock()
         refreshNotificationMock = RefreshNotificationMock()
         roomSortMock = RoomFilterSortMock()
         sut = RoomsViewModel(homeKitAccessible: homeKitAccessibleMock,

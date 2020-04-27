@@ -51,18 +51,18 @@ final class RoomFilterSort: RoomFilterSortable {
     // MARK: - Members
 
     /// Access to rooms data, last used date/time
-    private let roomDataAccessible: RoomDataAccessible
+    private let roomDataAccessible: RoomDatabaseAccessible
 
     // MARK: - Init
 
-    /// Initilize with requried member(s)
+    /// Initialize with required member(s)
     /// - Parameter roomDataAccessible: Access to rooms data, last used date/time
-    init(roomDataAccessible: RoomDataAccessible) {
+    init(roomDataAccessible: RoomDatabaseAccessible) {
         self.roomDataAccessible = roomDataAccessible
     }
 
     convenience init() {
-        self.init(roomDataAccessible: RoomAccessor.sharedAccessor)
+        self.init(roomDataAccessible: RoomDatabaseAccessor.sharedAccessor)
     }
 
     /// Apply a sort / filter combination on an array of rooms

@@ -12,7 +12,7 @@ import Foundation
 import os.log
 
 /// Access to the local database
-protocol RoomDataAccessible {
+protocol RoomDatabaseAccessible {
     /// Update the last accessed times for a room.
     /// Should be called when a room has been selected
     /// - Parameter id: ID of the room to update
@@ -26,8 +26,8 @@ protocol RoomDataAccessible {
 }
 
 /// Access to the local data store for rooms
-final class RoomAccessor: RoomDataAccessible {
-    private let modelName = "HomeKitLights"
+final class RoomDatabaseAccessor: RoomDatabaseAccessible {
+    private let coreDataModelName = "HomeKitLights"
     private let log = Log.data
 
     private let entityRoom = "RoomEntity"
@@ -38,7 +38,7 @@ final class RoomAccessor: RoomDataAccessible {
     private var rooms: [NSManagedObject] = []
 
     /// Singleton shared instance
-    static let sharedAccessor = RoomAccessor()
+    static let sharedAccessor = RoomDatabaseAccessor()
 
     /// Notify client of changes to the rooms entity
     private let roomsUpdatedSubject = PassthroughSubject<Void, Never>()
@@ -67,7 +67,7 @@ final class RoomAccessor: RoomDataAccessible {
 
     /// PersistentContainer for HomeKitLights
     private lazy var roomContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: modelName)
+        let container = NSPersistentContainer(name: coreDataModelName)
         container.loadPersistentStores { _, error in
             if let error = error {
                 os_log("Error loading CoreData: %s",
@@ -128,6 +128,7 @@ final class RoomAccessor: RoomDataAccessible {
     // MARK: - Access Time
 
     /// Update the last accessed time to now, for the Room with the given UUID
+    /// The last time is stored so that the UI can sort by last accessed.d
     /// - Parameter id: The UUID of the room to update access time for
     func updateAccessTimeForRoom(id: UUID) {
         os_log("updateAccessTimeForRoom",
@@ -189,7 +190,7 @@ final class RoomAccessor: RoomDataAccessible {
     }
 }
 
-final class RoomDataAccessibleMock: RoomDataAccessible {
+final class RoomDatabaseAccessorMock: RoomDatabaseAccessible {
     func sendRoomDataUpdated() {
         roomsUpdatedSubject.send(())
     }

@@ -25,7 +25,7 @@ final class RoomLightsViewModel: ObservableObject {
     private let homeKitAccessible: HomeKitAccessible
 
     /// Access to local room data. Last modified time.
-    private let roomDataAccessible: RoomDataAccessible
+    private let roomDataAccessible: RoomDatabaseAccessible
 
     /// Access to the device haptic
     private let hapticFeedback: HapticFeedbackProtocol
@@ -56,7 +56,7 @@ final class RoomLightsViewModel: ObservableObject {
     ///   - returns: Newly initialized RoomLightsViewModel
     init(room: Room,
          homeKitAccessible: HomeKitAccessible,
-         roomDataAccessible: RoomDataAccessible,
+         roomDataAccessible: RoomDatabaseAccessible,
          hapticFeedback: HapticFeedbackProtocol) {
         self.room = room
         isReachableMessageShown = !room.isReachable

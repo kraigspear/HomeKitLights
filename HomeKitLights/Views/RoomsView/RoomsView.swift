@@ -26,7 +26,7 @@ struct RoomsView: View {
 
     var body: some View {
         NavigationView {
-            if viewModel.isMissingPermissionStateVisisble {
+            if viewModel.isMissingPermissionStateVisible {
                 MissingPermissionStateView(viewModel: viewModel)
                     .accentColor(Color("FilterLightsOn"))
             } else if viewModel.isEmptyStateVisible {
@@ -50,7 +50,7 @@ struct RoomsView: View {
                     ForEach(viewModel.rooms) {
                         RoomLightsView($0, viewModel: RoomLightsViewModel(room: $0,
                                                                           homeKitAccessible: self.viewModel.homeKitAccessible,
-                                                                          roomDataAccessible: RoomAccessor.sharedAccessor,
+                                                                          roomDataAccessible: RoomDatabaseAccessor.sharedAccessor,
                                                                           hapticFeedback: HapticFeedback.sharedHapticFeedback))
                             .roomStyle()
                     }
@@ -60,15 +60,15 @@ struct RoomsView: View {
             }
             .accentColor(Color("FilterLightsOn"))
             .onAppear { self.viewModel.onAppear() }
-            .navigationBarTitle(Text("Lights"), displayMode: .large)
-            .navigationBarItems(trailing:
-                Button(action: {
-                    withAnimation {
-                        self.viewModel.toggleShowingFilter()
-                    }
-                }, label: {
-                    Image(self.viewModel.filterButtonImage)
-                        .accentColor(Color("FilterLightsOn"))
+                .navigationBarTitle(Text("Lights"), displayMode: .large)
+                .navigationBarItems(trailing:
+                    Button(action: {
+                        withAnimation {
+                            self.viewModel.toggleShowingFilter()
+                        }
+                    }, label: {
+                        Image(self.viewModel.filterButtonImage)
+                            .accentColor(Color("FilterLightsOn"))
             }))
         }
     }
@@ -131,7 +131,7 @@ struct ContentView_Previews: PreviewProvider {
         let homeKitAccess = HomeKitAccessMock()
         homeKitAccess.whenHasRooms()
 
-        let roomData = RoomDataAccessibleMock()
+        let roomData = RoomDatabaseAccessorMock()
 
         let refreshNotification = RefreshNotificationMock()
         let roomFilterMock = RoomFilterSortMock()

@@ -39,8 +39,8 @@ protocol HomeKitAccessible {
     func updateBrightness(_ brightness: Int,
                           forRoom room: Room) -> AnyPublisher<Void, Error>
 
-    /// Returns authorization status of a HMHomeManager object
-    func authorizationStatus() -> HMHomeManagerAuthorizationStatus
+    /// Authorization status of HomeKit
+    var authorizationStatus: AnyPublisher<HMHomeManagerAuthorizationStatus, Never> { get }
 }
 
 /**
@@ -108,8 +108,10 @@ final class HomeKitAccess: NSObject, HomeKitAccessible {
                           operationQueue: updateHomeKitQueue).update().eraseToAnyPublisher()
     }
 
-    func authorizationStatus() -> HMHomeManagerAuthorizationStatus {
-        HMHomeManager().authorizationStatus
+    private let authorizationStatusValue = CurrentValueSubject<HMHomeManagerAuthorizationStatus, Never>(HMHomeManager().authorizationStatus)
+
+    var authorizationStatus: AnyPublisher<HMHomeManagerAuthorizationStatus, Never> {
+        authorizationStatusValue.eraseToAnyPublisher()
     }
 }
 
@@ -156,5 +158,9 @@ extension HomeKitAccess: HMHomeManagerDelegate {
 
         rooms = primaryHome.rooms.map { $0.toRoom() }
             .filter { !$0.lights.isEmpty }
+    }
+
+    func homeManager(_: HMHomeManager, didUpdate status: HMHomeManagerAuthorizationStatus) {
+        authorizationStatusValue.value = status
     }
 }

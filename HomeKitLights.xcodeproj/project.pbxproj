@@ -42,7 +42,7 @@
 		A9E98D2C23CDF9DB006F171F /* RoomViewStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E98D2B23CDF9DB006F171F /* RoomViewStyleModifier.swift */; };
 		A9E98D2E23CE01A8006F171F /* RefreshNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E98D2D23CE01A8006F171F /* RefreshNotification.swift */; };
 		E638216081BD590D6E7307DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6382AF56D2B993E858360DD /* LaunchScreen.storyboard */; };
-		E63824FD44A4976AEFC97A1D /* RoomAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382B6DDF461E425FACF69E /* RoomAccessor.swift */; };
+		E63824FD44A4976AEFC97A1D /* RoomDatabaseAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6382B6DDF461E425FACF69E /* RoomDatabaseAccessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,7 +105,7 @@
 		A9E98D2B23CDF9DB006F171F /* RoomViewStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewStyleModifier.swift; sourceTree = "<group>"; };
 		A9E98D2D23CE01A8006F171F /* RefreshNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshNotification.swift; sourceTree = "<group>"; };
 		E6382AF56D2B993E858360DD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E6382B6DDF461E425FACF69E /* RoomAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomAccessor.swift; sourceTree = "<group>"; };
+		E6382B6DDF461E425FACF69E /* RoomDatabaseAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomDatabaseAccessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +147,7 @@
 		A941132F23D645EC002983B0 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				E6382B6DDF461E425FACF69E /* RoomAccessor.swift */,
+				E6382B6DDF461E425FACF69E /* RoomDatabaseAccessor.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -515,7 +515,7 @@
 				A9D703DF23C8D4B4009E2229 /* ActivityIndicatorView.swift in Sources */,
 				A9E98D2E23CE01A8006F171F /* RefreshNotification.swift in Sources */,
 				A9D703E323C8F5CE009E2229 /* FilterSortButtons.swift in Sources */,
-				E63824FD44A4976AEFC97A1D /* RoomAccessor.swift in Sources */,
+				E63824FD44A4976AEFC97A1D /* RoomDatabaseAccessor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,7 +603,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -657,7 +657,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -675,14 +675,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeKitLights/Preview Content\"";
-				DEVELOPMENT_TEAM = 66V249GP6S;
+				DEVELOPMENT_TEAM = FUNW4GUS24;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = HomeKitLights/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dornworks.HomeKitLights;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.HomeKitLights2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -697,14 +697,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeKitLights/Preview Content\"";
-				DEVELOPMENT_TEAM = 66V249GP6S;
+				DEVELOPMENT_TEAM = FUNW4GUS24;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = HomeKitLights/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dornworks.HomeKitLights;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spearware.HomeKitLights2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

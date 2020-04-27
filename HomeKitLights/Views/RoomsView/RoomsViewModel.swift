@@ -30,13 +30,14 @@ enum RoomSort: Int {
 
 /// ViewModel showing HomeKit rooms containing lights
 final class RoomsViewModel: ObservableObject {
-    // MARK: - Members
 
     private let log = Log.lightsView
 
+    //MARK: - Rooms
     /// Rooms that lights are in
     @Published var rooms: Rooms = []
 
+    //MARK: - Error
     /// True to show an alert, showing an error message
     @Published var isShowingError = false
 
@@ -78,7 +79,7 @@ final class RoomsViewModel: ObservableObject {
 
     /// Access to HomeKit
     let homeKitAccessible: HomeKitAccessible
-    private let roomDataAccessible: RoomDataAccessible
+    private let roomDataAccessible: RoomDatabaseAccessible
 
     /// Open Settings, Home App
     private let urlOpener: URLOpening
@@ -86,15 +87,13 @@ final class RoomsViewModel: ObservableObject {
     /// Sorts filters rooms
     private let roomFilterSortable: RoomFilterSortable
 
-    private var roomsUpdatedCancel: AnyCancellable?
-
     // MARK: - Empty State
 
     /// There are no rooms, empty state should be shown.
     @Published var isEmptyStateVisible = true
 
     /// Missing HomeKit permissions, permission request state should be shown.
-    @Published var isMissingPermissionStateVisisble = true
+    @Published var isMissingPermissionStateVisible = true
 
     // MARK: - Init
 
@@ -105,7 +104,7 @@ final class RoomsViewModel: ObservableObject {
     /// - Parameter refreshNotification: Notification that data should be refreshed
     /// - urlOpener: Allows opening URL's for settings and the Home App
     init(homeKitAccessible: HomeKitAccessible,
-         roomDataAccessible: RoomDataAccessible,
+         roomDataAccessible: RoomDatabaseAccessible,
          roomFilterSortable: RoomFilterSortable,
          refreshNotification: RefreshNotificationProtocol,
          urlOpener: URLOpening) {
@@ -115,37 +114,64 @@ final class RoomsViewModel: ObservableObject {
         self.refreshNotification = refreshNotification
         self.urlOpener = urlOpener
 
-        sinkToRooms()
-        sinkToDataChanges()
-        sinkToForegroundNotification()
-    }
-
-    /// Sink to any changes from the database.
-    /// Occurs when the last selected item is set
-    private func sinkToDataChanges() {
-        roomsUpdatedCancel = roomDataAccessible.roomsUpdated.sink {
-            self.isMissingPermissionStateVisisble = !self.homeKitAccessible.authorizationStatus().contains(.authorized)
-            self.homeKitAccessible.reload()
-        }
+        setupSyncs()
     }
 
     /// Init with defaults
     convenience init() {
         self.init(homeKitAccessible: HomeKitAccess(),
-                  roomDataAccessible: RoomAccessor.sharedAccessor,
-                  roomFilterSortable: RoomFilterSort(),
-                  refreshNotification: RefreshNotification(),
-                  urlOpener: URLOpener())
+                roomDataAccessible: RoomDatabaseAccessor.sharedAccessor,
+                roomFilterSortable: RoomFilterSort(),
+                refreshNotification: RefreshNotification(),
+                urlOpener: URLOpener())
     }
 
-    // MARK: - Lifecycle
+    /// Setup initial combine syncs
+    private func setupSyncs() {
+        sinkToAuthStatus()
+        sinkToRooms()
+        sinkToDataChanges()
+        sinkToPermissionChanged()
+        sinkToRefreshNotification()
+    }
+
+    private var roomsUpdatedCancel: AnyCancellable?
+    /// Sink to any changes from the database.
+    /// Occurs when the last selected item is set
+    private func sinkToDataChanges() {
+        assert(roomsUpdatedCancel == nil, "Already setup?")
+        roomsUpdatedCancel = roomDataAccessible.roomsUpdated.sink {
+            self.homeKitAccessible.reload()
+        }
+    }
+
+    private var authorizeCancel: AnyCancellable?
+    private func sinkToAuthStatus() {
+        assert(authorizeCancel == nil, "Already setup?")
+        authorizeCancel = homeKitAccessible.authorizationStatus.map { !$0.contains(.authorized) }
+            .assign(to: \.isMissingPermissionStateVisible, on: self)
+    }
+
+    //MARK: - Permissions
+    private var permissionChangeCancel: AnyCancellable?
+    /**
+         Sink to permissions changing
+         When the App starts up, we'll not have permissions.
+         After permissions have been given we'll be notified here, where the data can now be loaded.
+     **/
+    private func sinkToPermissionChanged() {
+        assert(permissionChangeCancel == nil, "Already setup?")
+        permissionChangeCancel = $isMissingPermissionStateVisible.sink { isMissingPermission in
+            if isMissingPermission { return }
+            self.homeKitAccessible.reload()
+        }
+    }
 
     /// Called when a view appears
     func onAppear() {
         os_log("onAppear",
                log: log,
                type: .info)
-        isMissingPermissionStateVisisble = !homeKitAccessible.authorizationStatus().contains(.authorized)
         homeKitAccessible.reload()
     }
 
@@ -195,6 +221,7 @@ final class RoomsViewModel: ObservableObject {
             }
     }
 
+    //MARK: - Filter Sort
     private func applySortFilter() {
         os_log("applySortFilter",
                log: Log.homeKitAccess,
@@ -208,18 +235,17 @@ final class RoomsViewModel: ObservableObject {
                                          on: allRooms)
     }
 
-    // MARK: - Foreground Notification
+    // MARK: - Refresh
 
     private var refreshNotificationCancel: AnyCancellable?
     private let refreshNotification: RefreshNotificationProtocol
 
-    private func sinkToForegroundNotification() {
+    /// Sink to when rooms should be reloaded
+    private func sinkToRefreshNotification() {
         refreshNotificationCancel = refreshNotification.refreshPublisher.sink { _ in
-
-            os_log("refreshNotification refesh",
+            os_log("refreshNotification refresh",
                    log: self.log,
                    type: .debug)
-            self.isMissingPermissionStateVisisble = !self.homeKitAccessible.authorizationStatus().contains(.authorized)
             self.homeKitAccessible.reload()
         }
     }
@@ -227,6 +253,7 @@ final class RoomsViewModel: ObservableObject {
     // MARK: - Empty State
 
     ///  Shows the Home App so that the user can configure HomeKit
+    ///  This is needed when the user hasn't given permission to use HomeKit.
     func showHomeApp() {
         let url = URL(string: "com.apple.home://")!
         urlOpener.open(url)

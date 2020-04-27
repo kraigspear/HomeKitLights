@@ -14,7 +14,7 @@ final class RoomsLightsViewModelTest: XCTestCase {
     // MARK: - Dependencies
 
     private var homeKitAccessibleMock: HomeKitAccessMock!
-    private var roomDataAccessibleMock: RoomDataAccessibleMock!
+    private var roomDataAccessibleMock: RoomDatabaseAccessorMock!
     private var hapticFeedbackMock: HapticFeedbackMock!
 
     // MARK: - Subject under test
@@ -25,7 +25,7 @@ final class RoomsLightsViewModelTest: XCTestCase {
 
     override func setUp() {
         homeKitAccessibleMock = HomeKitAccessMock()
-        roomDataAccessibleMock = RoomDataAccessibleMock()
+        roomDataAccessibleMock = RoomDatabaseAccessorMock()
         hapticFeedbackMock = HapticFeedbackMock()
 
         let room = RoomMock.diningRoom()

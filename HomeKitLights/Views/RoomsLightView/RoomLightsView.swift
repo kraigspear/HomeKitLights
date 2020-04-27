@@ -148,7 +148,7 @@ struct RoomView_Previews: PreviewProvider {
         let room = RoomMock.livingRoom()
 
         let homeKit = HomeKitAccessMock()
-        let roomData = RoomDataAccessibleMock()
+        let roomData = RoomDatabaseAccessorMock()
         let hapticFeedbackMock = HapticFeedbackMock()
         let roomLightsViewModel = RoomLightsViewModel(room: room,
                                                       homeKitAccessible: homeKit,
