@@ -12,9 +12,9 @@ import os.log
 
 extension HMRoom {
     /// Covert this `HMRoom` to a `Room`
-    func toRoom() -> Room {
+    func toRoom(homeKitAccessoryDelegates: HomeKitAccessoryDelegates) -> Room {
         let lightAccessories = accessories.filter { $0.isLight }
-            .map { $0.toAccessory() }
+            .map { $0.toAccessory(homeKitAccessoryDelegates: homeKitAccessoryDelegates) }
 
         let room = Room(name: name,
                         id: uniqueIdentifier,
@@ -40,19 +40,19 @@ extension HMAccessory {
     }
 
     /// Finds the `HMCharacteristic` that is a `HMServiceTypeLightbulb`
-    /// and contains a powerstate.
-    private var lightBulbCharastic: HMCharacteristic? {
+    /// and contains a power state.
+    var lightBulbCharacteristic: HMCharacteristic? {
         lightBulbService?.characteristics.first(where: { $0.characteristicType == HMCharacteristicTypePowerState && $0.value is Bool })
     }
 
     /// Characteristic matching brightness, or nil
-    var brightnessCharastic: HMCharacteristic? {
+    var brightnessCharacteristic: HMCharacteristic? {
         lightBulbService?.characteristics.first { $0.characteristicType == HMCharacteristicTypeBrightness }
     }
 
     /// Is the power state for this `HMAccessory` on
     var isOn: Bool {
-        lightBulbCharastic?.value as? Bool ?? false
+        lightBulbCharacteristic?.value as? Bool ?? false
     }
 
     /// Is this `HMAccessory` a light?
@@ -62,15 +62,18 @@ extension HMAccessory {
 
     /// Brightness value for this `HMAccessory` or 1 if brightness not found.
     var brightness: Int {
-        brightnessCharastic?.value as? Int ?? 1
+        brightnessCharacteristic?.value as? Int ?? 1
     }
 
     /// Converts this `HMAccessory` to a `Accessory`
-    func toAccessory() -> Accessory {
-        Accessory(name: name,
-                  id: uniqueIdentifier,
-                  isOn: isOn,
-                  brightness: brightness)
+    func toAccessory(homeKitAccessoryDelegates: HomeKitAccessoryDelegates) -> Accessory {
+        // This will notify calling code of state changes to the accessory (on / off, brightness)
+        homeKitAccessoryDelegates.append(self)
+
+        return Accessory(name: name,
+                         id: uniqueIdentifier,
+                         isOn: isOn,
+                         brightness: brightness)
     }
 }
 

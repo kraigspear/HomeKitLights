@@ -36,7 +36,7 @@ final class UpdateBrightnessInRoom: RoomUpdatable {
     /// Room being updated
     let room: Room
 
-    /// Brightness leve to update to
+    /// Brightness level to update to
     private let brightness: Int
 
     /// Indicates brightness to `RoomUpdatable`

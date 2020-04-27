@@ -11,6 +11,17 @@ import Foundation
 import HomeKit
 
 final class HomeKitAccessMock: HomeKitAccessible {
+    // MARK: - Authorization Status
+
+    private var authorizationStatusSubject = PassthroughSubject<HMHomeManagerAuthorizationStatus, Never>()
+    var authorizationStatus: AnyPublisher<HMHomeManagerAuthorizationStatus, Never> {
+        return authorizationStatusSubject.eraseToAnyPublisher()
+    }
+
+    func sendAuthStatus(_ authStatus: HMHomeManagerAuthorizationStatus) {
+        authorizationStatusSubject.send(authStatus)
+    }
+
     // MARK: - Rooms
 
     private var roomsValue: Rooms?
@@ -78,12 +89,6 @@ final class HomeKitAccessMock: HomeKitAccessible {
     private(set) var reloadCalled = 0
     func reload() {
         reloadCalled += 1
-    }
-
-    // MARK: - Authorization Status
-
-    func authorizationStatus() -> HMHomeManagerAuthorizationStatus {
-        .authorized
     }
 
     // MARK: - Brightness

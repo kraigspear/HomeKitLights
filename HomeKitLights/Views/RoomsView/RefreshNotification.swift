@@ -18,7 +18,7 @@ protocol RefreshNotificationProtocol {
      private func sinkToForegroundNotification() {
          refreshNotificationCancel = refreshNotification.refreshPublisher.sink { _ in
 
-             os_log("refreshNotification refesh",
+             os_log("refreshNotification refresh",
                     log: self.log,
                     type: .debug)
 
@@ -52,7 +52,7 @@ final class RefreshNotification: RefreshNotificationProtocol {
      private func sinkToForegroundNotification() {
          refreshNotificationCancel = refreshNotification.refreshPublisher.sink { _ in
 
-             os_log("refreshNotification refesh",
+             os_log("refreshNotification refresh",
                     log: self.log,
                     type: .debug)
 
