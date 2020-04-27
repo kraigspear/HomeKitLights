@@ -12,9 +12,9 @@ import os.log
 
 extension HMRoom {
     /// Covert this `HMRoom` to a `Room`
-    func toRoom() -> Room {
+    func toRoom(homeKitAccessoryDelegates: HomeKitAccessoryDelegates) -> Room {
         let lightAccessories = accessories.filter { $0.isLight }
-            .map { $0.toAccessory() }
+            .map { $0.toAccessory(homeKitAccessoryDelegates: homeKitAccessoryDelegates) }
 
         let room = Room(name: name,
                         id: uniqueIdentifier,
@@ -41,7 +41,7 @@ extension HMAccessory {
 
     /// Finds the `HMCharacteristic` that is a `HMServiceTypeLightbulb`
     /// and contains a power state.
-    private var lightBulbCharacteristic: HMCharacteristic? {
+    var lightBulbCharacteristic: HMCharacteristic? {
         lightBulbService?.characteristics.first(where: { $0.characteristicType == HMCharacteristicTypePowerState && $0.value is Bool })
     }
 
@@ -66,11 +66,14 @@ extension HMAccessory {
     }
 
     /// Converts this `HMAccessory` to a `Accessory`
-    func toAccessory() -> Accessory {
-        Accessory(name: name,
-                  id: uniqueIdentifier,
-                  isOn: isOn,
-                  brightness: brightness)
+    func toAccessory(homeKitAccessoryDelegates: HomeKitAccessoryDelegates) -> Accessory {
+        // This will notify calling code of state changes to the accessory (on / off, brightness)
+        homeKitAccessoryDelegates.append(self)
+
+        return Accessory(name: name,
+                         id: uniqueIdentifier,
+                         isOn: isOn,
+                         brightness: brightness)
     }
 }
 

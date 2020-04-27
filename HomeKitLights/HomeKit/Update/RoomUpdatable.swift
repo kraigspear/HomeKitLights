@@ -52,14 +52,14 @@ extension RoomUpdatable {
         Fail<Void, Error>(error: HomeKitAccessError.homeNotFound).eraseToAnyPublisher()
     }
 
-    /// Retrive the `HMCharacteristic` matching the charastirc
-    /// - Parameter room: Room being updated, charastric comes from this room.
+    /// Retrieve the `HMCharacteristic` matching the characteristic
+    /// - Parameter room: Room being updated, characteristic comes from this room.
     /// - Returns: Array of HMCharacteristic for this room matching `characteristicToUpdate`
     func characteristicToUpdate(_ room: HMRoom) -> [HMCharacteristic] {
         room.characteristicsOfType(characteristicToUpdate)
     }
 
-    /// Update per properites of `RoomUpdatable`
+    /// Update per properties of `RoomUpdatable`
     /// - Returns: Publisher indicating success, failure.
     func update() -> AnyPublisher<Void, Error> {
         guard let hmRoom = self.hmRoom,

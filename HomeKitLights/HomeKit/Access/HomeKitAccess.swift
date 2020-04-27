@@ -54,6 +54,8 @@ final class HomeKitAccess: NSObject, HomeKitAccessible {
     /// Manager used to access home kit
     private var homeKitHomeManager: HMHomeManager!
 
+    private let homeKitAccessoryDelegate = HomeKitAccessoryDelegates()
+
     /// Queue to execute HomeKit operations on
     private let updateHomeKitQueue = OperationQueue()
 
@@ -63,6 +65,7 @@ final class HomeKitAccess: NSObject, HomeKitAccessible {
         super.init()
         updateHomeKitQueue.maxConcurrentOperationCount = 5
         updateHomeKitQueue.qualityOfService = .userInitiated
+        sinkToHomeKitAccessoryChanged()
     }
 
     // MARK: - Rooms
@@ -70,13 +73,21 @@ final class HomeKitAccess: NSObject, HomeKitAccessible {
     /// Rooms subject. Set when rooms have been loaded
     private let roomsCurrentValueSubject = CurrentValueSubject<Rooms, HomeKitAccessError>([])
 
-    /// HomeKit rooms associtated with this account / device
+    /// HomeKit rooms associated with this account / device
     /// - Remarks: Only rooms for the first home is returned. Multiple homes are not supported.
     var rooms: AnyPublisher<Rooms, HomeKitAccessError> {
         roomsCurrentValueSubject.eraseToAnyPublisher()
     }
 
     // MARK: - Loading
+
+    private var accessoryUpdatedCancel: AnyCancellable?
+
+    private func sinkToHomeKitAccessoryChanged() {
+        accessoryUpdatedCancel = homeKitAccessoryDelegate.accessoryUpdated.sink { _ in
+            self.reload()
+        }
+    }
 
     func reload() {
         os_log("reload",
@@ -141,11 +152,13 @@ extension HomeKitAccess: HMHomeManagerDelegate {
                log: log,
                type: .info)
 
-        var rooms = Rooms()
+        homeKitAccessoryDelegate.removeAll() // Make sure existing delegate have been removed. Repopulating
+
+        var roomsWithLights = Rooms()
 
         defer {
             DispatchQueue.main.async {
-                self.roomsCurrentValueSubject.value = rooms
+                self.roomsCurrentValueSubject.value = roomsWithLights
             }
         }
 
@@ -156,7 +169,7 @@ extension HomeKitAccess: HMHomeManagerDelegate {
             return
         }
 
-        rooms = primaryHome.rooms.map { $0.toRoom() }
+        roomsWithLights = primaryHome.rooms.map { $0.toRoom(homeKitAccessoryDelegates: self.homeKitAccessoryDelegate) }
             .filter { !$0.lights.isEmpty }
     }
 

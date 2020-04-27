@@ -30,14 +30,15 @@ enum RoomSort: Int {
 
 /// ViewModel showing HomeKit rooms containing lights
 final class RoomsViewModel: ObservableObject {
-
     private let log = Log.lightsView
 
-    //MARK: - Rooms
+    // MARK: - Rooms
+
     /// Rooms that lights are in
     @Published var rooms: Rooms = []
 
-    //MARK: - Error
+    // MARK: - Error
+
     /// True to show an alert, showing an error message
     @Published var isShowingError = false
 
@@ -120,10 +121,10 @@ final class RoomsViewModel: ObservableObject {
     /// Init with defaults
     convenience init() {
         self.init(homeKitAccessible: HomeKitAccess(),
-                roomDataAccessible: RoomDatabaseAccessor.sharedAccessor,
-                roomFilterSortable: RoomFilterSort(),
-                refreshNotification: RefreshNotification(),
-                urlOpener: URLOpener())
+                  roomDataAccessible: RoomDatabaseAccessor.sharedAccessor,
+                  roomFilterSortable: RoomFilterSort(),
+                  refreshNotification: RefreshNotification(),
+                  urlOpener: URLOpener())
     }
 
     /// Setup initial combine syncs
@@ -152,7 +153,8 @@ final class RoomsViewModel: ObservableObject {
             .assign(to: \.isMissingPermissionStateVisible, on: self)
     }
 
-    //MARK: - Permissions
+    // MARK: - Permissions
+
     private var permissionChangeCancel: AnyCancellable?
     /**
          Sink to permissions changing
@@ -221,7 +223,8 @@ final class RoomsViewModel: ObservableObject {
             }
     }
 
-    //MARK: - Filter Sort
+    // MARK: - Filter Sort
+
     private func applySortFilter() {
         os_log("applySortFilter",
                log: Log.homeKitAccess,
